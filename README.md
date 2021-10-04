@@ -57,6 +57,11 @@ yarn test
 * LinkedIn: [@manas-gupta-253760192](https://www.linkedin.com/in/manas-gupta-253760192)
 
 👤 **Pragati**
+* Twitter:
+<a href="https://twitter.com/HelioLynx" target="_blank">
+    <img alt="Twitter:HelioLynx" src="https://img.shields.io/twitter/follow/HelioLynx.svg?style=social" />
+  </a>
+
 
 * Github: [@Pragati1610](https://github.com/Pragati1610)
 * LinkedIn: [@pragati-bhattad-53a849198](https://www.linkedin.com/in/pragati-bhattad-53a849198)
