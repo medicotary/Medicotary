@@ -42,6 +42,7 @@ yarn test
 <a href="https://twitter.com/hayattamboli" target="_blank">
     <img alt="Twitter: hayattamboli" src="https://img.shields.io/twitter/follow/hayattamboli.svg?style=social" />
   </a>
+  
 * Github: [@hayat-tamboli](https://github.com/hayat-tamboli)
 * LinkedIn: [@hayat-tamboli](https://linkedin.com/in/hayat-tamboli)
 
@@ -51,6 +52,7 @@ yarn test
 <a href="https://twitter.com/manasgupta1820" target="_blank">
     <img alt="Twitter: manasgupta1820" src="https://img.shields.io/twitter/follow/manasgupta1820.svg?style=social" />
   </a>
+  
 * Github: [@manas1820](https://github.com/manas1820)
 * LinkedIn: [@manas-gupta-253760192](https://www.linkedin.com/in/manas-gupta-253760192)
 
