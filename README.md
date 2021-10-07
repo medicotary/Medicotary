@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Medicotary 👋</h1>
 
-![Test Image 1](./Github-banner.png)
+![Test Image 1](https://github.com/medicotary/Medicotary/blob/main/Github/Assets/Github-banner.png)
 
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
