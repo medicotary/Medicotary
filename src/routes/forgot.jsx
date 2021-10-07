@@ -3,7 +3,7 @@ import "../index.css";
 import logo from "../assets/logo.svg";
 import illustration from "../assets/forgot.svg";
 
-const Login = () => {
+const Forgot = () => {
   // const handleFormSubmit = (e) => {
   //   e.preventDefault();
 
@@ -81,4 +81,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forgot;
