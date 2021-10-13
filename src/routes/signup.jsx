@@ -90,7 +90,10 @@ const Signup = () => {
 
               <div class="flex mt-4">
                 <label class="flex items-center">
-                  <input type="checkbox" class="form-checkbox"></input>
+                  <input
+                    type="checkbox"
+                    class="form-checkbox cursor-pointer"
+                  ></input>
                   <span class="ml-2 text-sm">
                     By signing up you agree to our{" "}
                     <a href="#" className="text-secondary">
@@ -106,7 +109,7 @@ const Signup = () => {
 
               <div className="flex justify-center items-center mt-6">
                 <button
-                  className={`w-full bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                  className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
                 >
                   Register
                 </button>
@@ -114,7 +117,7 @@ const Signup = () => {
             </form>
             <div className="flex flex-wrap mt-3">
               <button
-                className={`w-full rounded-lg border py-2 px-4 focus:outline-none `}
+                className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
               >
                 <div class="flex flex-row justify-center">
                   <div class="h-5 px-2">
