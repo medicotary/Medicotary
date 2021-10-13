@@ -4,6 +4,7 @@ import Login from "./routes/login";
 import ForgotPassword from "./routes/forgot";
 import Signup from "./routes/signup";
 import Dashboard from "./routes/dashboard";
+import Homepage from "./routes/homepage"
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/forgot" component={ForgotPassword}></Route>
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/dash" component={Dashboard}></Route>
+          <Route exact path="/" component={Homepage}></Route>
         </Switch>
       </Router>
     </div>

@@ -34,7 +34,7 @@ const Forgot = () => {
                 </label>
                 <input
                   type="email"
-                  className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+                  className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
                   placeholder="johndoe@gmail.com"
                 />
@@ -42,14 +42,14 @@ const Forgot = () => {
               <div class="grid grid-flow-col gap-x-10 auto-cols-max mt-4 justify-between">
                 <div className="flex justify-center items-center">
                   <button
-                    className={`bg-primary py-3 px-10 text-sm text-white rounded border focus:outline-none`}
+                    className={`bg-primary py-3 px-10 text-sm text-white rounded-lg border focus:outline-none`}
                   >
                     Send Email
                   </button>
                 </div>
                 <div className="flex justify-center items-center">
                   <button
-                    className={`py-3 px-14 text-sm text-primary rounded border focus:outline-none`}
+                    className={`py-3 px-14 text-sm text-primary rounded-lg border focus:outline-none`}
                   >
                     Cancel
                   </button>
@@ -59,13 +59,13 @@ const Forgot = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-1/2 xl:max-w-screen-sm bg-purple-200 ml-10">
+      <div className="w-1/2 bg-purple-200 ml-auto">
         <div class="grid grid-rows-2">
           <div class="items-center py-5 px-10">
             <img
               src={logo}
               alt=""
-              className="ml-auto object-scale-down h-7"
+              className="ml-auto object-scale-down h-12"
             ></img>
           </div>
           <div class="h-20 p-7 mt-3">
