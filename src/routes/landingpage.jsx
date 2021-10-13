@@ -51,7 +51,7 @@ const Home = () => {
         <div className="h-screen flex">
           <div className="w-3/5 mb-auto">
             <div className="w-full bg-white mx-auto  ml-6 py-5 px-20">
-              <h1 className="text-6xl font-medium antialiased mb-7 mt-10">
+              <h1 className="text-5xl font-medium antialiased mb-7 mt-10">
                 Pharmacists can now focus on customers
               </h1>
               <h1 className="text-3xl font-normal antialiased mb-6">
