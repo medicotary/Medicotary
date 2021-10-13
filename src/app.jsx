@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./routes/login";
 import ForgotPassword from "./routes/forgot";
 import Signup from "./routes/signup";
-import Homepage from "./routes/homepage"
+import Homepage from "./routes/landingpage";
 
 const App = () => {
   return (
