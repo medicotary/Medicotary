@@ -42,14 +42,14 @@ const Forgot = () => {
               <div class="grid grid-flow-col gap-x-10 auto-cols-max mt-4 justify-between">
                 <div className="flex justify-center items-center">
                   <button
-                    className={`bg-primary py-3 px-10 text-sm text-white rounded-lg border focus:outline-none`}
+                    className={`bg-primary cursor-pointer py-3 px-10 text-sm text-white rounded-lg border focus:outline-none`}
                   >
                     Send Email
                   </button>
                 </div>
                 <div className="flex justify-center items-center">
                   <button
-                    className={`py-3 px-14 text-sm text-primary rounded-lg border focus:outline-none`}
+                    className={`py-3 cursor-pointer px-14 text-sm text-primary rounded-lg border focus:outline-none`}
                   >
                     Cancel
                   </button>
