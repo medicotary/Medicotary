@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-import logo from "../assets/logo.svg";
+import logo from "../assets/fulllogo.png";
 import illustration from "../assets/forgot.svg";
 
 const Forgot = () => {

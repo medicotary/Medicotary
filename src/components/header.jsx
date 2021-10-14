@@ -1,6 +1,6 @@
 import "../index.css";
 import React, { Component } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../assets/fulllogo.png";
 import bellicon from "../assets/bell.svg";
 
 class Header extends Component {

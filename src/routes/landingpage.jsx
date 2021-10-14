@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-import logo from "../assets/logo.svg";
+import logo from "../assets/fulllogo.png";
 import illustration from "../assets/homepage.svg";
 import heart from "../assets/heart.svg";
 import rocket from "../assets/rocket.svg";
