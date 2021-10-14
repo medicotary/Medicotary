@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../assets/fulllogo.png";
 import illustration from "../assets/homepage.svg";
@@ -27,18 +28,22 @@ const Home = () => {
             ></img>
           </div>
           <div className="py-5 ml-auto">
+          <Link to="/login" class="w-full">
             <button
               className={`w-full py-2 px-12 text-sm  cursor-pointer text-black rounded-lg`}
             >
               Login
             </button>
+            </Link>
           </div>
           <div className="py-5 mr-10">
+          <Link to="/signup" class="w-full">
             <button
               className={`w-full cursor-pointer bg-primary py-2 px-10 text-sm text-white rounded-lg border focus:outline-none focus:`}
             >
               Signup
             </button>
+            </Link>
           </div>
         </div>
         <div>
