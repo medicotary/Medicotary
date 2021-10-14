@@ -5,6 +5,7 @@ import ForgotPassword from "./routes/forgot";
 import Signup from "./routes/signup";
 import Dashboard from "./routes/dashboard";
 import Homepage from "./routes/landingpage";
+import Profile from "./routes/profile";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/dash" component={Dashboard}></Route>
           <Route exact path="/" component={Homepage}></Route>
+          <Route exact path="/profile" component={Profile}></Route>
         </Switch>
       </Router>
     </div>
