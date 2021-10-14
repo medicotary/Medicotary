@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../assets/fulllogo.png";
 import illustration from "../assets/login.svg";
@@ -46,36 +47,42 @@ const Login = () => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-4">
+                <Link to="/forgot" class="w-full">
                   forgot password ?
+                  </Link>
                 </label>
               </div>
               <div className="flex justify-center items-center mt-6">
-                <button
-                  className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
-                >
-                  Login
-                </button>
+                <Link to="/dash" class="w-full">
+                  <button
+                    className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
+                  >
+                    Login
+                  </button>
+                </Link>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
-              <button
-                className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
-              >
-                <div class="flex flex-row justify-center">
-                  <div class="h-5 px-2">
-                    <img src={google} alt="" className="object-fit"></img>
+              <Link to="/dash" class="w-full">
+                <button
+                  className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
+                >
+                  <div class="flex flex-row justify-center">
+                    <div class="h-5 px-2">
+                      <img src={google} alt="" className="object-fit"></img>
+                    </div>
+                    <div className="self-center text-sm text-subtle">
+                      Continue with Google
+                    </div>
                   </div>
-                  <div className="self-center text-sm text-subtle">
-                    Continue with Google
-                  </div>
-                </div>
-              </button>
+                </button>
+              </Link>
             </div>
             <div className="text-sm font-medium mt-4">
               New here?{" "}
-              <a href="#" className="text-secondary">
+              <Link to="/signup" class="text-secondary">
                 Register
-              </a>
+              </Link>
             </div>
           </div>
         </div>

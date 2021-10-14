@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../assets/fulllogo.png";
 import illustration from "../assets/signup.svg";
@@ -108,14 +109,17 @@ const Signup = () => {
               </div>
 
               <div className="flex justify-center items-center mt-6">
+              <Link to="/dash" class="w-full">
                 <button
                   className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
                 >
                   Register
                 </button>
+                </Link>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
+            <Link to="/dash" class="w-full">
               <button
                 className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
               >
@@ -128,12 +132,13 @@ const Signup = () => {
                   </div>
                 </div>
               </button>
+              </Link>
             </div>
             <div className="text-sm font-medium mt-4">
               Already a member?{" "}
-              <a href="#" className="text-secondary">
+              <Link to="/login" class="text-secondary">
                 Log in
-              </a>
+              </Link>
             </div>
           </div>
         </div>
