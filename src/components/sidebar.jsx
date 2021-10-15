@@ -14,8 +14,8 @@ import {
 class Sidebar extends Component {
   render() {
     return (
-      <div className="w-72 shadow mt-12">
-        <div className="inline-flex flex-col space-y-2 items-start justify-start flex-1 h-full px-6 pt-10 pb-12 bg-white">
+      <div className="w-72 shadow mt-12 fixed">
+        <div className="inline-flex flex-col space-y-2 items-start justify-start flex-1 h-full px-6 pt-10 pb-12">
           <div className="inline-flex space-x-2 items-center justify-center w-full h-14 px-16 py-4 bg-indigo-600 rounded-lg">
             <PlusIcon />
             <p className="text-base font-medium  leading-tight text-center text-white">
@@ -71,7 +71,7 @@ class Sidebar extends Component {
             </div>
           </Link>
           {/* faqs */}
-          <div className="flex flex-col space-y-2.5 items-center justify-center p-6 bg-purple-100 rounded-2xl">
+          <div className="flex flex-col w-full space-y-2.5 items-center justify-center p-6 bg-purple-100 rounded-2xl">
             <p className="w-40 text-2xl font-bold text-center text-gray-900">
               Have some questions?
             </p>
