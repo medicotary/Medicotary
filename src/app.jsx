@@ -22,13 +22,14 @@ const App = () => {
           <Route exact path="/forgot" component={ForgotPassword}></Route>
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/" component={Homepage}></Route>
-          <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/dash" component={Dashboard}></Route>
           <Route exact path="/products" component={Product}></Route>
           <Route exact path="/billing" component={Billing}></Route>
           <Route exact path="/vendors" component={Vendor}></Route>
           <Route exact path="/delivery" component={Delivery}></Route>
+          <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/notifications" component={Notifications}></Route>
+          <Route exact path="/faqs" component={Notifications}></Route>
         </Switch>
       </Router>
     </div>
