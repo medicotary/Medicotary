@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import FeatherIcon from "feather-icons-react";
 import "../index.css";
 import {
   DashboardIcon,
@@ -8,20 +7,15 @@ import {
   UsersIcon,
   BoxIcon,
   FileTextIcon,
-  PlusIcon,
 } from "../icons/index";
+import QuickAdd from "./quickadd";
 
 class Sidebar extends Component {
   render() {
     return (
       <div className="w-72 shadow mt-12 fixed">
-        <div className="inline-flex flex-col space-y-2 items-start justify-start flex-1 h-full px-6 pt-10 pb-12">
-          <div className="inline-flex space-x-2 items-center justify-center w-full h-14 px-16 py-4 bg-indigo-600 rounded-lg">
-            <PlusIcon />
-            <p className="text-base font-medium  leading-tight text-center text-white">
-              Quick add
-            </p>
-          </div>
+        <div className="inline-flex flex-col space-y-2 items-start justify-start flex-1 h-full px-6 pt-6 pb-12">
+          <QuickAdd></QuickAdd>
           {/* navlinks */}
           {/* dashboard */}
           <Link to="/dash" className="w-full">
