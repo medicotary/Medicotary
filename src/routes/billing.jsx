@@ -8,7 +8,7 @@ const Billing = () => {
     <div>
       <Header />
       {/* sidebar */}
-      <Sidebar />
+      <Sidebar place="3" />
       {/* main content container */}
       <div></div>
     </div>
