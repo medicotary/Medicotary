@@ -63,36 +63,39 @@ const AddVendor = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="qty" className="text-sm font-medium">
+                    <label htmlFor="email" className="text-sm font-medium">
                       Email
                     </label>
                     <input
-                      type="qty"
+                      type="email"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
-                      id="qty"
+                      id="email"
                       placeholder="manasgupta1820@gmail.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lqty" className="text-sm font-medium">
+                    <label
+                      htmlFor="phone_number"
+                      className="text-sm font-medium"
+                    >
                       Phone number
                     </label>
                     <input
-                      type="lqty"
+                      type="phone_number"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="lqty"
+                      id="phone_number"
                       placeholder="+91 9666666666"
                     />
                   </div>
                   <div>
-                    <label htmlFor="vendor" className="text-sm font-medium">
+                    <label htmlFor="description" className="text-sm font-medium">
                       Description
                     </label>
                     <textarea
-                      type="vendor"
+                      type="description"
                       rows="3"
                       className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="vendor"
+                      id="description"
                       placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
                     />
                   </div>
