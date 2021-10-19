@@ -11,7 +11,7 @@ import Vendor from "./routes/vendors";
 import Homepage from "./routes/landingpage";
 import Profile from "./routes/profile";
 import Notifications from "./routes/notifications";
-
+import Faq from "./routes/faqs";
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
           <Route exact path="/delivery" component={Delivery}></Route>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/notifications" component={Notifications}></Route>
-          <Route exact path="/faqs" component={Notifications}></Route>
+          <Route exact path="/faqs" component={Faq}></Route>
         </Switch>
       </Router>
     </div>
