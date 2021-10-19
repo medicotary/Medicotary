@@ -9,7 +9,7 @@ const AddVendor = () => {
       <Header />
       {/* sidebar */}
       <div className="h-9/10 ">
-        <Sidebar place="2" />
+        <Sidebar place="4" />
         {/* main content container */}
         <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
           <div className="mt-12">
