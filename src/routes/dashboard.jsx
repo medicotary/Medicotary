@@ -6,6 +6,8 @@ import Pharmacists from "../assets/pharmacicts.svg";
 import AlertRed from "../assets/alert-triangle-red.svg";
 import AlertBlue from "../assets/alert-triangle-blue.svg";
 import TruckGreen from "../assets/truck-green.svg";
+import GaugeChart from "react-gauge-chart";
+import { PieChart } from "react-minimal-pie-chart";
 
 const Dashboard = () => {
   return (
@@ -67,6 +69,48 @@ const Dashboard = () => {
             </div>
           </div>
           {/* bottom graphs */}
+          <div className="flex space-x-6">
+            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
+              <p className="text-xl font-bold text-gray-900">Weighted Score</p>
+              <div className="w-48 object-scale-down">
+                <PieChart
+                  animate
+                  animationDuration={500}
+                  animationEasing="ease-out"
+                  center={[50, 50]}
+                  data={[
+                    { title: "One", value: 10, color: "#489BE8" },
+                    { title: "Two", value: 15, color: "#31D0AA" },
+                    { title: "Three", value: 20, color: "#E85B81" },
+                  ]}
+                  lengthAngle={360}
+                  lineWidth={45}
+                  paddingAngle={0}
+                  radius={50}
+                  rounded
+                  startAngle={0}
+                  viewBoxSize={[100, 100]}
+                />
+              </div>
+            </div>
+            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 h-30 p-10 bg-white border-2 rounded-2xl border-gray-300">
+              <p className="text-xl font-bold text-gray-900 ">
+                Stock Percentage
+              </p>
+              <div className="p-10">
+                <GaugeChart
+                  id="gauge-chart"
+                  textColor="transparent"
+                  nrOfLevels={4}
+                  arcsLength={[0.2, 0.6, 0.15, 0.05]}
+                  colors={["#DED9FC", "#AFA3F3", "#8776EE", "#5E48E8"]}
+                  percent={0.4273035096951447}
+                  arcPadding={0.02}
+                />
+              </div>
+            </div>
+            {/* ---------------- */}
+          </div>
         </div>
       </div>
     </div>
