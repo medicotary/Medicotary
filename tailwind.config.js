@@ -3,8 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'sans': ['"DM Sans"'],
-     },
+      sans: ['"DM Sans"'],
+    },
     extend: {
       screens: {
         sm: "640px",
@@ -32,12 +32,12 @@ module.exports = {
         text: "#111111",
         accent: "#ECF1F4",
         light: "#FAFCFE",
-        subtle:"#8C8CA1"
+        subtle: "#8C8CA1",
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
