@@ -9,12 +9,12 @@ function classNames(...classes) {
 
 export default function QuickAdd() {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left w-full">
       <div>
-        <Menu.Button>
-          <div className="inline-flex space-x-2 items-center justify-center w-full h-14 px-16 py-4 bg-primary rounded-lg">
-            <PlusIcon />
-            <p className="text-base font-medium  leading-tight text-center text-white">
+        <Menu.Button className="">
+          <div className="inline-flex items-center justify-center w-full h-14 px-10 focus-within:py-4 bg-primary rounded-lg">
+            <PlusIcon nameClass="mx-4 h-5" />
+            <p className="text-sm px-4 leading-tight text-center text-white">
               Quick add
             </p>
           </div>
