@@ -36,8 +36,8 @@ const Faq = () => {
   return (
     <div className="bg-gray-50">
       <Header />
-      <div className="flex">
-        <div className="mt-12 justify-center ml-auto mr-auto w-2/3">
+      <div className="h-9/10 flex ">
+        <div className="justify-center mt-12 ml-auto mr-auto w-2/3">
           <div className="">
             <h1 className="text-center text-3xl font-medium mt-8 mb-4 antialiased p-5">
               Have any question?

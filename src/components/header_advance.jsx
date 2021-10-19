@@ -9,7 +9,7 @@ import BackButton from "./backbutton";
 class Header extends Component {
   render() {
     return (
-      <div class="fixed flex px-3 w-full border bg-white">
+      <div class="h-1/10 fixed flex px-3 w-full border bg-white">
         <div className="flex flex-wrap">
           <BackButton />
         </div>
