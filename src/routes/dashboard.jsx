@@ -8,6 +8,7 @@ import AlertBlue from "../assets/alert-triangle-blue.svg";
 import TruckGreen from "../assets/truck-green.svg";
 import GaugeChart from "react-gauge-chart";
 import { PieChart } from "react-minimal-pie-chart";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -25,9 +26,11 @@ const Dashboard = () => {
               <p className="opacity-80 text-4xl font-bold text-indigo-700">
                 Never worry about your Inventory
               </p>
-              <button className="button px-16 py-4 my-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
-                Create a Bill
-              </button>
+              <Link to="/addbill">
+                <button className="button px-16 py-4 my-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+                  Create a Bill
+                </button>
+              </Link>
             </div>
           </div>
           {/* middle section */}

@@ -5,7 +5,7 @@ import { ChevronUpIcon } from "@heroicons/react/solid";
 // import MyDisclosure from "../components/disclosure";
 import { Disclosure, Transition } from "@headlessui/react";
 
-function MyDisclosure() {
+function MyDisclosure(question) {
   return (
     <div classname="">
       <Disclosure>
@@ -43,6 +43,8 @@ const Faq = () => {
               Have any question?
             </h1>
           </div>
+          <MyDisclosure />
+          <MyDisclosure />
           <MyDisclosure />
         </div>
       </div>

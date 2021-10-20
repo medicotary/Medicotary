@@ -2,6 +2,7 @@ import React from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
+import { Link } from "react-router-dom";
 
 const product = [
   {
