@@ -12,6 +12,9 @@ import Homepage from "./routes/landingpage";
 import Profile from "./routes/profile";
 import Notifications from "./routes/notifications";
 import Faq from "./routes/faqs";
+import AddVendor from "./routes/addVendor";
+import AddProduct from "./routes/addProduct";
+import AddBill from "./routes/addBill";
 
 const App = () => {
   return (
@@ -30,6 +33,9 @@ const App = () => {
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/notifications" component={Notifications}></Route>
           <Route exact path="/faqs" component={Faq}></Route>
+          <Route exact path="/addvendor" component={AddVendor}></Route>
+          <Route exact path="/addproduct" component={AddProduct}></Route>
+          <Route exact path="/addbill" component={AddBill}></Route>
         </Switch>
       </Router>
     </div>
