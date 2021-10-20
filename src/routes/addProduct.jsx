@@ -19,7 +19,7 @@ const AddProducts = () => {
                   <div className="flex">
                     <div className="">
                       <img
-                        src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
+                        src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80"
                         alt=""
                         class="rounded w-2/3  object-scale-down"
                       />
