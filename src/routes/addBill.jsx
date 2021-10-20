@@ -2,6 +2,19 @@ import React from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
+import BillProduct from "../components/billproduct";
+import { Link } from "react-router-dom";
+
+function getCurrentDate(separator = "-") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${date}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${year}`;
+}
 
 const AddBill = () => {
   return (
@@ -12,30 +25,30 @@ const AddBill = () => {
         <Sidebar place="3" />
         {/* main content container */}
         <div className=" mt-auto w-3/4 p-10  ml-auto mr-8">
-          <div className="container bg-white border rounded border-subtle mt-12 px-10">
+          <div className="container bg-white border rounded border-subtle mt-12 p-10">
             <div className="flex flex-row justify-center">
               <div className="w-1/2 flex flex-col">
                 <div>
-                  <h1 className="text-xl font-medium mt-4 antialiased mb-1 text-left">
+                  <h1 className="text-xl font-medium antialiased mb-1 text-left">
                     Total amount
                   </h1>
                 </div>
                 <div>
-                  <h1 className="text-2xl text-primary font-medium mt-4 antialiased mb-1 text-left">
-                    Rs 145.0
+                  <h1 className="text-2xl text-primary font-bold antialiased mb-1 text-left">
+                    ₹ 0
                   </h1>
                 </div>
               </div>
               <div className="w-1/2">
                 <div className="w-1/2 flex flex-col ml-auto">
                   <div>
-                    <h1 className="text-xl font-medium mt-4 antialiased mb-1 text-left">
+                    <h1 className="text-xl font-medium antialiased mb-1 text-left">
                       Date
                     </h1>
                   </div>
                   <div>
-                    <h1 className="text-2xl text-primary font-medium mt-4 antialiased mb-3 text-left">
-                      8 Apr 2021
+                    <h1 className="text-2xl text-primary font-bold  antialiased mb-3 text-left">
+                      {getCurrentDate()}
                     </h1>
                   </div>
                 </div>
@@ -50,7 +63,7 @@ const AddBill = () => {
                   type="name"
                   className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="name"
-                  placeholder="Remdesivir"
+                  placeholder="Jhon Doe"
                 />
               </div>
               <div>
@@ -80,102 +93,14 @@ const AddBill = () => {
                 {/* </Link> */}
               </div>
             </div>
-            <div className="flex flex-row justify-between">
-              <img
-                src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
-                alt=""
-                class="object-scale-down h-10 rounded-full "
-              />
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Product Name
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Quantity
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <h1 className="text-2xl text-black font-medium antialiased  text-left">
-                ₹ 1670
-              </h1>
-            </div>
-            <div className="flex flex-row justify-between">
-              <img
-                src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
-                alt=""
-                class="object-scale-down h-10 rounded-full "
-              />
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Product Name
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Quantity
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <h1 className="text-2xl text-black font-medium antialiased  text-left">
-                ₹ 2200
-              </h1>
-            </div>
-            <div className="flex flex-row justify-between">
-              <img
-                src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
-                alt=""
-                class="object-scale-down h-10 rounded-full "
-              />
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Product Name
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Quantity
-                </label>
-                <input
-                  type="name"
-                  className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="name"
-                  placeholder="Remdesivir"
-                />
-              </div>
-              <h1 className="text-2xl text-black font-medium antialiased  text-left">
-                ₹ 1700
-              </h1>
-            </div>
+            <BillProduct></BillProduct>
+          <Link to="/products" class="w-full">
+            <button
+              className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+            >
+              Create Bill
+            </button>
+          </Link>
           </div>
         </div>
       </div>
