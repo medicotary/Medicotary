@@ -3,156 +3,119 @@ import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 
-const Products = () => {
+const product = [
+  {
+    name: "Hayat Tamboli",
+    medicine: "Crocin",
+    phone: "7887537843",
+    email: "hayat.tamboli@gmail.com",
+    image:
+      "https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg",
+  },
+  {
+    name: "Manas gupta",
+    medicine: "Remdesivir",
+    phone: "123456789",
+    email: "manas1820@gmail.com",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+  },
+  // More Product...
+];
+
+const Product = () => {
   return (
     <div>
       <Header />
       {/* sidebar */}
-      <div className="h-9/10 ">
-        <Sidebar place="2" />
+      <div className="flex w-full overflow-x-hidden">
+        <Sidebar place="4" />
         {/* main content container */}
-        <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
-          <div className="mt-12">
-            <div className="flex flex-row justify-center">
-              <div className="w-1/3">
-                <div class="flex flex-col mt-3">
-                  <div className="flex">
-                    <div className="">
-                      <img
-                        src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
-                        alt=""
-                        class="rounded w-2/3  object-scale-down"
-                      />
-                    </div>
-                  </div>
-                  <div className="">
-                    <div className="py-3">
-                      {/* <Link to="/login" class="w-full"> */}
-                      <button
-                        className={`w-2/3 border bg-primary text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
-                      >
-                        Browse Photos
-                      </button>
-                      {/* </Link> */}
-                    </div>
-                  </div>
-                  <div className="">
-                    <div className="">
-                      {/* <Link to="/login" class="w-full"> */}
-                      <button
-                        className={`w-2/3 border bg-error text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
-                      >
-                        Remove Photo
-                      </button>
-                      {/* </Link> */}
-                    </div>
-                  </div>
+        <div className="p-6 bg-gray-50 mt-12 ml-72 w-full">
+          <div className="flex flex-col">
+            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Medicine
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Status
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          phone
+                        </th>
+                        <th scope="col" className="relative px-6 py-3">
+                          <span className="sr-only">Edit</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {product.map((person) => (
+                        <tr key={person.email}>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-10 w-10">
+                                <img
+                                  className="h-10 w-10 rounded-full"
+                                  src={person.image}
+                                  alt=""
+                                />
+                              </div>
+                              <div className="ml-4">
+                                <div className="text-sm font-medium text-gray-900">
+                                  {person.name}
+                                </div>
+                                <div className="text-sm text-gray-500">
+                                  {person.email}
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-gray-900">
+                              {person.medicine}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                              Active
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <a href={person.phone}>{person.phone}</a>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <a
+                              href="#"
+                              className="text-indigo-600 hover:text-indigo-900"
+                            >
+                              Edit
+                            </a>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-              </div>
-              <div className="w-1/2 px-10">
-                <form>
-                  <div>
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Name
-                    </label>
-                    <input
-                      type="name"
-                      className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="name"
-                      placeholder="Remdesivir"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="qty" className="text-sm font-medium">
-                      Quantity in stock
-                    </label>
-                    <input
-                      type="qty"
-                      className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
-                      id="qty"
-                      placeholder="220"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lqty" className="text-sm font-medium">
-                      Low stock warning
-                    </label>
-                    <input
-                      type="lqty"
-                      className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="lqty"
-                      placeholder="15"
-                    />
-                  </div>
-                  <div class="flex flex-row justify-evenly">
-                    <div>
-                      <label htmlFor="cp" className="text-sm font-medium">
-                        Cost Price (1 item)
-                      </label>
-                      <input
-                        type="cp"
-                        className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                        id="cp"
-                        placeholder="	₹ 150"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="sp" className="text-sm font-medium">
-                        Selling Price (1 item)
-                      </label>
-                      <input
-                        type="sp"
-                        className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                        id="sp"
-                        placeholder="₹ 170"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="vendor" className="text-sm font-medium">
-                      Preffered vendor
-                    </label>
-                    <input
-                      type="vendor"
-                      className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="vendor"
-                      placeholder="Select Vendor"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="vendor" className="text-sm font-medium">
-                      Additional Notes
-                    </label>
-                    <textarea
-                      type="vendor"
-                      rows="3"
-                      className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="vendor"
-                      placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
-                    />
-                  </div>
-
-                  <div class="flex flex-row justify-between mt-3">
-                    <div className="py-5">
-                      {/* <Link to="/login" class="w-full"> */}
-                      <button
-                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
-                      >
-                        Add Product
-                      </button>
-                      {/* </Link> */}
-                    </div>
-                    <div className="py-5">
-                      {/* <Link to="/signup" class="w-full"> */}
-                      <button
-                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
-                      >
-                        Cancel
-                      </button>
-                      {/* </Link> */}
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
@@ -162,4 +125,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Product;
