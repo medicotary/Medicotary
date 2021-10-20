@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css";
 import Header from "../components/header_advance";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -8,7 +9,8 @@ const Profile = () => {
       <Header />
       <div className=" w-4/7 bg-gray-50 flex ">
         <div class="grid grid-flow-row grid-rows-2 items-center ml-auto mr-auto">
-          <div className=" bg-white p-5 border-2 rounded mt-20  ">
+          {/* top section */}
+          <div className=" bg-white p-5 border-2 rounded-xl mt-20  ">
             <div class="grid grid-flow-row grid-row-3">
               <div>
                 <h1 className="text-3xl font-medium mt-8 antialiased text-left p-5">
@@ -33,7 +35,7 @@ const Profile = () => {
                   </div>
                   <div className="flex items-center py-2 px-3">
                     <button
-                      className={`w-1/2  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                      className={`w-1/2  cursor-pointer bg-red-500 py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
                     >
                       Remove Photo
                     </button>
@@ -106,13 +108,26 @@ const Profile = () => {
                           placeholder="Delhi,NCR"
                         />
                       </div>
+                      <button
+                        className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                      >
+                        submit
+                      </button>
                     </form>
                   </div>
                 </div>
               </div>
+              <Link to="/">
+                <button
+                  className={`w-full  cursor-pointer bg-red-500 py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                >
+                  Logout
+                </button>
+                </Link>
             </div>
           </div>
-          <div className="w-full border-2 rounded flex bg-white p-7 ">
+          {/* password section */}
+          <div className="w-full border-2 rounded-xl flex bg-white p-7 ">
             <div className="grid grid-flow-row grid-row-3">
               <div>
                 <label htmlFor="old_password" className="text-sm font-medium">
@@ -140,7 +155,7 @@ const Profile = () => {
                 <button
                   className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
                 >
-                  Logout
+                  change password
                 </button>
               </div>
             </div>

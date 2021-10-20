@@ -2,6 +2,7 @@ import React from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
+import { Link } from "react-router-dom";
 
 const product = [
   {
@@ -29,7 +30,7 @@ const Product = () => {
       <Header />
       {/* sidebar */}
       <div className="flex w-full overflow-x-hidden">
-        <Sidebar place="4" />
+        <Sidebar place="2" />
         {/* main content container */}
         <div className="p-6 bg-gray-50 mt-12 ml-72 w-full">
           <div className="flex flex-col">

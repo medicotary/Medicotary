@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { PlusIcon } from "../icons/index";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -34,41 +35,41 @@ export default function QuickAdd() {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  to="/addbill"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
                   Bill
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  to="/addproduct"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
                   Product
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  to="/addvendor"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
                   Vendor
-                </a>
+                </Link>
               )}
             </Menu.Item>
           </div>
