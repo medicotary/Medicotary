@@ -6,20 +6,22 @@ import { Link } from "react-router-dom";
 
 const product = [
   {
-    name: "Hayat Tamboli",
-    medicine: "Crocin",
-    phone: "7887537843",
-    email: "hayat.tamboli@gmail.com",
+    medicine: "Remdesivir",
+    instock: "25",
+    costprice: "₹2300",
+    sellingprice: "₹2500",
+    power: "20 mg",
     image:
-      "https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg",
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
   },
   {
-    name: "Manas gupta",
-    medicine: "Remdesivir",
-    phone: "123456789",
-    email: "manas1820@gmail.com",
+    medicine: "Crocin",
+    instock: "48",
+    costprice: "₹200",
+    sellingprice: "₹250",
+    power: "50 mg",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
   },
   // More Product...
 ];
@@ -32,7 +34,8 @@ const Product = () => {
       <div className="flex w-full overflow-x-hidden">
         <Sidebar place="2" />
         {/* main content container */}
-        <div className="p-6 bg-gray-50 mt-12 ml-72 w-full">
+        <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
+          <div className="mt-10"></div>
           <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -44,25 +47,25 @@ const Product = () => {
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
                           Medicine
                         </th>
                         <th
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Status
+                          instock
                         </th>
                         <th
                           scope="col"
                           className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          phone
+                          cost price
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          selling price
                         </th>
                         <th scope="col" className="relative px-6 py-3">
                           <span className="sr-only">Edit</span>
@@ -71,7 +74,7 @@ const Product = () => {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
                       {product.map((person) => (
-                        <tr key={person.email}>
+                        <tr key={person.power}>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="flex-shrink-0 h-10 w-10">
@@ -83,26 +86,26 @@ const Product = () => {
                               </div>
                               <div className="ml-4">
                                 <div className="text-sm font-medium text-gray-900">
-                                  {person.name}
+                                  {person.medicine}
                                 </div>
                                 <div className="text-sm text-gray-500">
-                                  {person.email}
+                                  {person.power}
                                 </div>
                               </div>
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="text-sm text-gray-900">
-                              {person.medicine}
+                              {person.instock}
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                              Active
-                            </span>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <a href={person.costprice}>{person.costprice}</a>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            <a href={person.phone}>{person.phone}</a>
+                            <a href={person.sellingprice}>
+                              {person.sellingprice}
+                            </a>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a

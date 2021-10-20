@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./routes/login";
-import ForgotPassword from "./routes/forgot";
-import Signup from "./routes/signup";
+import Login from "./routes/auth/login";
+import ForgotPassword from "./routes/auth/forgot";
+import Signup from "./routes/auth/signup";
 import Dashboard from "./routes/dashboard";
 import Billing from "./routes/billing";
 import Delivery from "./routes/delivery";

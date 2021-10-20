@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
-import logo from "../assets/fulllogo.png";
-import illustration from "../assets/login.svg";
-import google from "../assets/google.svg";
+import "../../index.css";
+import logo from "../../assets/fulllogo.png";
+import illustration from "../../assets/login.svg";
+import google from "../../assets/google.svg";
 
 const Login = () => {
   // const handleFormSubmit = (e) => {

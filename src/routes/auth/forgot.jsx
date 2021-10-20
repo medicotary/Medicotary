@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
-import logo from "../assets/fulllogo.png";
-import illustration from "../assets/forgot.svg";
+import "../../index.css";
+import logo from "../../assets/fulllogo.png";
+import illustration from "../../assets/forgot.svg";
 
 const Forgot = () => {
   // const handleFormSubmit = (e) => {
