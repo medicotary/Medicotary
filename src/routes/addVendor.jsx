@@ -3,13 +3,13 @@ import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 
-const Products = () => {
+const AddVendor = () => {
   return (
     <div>
       <Header />
       {/* sidebar */}
       <div className="h-9/10 ">
-        <Sidebar place="2" />
+        <Sidebar place="4" />
         {/* main content container */}
         <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
           <div className="mt-12">
@@ -59,86 +59,54 @@ const Products = () => {
                       type="name"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="name"
-                      placeholder="Remdesivir"
+                      placeholder="Manas Gupta"
                     />
                   </div>
                   <div>
-                    <label htmlFor="qty" className="text-sm font-medium">
-                      Quantity in stock
+                    <label htmlFor="email" className="text-sm font-medium">
+                      Email
                     </label>
                     <input
-                      type="qty"
+                      type="email"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
-                      id="qty"
-                      placeholder="220"
+                      id="email"
+                      placeholder="manasgupta1820@gmail.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lqty" className="text-sm font-medium">
-                      Low stock warning
+                    <label
+                      htmlFor="phone_number"
+                      className="text-sm font-medium"
+                    >
+                      Phone number
                     </label>
                     <input
-                      type="lqty"
+                      type="phone_number"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="lqty"
-                      placeholder="15"
-                    />
-                  </div>
-                  <div class="flex flex-row justify-evenly">
-                    <div>
-                      <label htmlFor="cp" className="text-sm font-medium">
-                        Cost Price (1 item)
-                      </label>
-                      <input
-                        type="cp"
-                        className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                        id="cp"
-                        placeholder="	₹ 150"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="sp" className="text-sm font-medium">
-                        Selling Price (1 item)
-                      </label>
-                      <input
-                        type="sp"
-                        className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                        id="sp"
-                        placeholder="₹ 170"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="vendor" className="text-sm font-medium">
-                      Preffered vendor
-                    </label>
-                    <input
-                      type="vendor"
-                      className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="vendor"
-                      placeholder="Select Vendor"
+                      id="phone_number"
+                      placeholder="+91 9666666666"
                     />
                   </div>
                   <div>
-                    <label htmlFor="vendor" className="text-sm font-medium">
-                      Additional Notes
+                    <label htmlFor="description" className="text-sm font-medium">
+                      Description
                     </label>
                     <textarea
-                      type="vendor"
+                      type="description"
                       rows="3"
                       className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                      id="vendor"
+                      id="description"
                       placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
                     />
                   </div>
 
-                  <div class="flex flex-row justify-between mt-3">
+                  <div class="flex flex-row justify-between ">
                     <div className="py-5">
                       {/* <Link to="/login" class="w-full"> */}
                       <button
                         className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                       >
-                        Add Product
+                        Add Vendor
                       </button>
                       {/* </Link> */}
                     </div>
@@ -162,4 +130,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default AddVendor;
