@@ -25,7 +25,7 @@ class Header extends Component {
           {/* avatar */}
           <Link to="/profile">
             <img
-              src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/82b8e9101650903.5f2369beab58a.jpg"
               alt=""
               class="object-scale-down h-10 rounded-full "
             />

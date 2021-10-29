@@ -2,12 +2,12 @@ import React from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
+import DonutChart from "../components/charts/donutchart";
 import Pharmacists from "../assets/pharmacicts.svg";
 import AlertRed from "../assets/alert-triangle-red.svg";
 import AlertBlue from "../assets/alert-triangle-blue.svg";
 import TruckGreen from "../assets/truck-green.svg";
 import GaugeChart from "react-gauge-chart";
-import { PieChart } from "react-minimal-pie-chart";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -73,29 +73,7 @@ const Dashboard = () => {
           </div>
           {/* bottom graphs */}
           <div className="flex space-x-6">
-            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
-              <p className="text-xl font-bold text-gray-900">Weighted Score</p>
-              <div className="w-48 object-scale-down">
-                <PieChart
-                  animate
-                  animationDuration={500}
-                  animationEasing="ease-out"
-                  center={[50, 50]}
-                  data={[
-                    { title: "One", value: 10, color: "#489BE8" },
-                    { title: "Two", value: 15, color: "#31D0AA" },
-                    { title: "Three", value: 20, color: "#E85B81" },
-                  ]}
-                  lengthAngle={360}
-                  lineWidth={45}
-                  paddingAngle={0}
-                  radius={50}
-                  rounded
-                  startAngle={0}
-                  viewBoxSize={[100, 100]}
-                />
-              </div>
-            </div>
+            <DonutChart title="Weighted Score" />
             <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 h-30 p-10 bg-white border-2 rounded-2xl border-gray-300">
               <p className="text-xl font-bold text-gray-900 ">
                 Stock Percentage
