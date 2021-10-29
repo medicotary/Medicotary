@@ -10,7 +10,7 @@ const vendor = [
     phone: "7887537843",
     email: "hayat.tamboli@gmail.com",
     image:
-      "https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg",
+      "https://i.stack.imgur.com/EtOY5.jpg?s=136&g=1",
   },
   {
     name: "Manas gupta",
@@ -18,7 +18,7 @@ const vendor = [
     phone: "123456789",
     email: "manas1820@gmail.com",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+      "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Meme_Man_on_transparent_background.webp/316px-Meme_Man_on_transparent_background.webp.png",
   },
   // More vendor...
 ];
