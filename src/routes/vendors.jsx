@@ -31,7 +31,7 @@ const Vendor = () => {
       <div className="flex w-full overflow-x-hidden">
         <Sidebar place="4" />
         {/* main content container */}
-        <div className="p-6 bg-gray-50 mt-12 ml-72 w-full">
+        <div className="mt-auto w-4/5 p-6 bg-gray-50 ml-auto">
           <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
