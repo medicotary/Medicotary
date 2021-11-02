@@ -63,9 +63,10 @@ const Home = () => {
                 Empowering pharmacists with the new age technology which solves
                 all thier inventory related issues
               </h1>
-              <div className="flex flex-wrap mt-3">
+              <div className="flex flex-wrap mt-3 z-10">
+              <Link to="/signup">
                 <button
-                  className={` bg-primary text-white cursor-pointer rounded-lg border py-3 px-8 focus:outline-none `}
+                  className="bg-primary text-white cursor-pointer rounded-lg border py-3 px-8 focus:outline-none z-10"
                 >
                   <div class="flex flex-row justify-center ml-2 mr-2">
                     <div className="self-center text-sm">Get Started</div>
@@ -73,15 +74,16 @@ const Home = () => {
                       <img
                         src={rocket}
                         alt=""
-                        className="object-scale-down"
+                        className="object-scale-down z-0"
                       ></img>
                     </div>
                   </div>
                 </button>
+                </Link>
               </div>
             </div>
           </div>
-          <div className="w-2/5">
+          <div className="w-2/5 z-0">
             <div className="flex">
               <div class="items-center py-5 px-10">
                 <img src={illustration} alt="" className="ml-auto"></img>

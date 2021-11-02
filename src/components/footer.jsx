@@ -1,6 +1,8 @@
 import "../index.css";
 import React, { Component } from 'react';
 import rocket from "../assets/rocket.svg";
+import { Link } from "react-router-dom";
+
 class Footer extends Component {
     render() {
         return (
@@ -13,6 +15,7 @@ class Footer extends Component {
                 Let’s get started
               </h1>
               <div className="flex flex-wrap justify-center mb-4 mt-2">
+              <Link to="/signup">
                 <button
                   className={` bg-primary text-white cursor-pointer rounded-lg  py-3 px-8 focus:outline-none `}
                 >
@@ -27,6 +30,7 @@ class Footer extends Component {
                     </div>
                   </div>
                 </button>
+                </Link>
               </div>
               <h1 className="text-sm font-medium text-center antialiased text-subtle mt-8">
                 Copyright © 2020. medical. All rights reserved.
