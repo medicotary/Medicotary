@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
@@ -14,6 +14,11 @@ const Login = () => {
 
   //   console.log(email, password);
   // };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const submit = () => {
+    console.log({ email, password });
+  };
   return (
     <div className="lg:flex">
       <div className="lg:w-1/2 xl:max-w-screen-sm">
@@ -28,6 +33,8 @@ const Login = () => {
                   E-mail
                 </label>
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
@@ -39,6 +46,8 @@ const Login = () => {
                   Password
                 </label>
                 <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
                   id="password"
@@ -47,14 +56,15 @@ const Login = () => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-4">
-                <Link to="/forgot" class="w-full">
-                  forgot password ?
+                  <Link to="/forgot" class="w-full">
+                    forgot password ?
                   </Link>
                 </label>
               </div>
               <div className="flex justify-center items-center mt-6">
                 <Link to="/dash" class="w-full">
                   <button
+                    onClick={submit}
                     className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
                   >
                     Login
