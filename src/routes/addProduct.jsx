@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 import { Link } from "react-router-dom";
 
 const AddProducts = () => {
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("0");
+  const [lowStock, setLowStock] = useState("0");
+  const [costPrice, setCostPrice] = useState("0");
+  const [sellingPrice, setSellingPrice] = useState("0");
+  const [preferredVendor, setPreferredVendor] = useState("");
+  const [additionalNotes, setAdditionalNotes] = useState("");
+  const submit = () => {
+    console.log({
+      name,
+      quantity,
+      lowStock,
+      costPrice,
+      sellingPrice,
+      preferredVendor,
+      additionalNotes,
+    });
+  };
   return (
     <div>
       <Header />
@@ -57,6 +75,8 @@ const AddProducts = () => {
                       Name
                     </label>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="name"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="name"
@@ -68,6 +88,8 @@ const AddProducts = () => {
                       Quantity in stock
                     </label>
                     <input
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
                       type="qty"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
                       id="qty"
@@ -79,6 +101,8 @@ const AddProducts = () => {
                       Low stock warning
                     </label>
                     <input
+                      value={lowStock}
+                      onChange={(e) => setLowStock(e.target.value)}
                       type="lqty"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="lqty"
@@ -91,6 +115,8 @@ const AddProducts = () => {
                         Cost Price (1 item)
                       </label>
                       <input
+                        value={costPrice}
+                        onChange={(e) => setCostPrice(e.target.value)}
                         type="cp"
                         className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                         id="cp"
@@ -102,6 +128,8 @@ const AddProducts = () => {
                         Selling Price (1 item)
                       </label>
                       <input
+                        value={sellingPrice}
+                        onChange={(e) => setSellingPrice(e.target.value)}
                         type="sp"
                         className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                         id="sp"
@@ -114,6 +142,8 @@ const AddProducts = () => {
                       Preffered vendor
                     </label>
                     <input
+                      value={preferredVendor}
+                      onChange={(e) => setPreferredVendor(e.target.value)}
                       type="vendor"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="vendor"
@@ -125,6 +155,8 @@ const AddProducts = () => {
                       Additional Notes
                     </label>
                     <textarea
+                      value={additionalNotes}
+                      onChange={(e) => setAdditionalNotes(e.target.value)}
                       type="vendor"
                       rows="3"
                       className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
@@ -137,6 +169,7 @@ const AddProducts = () => {
                     <div className="py-5">
                       <Link to="/products" class="w-full">
                         <button
+                          onClick={submit}
                           className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                         >
                           Add Product
