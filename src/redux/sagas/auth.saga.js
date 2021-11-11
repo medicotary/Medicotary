@@ -1,13 +1,13 @@
 import { put, call, takeLatest, all } from "redux-saga/effects";
-import { AuthService } from "../../services";
+import { AuthService } from "../services";
 import { AuthTypes } from "../types";
 
 const authService = new AuthService();
 
 export function* login(action) {
-  console.log("in here");
   try {
-    const res = yield call(authService.login, action.payload);
+    const res = yield call(authService.signup, action.payload);
+    console.log(res);
     if (res.error) {
       yield put({
         type: AuthTypes.LOGIN_ERROR,

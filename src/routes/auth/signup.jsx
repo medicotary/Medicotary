@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/signup.svg";
 import google from "../../assets/google.svg";
+import { useDispatch } from "react-redux";
+import { AuthActions } from "../../redux/actions";
 
 const Signup = () => {
   // const handleFormSubmit = (e) => {
@@ -14,6 +16,18 @@ const Signup = () => {
 
   //   console.log(email, password);
   // };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [location, setLocation] = useState("");
+
+  const dispatch = useDispatch();
+  const submit = () => {
+    console.log({ email, password, companyName, location });
+    dispatch(AuthActions.login({ email, password, companyName, location }));
+  };
+
   return (
     <div className="lg:flex">
       <div className="lg:w-1/2 xl:max-w-screen-sm bg-purple-200 mr-auto">
@@ -46,6 +60,8 @@ const Signup = () => {
                   E-mail
                 </label>
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
@@ -57,6 +73,8 @@ const Signup = () => {
                   Password
                 </label>
                 <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
                   id="password"
@@ -68,6 +86,8 @@ const Signup = () => {
                   Company Name
                 </label>
                 <input
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
                   type="companyname"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="companyname"
@@ -82,6 +102,8 @@ const Signup = () => {
                   Business Location
                 </label>
                 <input
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   type="businesslocation"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="businesslocation"
@@ -109,29 +131,30 @@ const Signup = () => {
               </div>
 
               <div className="flex justify-center items-center mt-6">
-              <Link to="/dash" class="w-full">
-                <button
-                  className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
-                >
-                  Register
-                </button>
+                <Link to="/dash" class="w-full">
+                  <button
+                    onClick={submit}
+                    className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                  >
+                    Register
+                  </button>
                 </Link>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
-            <Link to="/dash" class="w-full">
-              <button
-                className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
-              >
-                <div class="flex flex-row justify-center">
-                  <div class="h-5 px-2">
-                    <img src={google} alt="" className="object-fit"></img>
+              <Link to="/dash" class="w-full">
+                <button
+                  className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
+                >
+                  <div class="flex flex-row justify-center">
+                    <div class="h-5 px-2">
+                      <img src={google} alt="" className="object-fit"></img>
+                    </div>
+                    <div className="self-center text-sm text-subtle">
+                      Continue with Google
+                    </div>
                   </div>
-                  <div className="self-center text-sm text-subtle">
-                    Continue with Google
-                  </div>
-                </div>
-              </button>
+                </button>
               </Link>
             </div>
             <div className="text-sm font-medium mt-4">

@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
     "chart.js": "^3.5.1",
+    "cors": "^2.8.5",
     "feather-icons-react": "^0.4.3",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.1.0",
