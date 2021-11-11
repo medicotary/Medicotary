@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 
 const AddVendor = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
+  const submit = () => {
+    console.log({ name, email, phoneNumber, description });
+    // dispatch(AuthActions.login({ email, password, companyName, location }));
+  };
   return (
     <div>
       <Header />
@@ -56,6 +64,8 @@ const AddVendor = () => {
                       Name
                     </label>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="name"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="name"
@@ -67,6 +77,8 @@ const AddVendor = () => {
                       Email
                     </label>
                     <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
                       id="email"
@@ -81,6 +93,8 @@ const AddVendor = () => {
                       Phone number
                     </label>
                     <input
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                       type="phone_number"
                       className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="phone_number"
@@ -88,10 +102,15 @@ const AddVendor = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="description" className="text-sm font-medium">
+                    <label
+                      htmlFor="description"
+                      className="text-sm font-medium"
+                    >
                       Description
                     </label>
                     <textarea
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       type="description"
                       rows="3"
                       className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
@@ -104,6 +123,7 @@ const AddVendor = () => {
                     <div className="py-5">
                       {/* <Link to="/login" class="w-full"> */}
                       <button
+                        onClick={submit}
                         className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                       >
                         Add Vendor
