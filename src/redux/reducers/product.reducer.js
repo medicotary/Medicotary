@@ -1,21 +1,30 @@
 import { ProductTypes } from "../types";
 
 const initialState = {
-  product: {},
+  product: [],
 };
 
 const ProductReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ProductTypes.PRODUCT_ADDED:
       return {
         ...state,
-        user: action.data,
+        product: action.data,
       };
     case ProductTypes.PRODUCT_ADD_ERROR:
       return {
         ...state,
-        user: action.data,
+        product: action.data,
+      };
+    case ProductTypes.PRODUCT_READ:
+      return {
+        ...state,
+        product: action.data,
+      };
+    case ProductTypes.PRODUCT_ERROR:
+      return {
+        ...state,
+        product: action.data,
       };
     default:
       return state;
