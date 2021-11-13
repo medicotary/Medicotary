@@ -1,32 +1,42 @@
-import React from "react";
+import React, { useEffect, useCallback, useMemo } from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
+import ProductComponent from "../components/productTile";
 import { Link } from "react-router-dom";
+import { ProductActions } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-const product = [
-  {
-    medicine: "Remdesivir",
-    instock: "25",
-    costprice: "₹2300",
-    sellingprice: "₹2500",
-    power: "20 mg",
-    image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
-  },
-  {
-    medicine: "Crocin",
-    instock: "48",
-    costprice: "₹200",
-    sellingprice: "₹250",
-    power: "50 mg",
-    image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
-  },
-  // More Product...
-];
+// const product = [
+//   {
+//     medicine: "Remdesivir",
+//     instock: "25",
+//     costprice: "₹2300",
+//     sellingprice: "₹2500",
+//     power: "20 mg",
+//     image:
+//       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
+//   },
+//   {
+//     medicine: "Crocin",
+//     instock: "48",
+//     costprice: "₹200",
+//     sellingprice: "₹250",
+//     power: "50 mg",
+//     image:
+//       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80",
+//   },
+//   // More Product...
+// ];
 
 const Product = () => {
+  const dispatch = useDispatch();
+  dispatch(ProductActions.readProduct({}));
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
+  const products = useSelector((state) => state.product.product);
+  console.log("Products :", products);
   return (
     <div>
       <Header />
@@ -73,50 +83,7 @@ const Product = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {product.map((person) => (
-                        <tr key={person.power}>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0 h-10 w-10">
-                                <img
-                                  className="h-10 w-10 rounded-full"
-                                  src={person.image}
-                                  alt=""
-                                />
-                              </div>
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">
-                                  {person.medicine}
-                                </div>
-                                <div className="text-sm text-gray-500">
-                                  {person.power}
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-900">
-                              {person.instock}
-                            </div>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            <a href={person.costprice}>{person.costprice}</a>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            <a href={person.sellingprice}>
-                              {person.sellingprice}
-                            </a>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a
-                              href="#"
-                              className="text-indigo-600 hover:text-indigo-900"
-                            >
-                              Edit
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
+                      <ProductComponent />
                     </tbody>
                   </table>
                 </div>

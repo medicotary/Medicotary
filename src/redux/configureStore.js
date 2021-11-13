@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { createLogger } from "redux-logger";
-
+import { composeWithDevTools } from "redux-devtools-extension";
 const masterConfig = (rootReducer, rootSaga) => {
   const middlewares = [];
   const enhancers = [];
@@ -16,7 +16,7 @@ const masterConfig = (rootReducer, rootSaga) => {
   enhancers.push(applyMiddleware(...middlewares));
 
   // Create Redux Store
-  const store = createStore(rootReducer, compose(...enhancers));
+  const store = createStore(rootReducer, composeWithDevTools(...enhancers));
 
   // kick off root saga
   const sagasManager = sagaMiddleware.run(rootSaga);
