@@ -38,7 +38,9 @@ export function* readProduct(action) {
   }
 }
 
-
 export default function* allSaga() {
-  yield all([takeLatest(ProductTypes.PRODUCT_ADD_REQUEST, addProduct),takeLatest(ProductTypes.PRODUCT_READ_REQUEST, readProduct)]);
+  yield all([
+    takeLatest(ProductTypes.PRODUCT_ADD_REQUEST, addProduct),
+    takeLatest(ProductTypes.PRODUCT_READ_REQUEST, readProduct),
+  ]);
 }
