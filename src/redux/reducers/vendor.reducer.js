@@ -1,7 +1,7 @@
 import { VendorTypes } from "../types";
 
 const initialState = {
-  product: {},
+  vendor: {},
 };
 
 const VendorReducer = (state = initialState, action) => {
@@ -10,13 +10,20 @@ const VendorReducer = (state = initialState, action) => {
     case VendorTypes.VENDOR_ADDED:
       return {
         ...state,
-        user: action.data,
+        vendor: action.data,
       };
-    case VendorTypes.VENDOR_ADD_ERROR:
+    case VendorTypes.VENDOR_ERROR:
       return {
         ...state,
-        user: action.data,
+        vendor: action.data,
       };
+    
+    case VendorTypes.VENDOR_READ:
+      return {
+        ...state,
+        vendor: action.data,
+      };
+    
     default:
       return state;
   }

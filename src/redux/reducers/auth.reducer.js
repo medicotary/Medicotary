@@ -12,6 +12,11 @@ const AuthReducer = (state = initialState, action) => {
         ...state,
         user: action.data,
       };
+    case AuthTypes.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        user: action.data,
+      };
     case AuthTypes.LOGIN_ERROR:
       return {
         ...state,

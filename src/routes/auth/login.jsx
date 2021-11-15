@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthActions } from "../../redux/actions";
+import { Redirect } from "react-router-dom";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/login.svg";
@@ -18,7 +19,6 @@ const Login = () => {
   // };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
 
   // const token = useSelector((state) => state.auth.user.token);
   const dispatch = useDispatch();
@@ -26,9 +26,11 @@ const Login = () => {
     console.log({ email, password });
     dispatch(AuthActions.login({ email, password }));
   };
-
+  const token = useSelector((state) => state.auth.user.token);
+  console.log(token);
   return (
     <div className="lg:flex">
+      {token ? <Redirect to="/dash/" /> : null}
       <div className="lg:w-1/2 xl:max-w-screen-sm">
         <div className="h-screen flex">
           <div className="w-full max-w-md m-auto bg-white py-5 px-10">

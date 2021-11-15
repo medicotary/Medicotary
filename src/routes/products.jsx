@@ -35,8 +35,6 @@ const Product = () => {
   // useEffect(() => {
   //   fetchProducts();
   // }, []);
-  const products = useSelector((state) => state.product.product);
-  console.log("Products :", products);
   return (
     <div>
       <Header />

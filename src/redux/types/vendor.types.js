@@ -1,3 +1,8 @@
 export const VENDOR_ADD_REQUEST = "VENDOR_ADD_REQUEST";
 export const VENDOR_ADDED = "VENDOR_ADDED";
-export const VENDOR_ADD_ERROR = "VENDOR_ADD_ERROR";
+export const VENDOR_ERROR = "VENDOR_ADD_ERROR";
+
+// Vendor Read Req
+export const VENDOR_READ_REQUEST = "VENDOR_READ_REQUEST";
+export const VENDOR_READ = "VENDOR_READ";
+
