@@ -137,14 +137,12 @@ const Signup = () => {
               </div>
 
               <div className="flex justify-center items-center mt-6">
-                <Link to="/dash" class="w-full">
-                  <button
-                    onClick={submit}
-                    className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
-                  >
-                    {loading ? "Register" : "Loading"}
-                  </button>
-                </Link>
+                <button
+                  onClick={submit}
+                  className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+                >
+                  {loading ? "Register" : "Loading"}
+                </button>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
