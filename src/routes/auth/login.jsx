@@ -19,12 +19,14 @@ const Login = () => {
   // };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loading, setLoading] = useState(false);
   // const token = useSelector((state) => state.auth.user.token);
   const dispatch = useDispatch();
   const submit = () => {
+    setLoading(true);
     console.log({ email, password });
     dispatch(AuthActions.login({ email, password }));
+    <Redirect to="/dash/" />;
   };
   const token = useSelector((state) => state.auth.user.token);
   console.log(token);
@@ -72,14 +74,10 @@ const Login = () => {
                 </label>
               </div>
               <div className="flex justify-center items-center mt-6">
-                <Link to="/dash" className="w-full">
-                  <button
-                    onClick={submit}
-                    className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
-                  >
-                    Login
-                  </button>
-                </Link>
+                <button
+                  onClick={submit}
+                  className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
+                >{ loading ? "Login" : "Loading"}</button>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
