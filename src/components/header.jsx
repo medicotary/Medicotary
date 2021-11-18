@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class Header extends Component {
   render() {
     return (
-      <div class="h-1/10 fixed flex px-3 w-full border bg-white">
+      <div class="h-1/10 fixed flex px-3 w-full border bg-white z-50">
         <Link to="/dash">
           <img src={logo} alt="" className="mr-auto object-scale-down h-12" />{" "}
         </Link>
