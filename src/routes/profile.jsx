@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import Header from "../components/header_advance";
 import { Link } from "react-router-dom";
+import { AuthActions } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
+  const user = useSelector((state) => state.auth.user.user);
+  const { name, authId, location, email, companyName, picture, maxLimit } =
+    user;
+  const [cemail, setEmail] = useState(email);
+  const [clocation, setLocation] = useState(location);
+  const [ccompanyName, setCompanyName] = useState(companyName);
+  const [cname, setName] = useState(name ? name : "John Doe");
+  const [cmaxLimit, setMaxLimit] = useState(maxLimit ? maxLimit : 0);
+  const dispatch = useDispatch();
+
+  // Logout function
+  const logout = () => {
+    dispatch(AuthActions.logout());
+    console.log("logout");
+  };
+
   return (
     <div>
       <Header />
@@ -49,6 +67,8 @@ const Profile = () => {
                           Name
                         </label>
                         <input
+                          value={cname}
+                          onChange={(e) => setName(e.target.value)}
                           type="name"
                           className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                           id="name"
@@ -60,6 +80,8 @@ const Profile = () => {
                           E-mail
                         </label>
                         <input
+                          value={cemail}
+                          onChange={(e) => setEmail(e.target.value)}
                           type="email"
                           className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                           id="email"
@@ -74,6 +96,8 @@ const Profile = () => {
                           Company Name
                         </label>
                         <input
+                          value={ccompanyName}
+                          onChange={(e) => setCompanyName(e.target.value)}
                           type="companyname"
                           className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                           id="companyname"
@@ -88,6 +112,8 @@ const Profile = () => {
                           Location
                         </label>
                         <input
+                          value={clocation}
+                          onChange={(e) => setLocation(e.target.value)}
                           type="location"
                           className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
                           id="location"
@@ -102,6 +128,8 @@ const Profile = () => {
                           Max Limit of Inventory
                         </label>
                         <input
+                          value={cmaxLimit}
+                          onChange={(e) => setMaxLimit(e.target.value)}
                           type="Max_Limit_of_Inventory"
                           className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
                           id="Max_Limit_of_Inventory"
@@ -119,11 +147,12 @@ const Profile = () => {
               </div>
               <Link to="/">
                 <button
+                  onClick={logout}
                   className={`w-full  cursor-pointer bg-red-500 py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
                 >
                   Logout
                 </button>
-                </Link>
+              </Link>
             </div>
           </div>
           {/* password section */}
@@ -168,8 +197,8 @@ const Profile = () => {
 
 export default Profile;
 
-{
-  /* <div class="grid grid-rows-3 grid-flow-col gap-4">
+//{
+/* <div class="grid grid-rows-3 grid-flow-col gap-4">
   <div class="row-span-3 ...">1</div>
   <div class="col-span-2 ...">2</div>
   <div class="row-span-2 col-span-2 ...">3</div>
@@ -290,4 +319,4 @@ export default Profile;
         </div>
       </div>
       <div className="h-1/3 w-full flex"></div> */
-}
+//}
