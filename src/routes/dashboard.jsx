@@ -20,10 +20,10 @@ const Dashboard = () => {
         {/* main content container */}
         <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
           {/* top banner */}
-          <div className="bg-purple-100 rounded-2xl flex gap-x-14 mt-10 p-4 items-center">
+          <div className="bg-purple-100 rounded-2xl flex gap-x-14 mt-10 p-4 items-center z-0">
             <img className="h-48 rounded-lg" src={Pharmacists} alt="#" />
             <div>
-              <p className="opacity-80 text-4xl font-bold text-indigo-700">
+              <p className="opacity-80 text-4xl font-bold text-indigo-700 z-10">
                 Never worry about your Inventory
               </p>
               <Link to="/addbill">
