@@ -5,7 +5,7 @@ import ForgotPassword from "./routes/auth/forgot";
 import Signup from "./routes/auth/signup";
 import Dashboard from "./routes/dashboard";
 import Billing from "./routes/billing";
-import Delivery from "./routes/delivery";
+import Delivery from "./routes/delivery/delivery";
 import Product from "./routes/products";
 import Vendor from "./routes/vendors";
 import Homepage from "./routes/landingpage";
