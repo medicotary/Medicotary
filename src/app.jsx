@@ -1,56 +1,66 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./routes/auth/login";
-import ForgotPassword from "./routes/auth/forgot";
-import Signup from "./routes/auth/signup";
-import Dashboard from "./routes/dashboard";
-import Billing from "./routes/billing";
-import Delivery from "./routes/delivery";
-import Product from "./routes/products";
-import Vendor from "./routes/vendors";
-import Homepage from "./routes/landingpage";
-import Profile from "./routes/profile";
-import Notifications from "./routes/notifications";
-import Faq from "./routes/faqs";
-import AddVendor from "./routes/addVendor";
-import AddProduct from "./routes/addProduct";
-import AddBill from "./routes/addBill";
-import { PersistGate } from "redux-persist/integration/react";
-import { Provider } from "react-redux";
-import { persistor, store } from "./redux";
-const Loading = () => <div>Loading...</div>;
-const App = () => {
+import React, { lazy, Suspense } from "react";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+import Loader from "./components/loader";
+import { isAuthenticated } from "./redux/selector/auth.Selector";
+import { connect } from "react-redux";
+
+const Login = lazy(() => import("./routes/auth/login"));
+const ForgotPassword = lazy(() => import("./routes/auth/forgot"));
+const Signup = lazy(() => import("./routes/auth/signup"));
+const Dashboard = lazy(() => import("./routes/dashboard"));
+const Billing = lazy(() => import("./routes/billing"));
+const Delivery = lazy(() => import("./routes/delivery"));
+const Product = lazy(() => import("./routes/products"));
+const Vendor = lazy(() => import("./routes/vendors"));
+const Homepage = lazy(() => import("./routes/landingpage"));
+const Profile = lazy(() => import("./routes/profile"));
+const Notifications = lazy(() => import("./routes/notifications"));
+const Faq = lazy(() => import("./routes/faqs"));
+const AddVendor = lazy(() => import("./routes/addVendor"));
+const AddProduct = lazy(() => import("./routes/addProduct"));
+const AddBill = lazy(() => import("./routes/addBill"));
+
+const Loading = () => <Loader color="primary" />;
+
+function App(props) {
+  let routes = (
+    <Switch>
+      <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/forgot" component={ForgotPassword}></Route>
+      <Route exact path="/signup" component={Signup}></Route>
+      <Route exact path="/" component={Homepage}></Route>
+      <Redirect to="/" />
+    </Switch>
+  );
+  if (props.isAuthenticated) {
+    routes = (
+      <Switch>
+        <Route exact path="/dash" component={Dashboard}></Route>
+        <Route exact path="/products" component={Product}></Route>
+        <Route exact path="/billing" component={Billing}></Route>
+        <Route exact path="/vendors" component={Vendor}></Route>
+        <Route exact path="/delivery" component={Delivery}></Route>
+        <Route exact path="/profile" component={Profile}></Route>
+        <Route exact path="/notifications" component={Notifications}></Route>
+        <Route exact path="/faqs" component={Faq}></Route>
+        <Route exact path="/addvendor" component={AddVendor}></Route>
+        <Route exact path="/addproduct" component={AddProduct}></Route>
+        <Route exact path="/addbill" component={AddBill}></Route>
+        <Redirect to="/dash" />
+      </Switch>
+    );
+  }
   return (
     <div>
-      <Provider store={store}>
-        <PersistGate loading={Loading} persistor={persistor}>
-          <Router>
-            <Switch>
-              <Route exact path="/login" component={Login}></Route>
-              <Route exact path="/forgot" component={ForgotPassword}></Route>
-              <Route exact path="/signup" component={Signup}></Route>
-              <Route exact path="/" component={Homepage}></Route>
-              <Route exact path="/dash" component={Dashboard}></Route>
-              <Route exact path="/products" component={Product}></Route>
-              <Route exact path="/billing" component={Billing}></Route>
-              <Route exact path="/vendors" component={Vendor}></Route>
-              <Route exact path="/delivery" component={Delivery}></Route>
-              <Route exact path="/profile" component={Profile}></Route>
-              <Route
-                exact
-                path="/notifications"
-                component={Notifications}
-              ></Route>
-              <Route exact path="/faqs" component={Faq}></Route>
-              <Route exact path="/addvendor" component={AddVendor}></Route>
-              <Route exact path="/addproduct" component={AddProduct}></Route>
-              <Route exact path="/addbill" component={AddBill}></Route>
-            </Switch>
-          </Router>
-        </PersistGate>
-      </Provider>
+      <Suspense fallback={Loading}>{routes}</Suspense>
     </div>
   );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: isAuthenticated(state),
+  };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);
