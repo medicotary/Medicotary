@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar";
 import { PieChart } from "react-minimal-pie-chart";
+import { PlusIcon, SearchIcon } from "../../icons/index";
+import { Link } from "react-router-dom";
 
 const invoices = [
   {
@@ -21,6 +23,7 @@ const invoices = [
 ];
 
 const Billing = () => {
+  const [search_invoice, setSearchInvoice] = useState("");
   return (
     <div>
       <Header />
@@ -98,6 +101,33 @@ const Billing = () => {
                 Maximum inventory limit
               </p>
             </div>
+          </div>
+          {/* top search bar */}
+          <div className="flex justify-between items-stretch">
+            {/* search box */}
+            <div className="flex space-x-1 items-stretch">
+              <input
+                value={search_invoice}
+                onChange={(e) => setSearchInvoice(e.target.value)}
+                type="search"
+                className={`w-full p-4 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
+                id="search"
+                placeholder="Search for Invoice"
+              />
+              <button
+                type="search"
+                className={`cursor-pointer bg-primary p-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+              >
+                <SearchIcon></SearchIcon>
+              </button>
+            </div>
+            {/* add vendor button */}
+            <Link to="/addbill">
+              <button className="flex space-x-2 justify-center button px-16 py-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+                <PlusIcon></PlusIcon>
+                Add a bill
+              </button>
+            </Link>
           </div>
           {/* table */}
           <p className="text-4xl font-medium text-gray-900">Invoices</p>
