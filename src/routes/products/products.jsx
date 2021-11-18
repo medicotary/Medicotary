@@ -1,10 +1,10 @@
 import React, { useEffect, useCallback, useMemo } from "react";
-import "../index.css";
-import Header from "../components/header";
-import Sidebar from "../components/sidebar";
-import ProductComponent from "../components/productTile";
+import "../../index.css";
+import Header from "../../components/header";
+import Sidebar from "../../components/sidebar";
+import ProductComponent from "../../components/productTile";
 import { Link } from "react-router-dom";
-import { ProductActions } from "../redux/actions";
+import { ProductActions } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 // const product = [

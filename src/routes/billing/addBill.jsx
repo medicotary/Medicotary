@@ -1,8 +1,8 @@
 import React from "react";
-import "../index.css";
-import Header from "../components/header";
-import Sidebar from "../components/sidebar";
-import BillProduct from "../components/billproduct";
+import "../../index.css";
+import Header from "../../components/header";
+import Sidebar from "../../components/sidebar";
+import BillProduct from "../../components/billproduct";
 import { Link } from "react-router-dom";
 
 function getCurrentDate(separator = "-") {
