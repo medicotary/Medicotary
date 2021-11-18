@@ -9,3 +9,7 @@ export const signup = (data) => ({
   type: AuthTypes.SIGNUP_REQUEST,
   payload: data,
 });
+
+export const logout = () => ({
+  type: AuthTypes.LOGOUT_REQUEST,
+});

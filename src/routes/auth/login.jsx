@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthActions } from "../../redux/actions";
 import "../../index.css";
@@ -18,19 +18,19 @@ const Login = () => {
   // };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
 
-  // const token = useSelector((state) => state.auth.user.token);
+  const token = useSelector((state) => state.auth.user.token);
   const dispatch = useDispatch();
   const submit = () => {
-    setLoading(true);
+    // setLoading(true);
     console.log({ email, password });
     dispatch(AuthActions.login({ email, password }));
-    <Redirect to="/dash/" />;
+    // <Redirect to="/dash/" />;
   };
 
   return (
     <div className="lg:flex">
+      {token ? <Redirect to="/dash/" /> : null}
       <div className="lg:w-1/2 xl:max-w-screen-sm">
         <div className="h-screen flex">
           <div className="w-full max-w-md m-auto bg-white py-5 px-10">
@@ -72,10 +72,14 @@ const Login = () => {
                 </label>
               </div>
               <div className="flex justify-center items-center mt-6">
-                <button
-                  onClick={submit}
-                  className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
-                >{ loading ? "Login" : "Loading"}</button>
+                <Link to="/dash" className="w-full">
+                  <button
+                    onClick={submit}
+                    className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
+                  >
+                    Login
+                  </button>
+                </Link>
               </div>
             </form>
             <div className="flex flex-wrap mt-3">
