@@ -4,6 +4,7 @@ import { AuthTypes } from "../types";
 
 const authService = new AuthService();
 
+
 export function* login(action) {
   try {
     const res = yield call(authService.login, action.payload);
@@ -39,5 +40,8 @@ export function* signup(action) {
 }
 
 export default function* allSaga() {
-  yield all([takeLatest(AuthTypes.LOGIN_REQUEST, login),takeLatest(AuthTypes.SIGNUP_REQUEST, signup)]);
+  yield all([
+    takeLatest(AuthTypes.LOGIN_REQUEST, login),
+    takeLatest(AuthTypes.SIGNUP_REQUEST, signup),
+  ]);
 }

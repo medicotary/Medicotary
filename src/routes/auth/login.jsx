@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
 import { AuthActions } from "../../redux/actions";
 import "../../index.css";
+import Loader from "../../components/loader";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/login.svg";
 import google from "../../assets/google.svg";
 
-const Login = () => {
+const Login = (props) => {
   // const handleFormSubmit = (e) => {
   //   e.preventDefault();
 
@@ -16,11 +17,13 @@ const Login = () => {
 
   //   console.log(email, password);
   // };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const token = useSelector((state) => state.auth.user.token);
   const dispatch = useDispatch();
+  
+  //
   const submit = () => {
     // setLoading(true);
     console.log({ email, password });
@@ -71,17 +74,28 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
-              <div className="flex justify-center items-center mt-6">
-                <Link to="/dash" className="w-full">
-                  <button
-                    onClick={submit}
-                    className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
-                  >
-                    Login
-                  </button>
-                </Link>
+              <div className="flex mt-6">
+                {/* <Link to="/dash" className="w-full"> */}
+                <button
+                  onClick={submit}
+                  className={`w-full cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+                >
+                  {props.loading ? (
+                    <div className="justify-self-center">
+                      <Loader color="#ffffff" />
+                    </div>
+                  ) : (
+                    <div className=" text-sm text-white">Login</div>
+                  )}
+                </button>
+                {/* </Link> */}
               </div>
             </form>
+            {props.error.length > 0 ? (
+              <p className="text-error text-sm text-center py-1 font-medium">
+                {props.error}
+              </p>
+            ) : null}
             <div className="flex flex-wrap mt-3">
               <Link to="/dash" className="w-full">
                 <button
@@ -129,4 +143,11 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapToState = (state) => {
+  return {
+    error: state.auth.errorMessage,
+    loading: state.auth.isLoading,
+  };
+};
+
+export default connect(mapToState)(Login);
