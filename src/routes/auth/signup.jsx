@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/signup.svg";
 import google from "../../assets/google.svg";
+import { useDispatch } from "react-redux";
 import { AuthActions } from "../../redux/actions";
 
 const Signup = () => {
@@ -31,11 +30,9 @@ const Signup = () => {
     dispatch(AuthActions.login({ email, password, companyName, location }));
     <Redirect to="/dash/" />;
   };
-  const token = useSelector((state) => state.auth.user.token);
-  console.log(token);
+
   return (
     <div className="lg:flex">
-      {token ? <Redirect to="/dash/" /> : null}
       <div className="lg:w-1/2 xl:max-w-screen-sm bg-purple-200 mr-auto">
         <div class="grid grid-rows-2">
           <div class="items-center py-5 px-10">
