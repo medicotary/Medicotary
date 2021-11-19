@@ -14,6 +14,7 @@
     "chart.js": "^3.5.1",
     "cors": "^2.8.5",
     "feather-icons-react": "^0.4.3",
+    "history": "^5.1.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.1.0",
     "react-dom": "^17.0.2",
@@ -31,7 +32,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "set PORT=3009 && craco start",
+    "start": "set PORT=3017 && craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
