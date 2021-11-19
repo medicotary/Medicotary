@@ -1,4 +1,4 @@
 export const isAuthenticated = (state) => {
-  if (state.auth.user.token) return true;
+  if (state.auth.isLoggedIn) return true;
   return false;
 };

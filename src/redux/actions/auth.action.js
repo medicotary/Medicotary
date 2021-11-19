@@ -10,6 +10,10 @@ export const signup = (data) => ({
   payload: data,
 });
 
+export const load = () => ({
+  type: AuthTypes.TOGGLE_LOADING,
+});
+
 export const logout = () => ({
   type: AuthTypes.LOGOUT_REQUEST,
 });
