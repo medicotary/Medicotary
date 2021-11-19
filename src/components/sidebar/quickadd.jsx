@@ -10,7 +10,7 @@ function classNames(...classes) {
 
 export default function QuickAdd() {
   return (
-    <Menu as="div" className="relative inline-block text-left w-full">
+    <Menu as="div" className="relative inline-block text-left w-full mb-2">
       <div>
         <Menu.Button className="">
           <div className="inline-flex items-center justify-center w-full h-14 px-10 focus-within:py-4 bg-primary rounded-lg">
