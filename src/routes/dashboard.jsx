@@ -2,95 +2,32 @@ import React from "react";
 import "../index.css";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar/sidebar";
-import DonutChart from "../components/charts/donutchart";
-import Pharmacists from "../assets/pharmacicts.svg";
-import AlertRed from "../assets/alert-triangle-red.svg";
-import AlertBlue from "../assets/alert-triangle-blue.svg";
-import TruckGreen from "../assets/truck-green.svg";
-import GaugeChart from "react-gauge-chart";
-import { Link } from "react-router-dom";
+import WeightedScore from "../components/dashboard/graphs/weighted-score";
+import StockPercentage from "../components/dashboard/graphs/stock-percentage";
+import TopBanner from "../components/dashboard/topbanner";
+import OutOfStockProducts from "../components/dashboard/middle-section/out-of-stock-products";
+import ProductsOnLowStock from "../components/dashboard/middle-section/products-on-low-stock";
+import ProductsToBeArrived from "../components/dashboard/middle-section/products-to-be-arrived";
 
 const Dashboard = () => {
   return (
     <div>
       <Header />
       <div className="flex h-9/10">
-        {/* sidebar */}
         <Sidebar place="1" />
         {/* main content container */}
         <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
-          {/* top banner */}
-          <div className="bg-purple-100 rounded-2xl flex gap-x-14 mt-10 p-4 items-center z-0">
-            <img className="h-48 rounded-lg" src={Pharmacists} alt="#" />
-            <div>
-              <p className="opacity-80 text-4xl font-bold text-indigo-700 z-10">
-                Never worry about your Inventory
-              </p>
-              <Link to="/addbill">
-                <button className="button px-16 py-4 my-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
-                  Create a Bill
-                </button>
-              </Link>
-            </div>
-          </div>
+          <TopBanner />
           {/* middle section */}
           <div className="flex gap-4 items-stretch justify-between my-6">
-            {/* card1 */}
-            <div className="inline-flex flex-col space-y-6 items-center justify-center flex-1 p-2 bg-white border-2 rounded-2xl border-gray-300">
-              <p className="text-xl font-bold text-gray-900">
-                Out of stock products
-              </p>
-              <div className="inline-flex space-x-6 items-center justify-start">
-                <img src={AlertRed} alt="#" />
-                <p className="text-3xl text-center text-gray-900">3</p>
-              </div>
-            </div>
-            {/* card2 */}
-            <div className="inline-flex flex-col space-y-6 items-center justify-center flex-1 p-2 bg-white border-2 rounded-2xl border-gray-300">
-              <p className="text-xl font-bold text-gray-900">
-                Products on low stock
-              </p>
-              <div className="flex space-x-6 items-center justify-start">
-                <img src={AlertBlue} alt="#" />
-                <p className="text-3xl leading-10 text-center text-gray-900">
-                  3
-                </p>
-              </div>
-            </div>
-            {/* card3 */}
-            <div className="inline-flex flex-col space-y-3 items-center justify-center flex-1 p-2 bg-white border-2 rounded-2xl border-gray-300">
-              <p className="text-xl font-bold text-center text-gray-900">
-                Number of products
-                <br /> to be arrived
-              </p>
-              <div className="flex space-x-6 items-center justify-start">
-                <img src={TruckGreen} alt="#" />
-                <p className="text-3xl tracking-wider leading-10 text-center text-gray-900">
-                  12
-                </p>
-              </div>
-            </div>
+            <OutOfStockProducts amt="4" />
+            <ProductsOnLowStock amt="4" />
+            <ProductsToBeArrived amt="4" />
           </div>
           {/* bottom graphs */}
           <div className="flex space-x-6">
-            <DonutChart title="Weighted Score" />
-            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 h-30 p-10 bg-white border-2 rounded-2xl border-gray-300">
-              <p className="text-xl font-bold text-gray-900 ">
-                Stock Percentage
-              </p>
-              <div className="p-10">
-                <GaugeChart
-                  id="gauge-chart"
-                  textColor="transparent"
-                  nrOfLevels={4}
-                  arcsLength={[0.2, 0.6, 0.15, 0.05]}
-                  colors={["#DED9FC", "#AFA3F3", "#8776EE", "#5E48E8"]}
-                  percent={0.4273035096951447}
-                  arcPadding={0.02}
-                />
-              </div>
-            </div>
-            {/* ---------------- */}
+            <WeightedScore />
+            <StockPercentage percentage="0.4" />
           </div>
         </div>
       </div>
