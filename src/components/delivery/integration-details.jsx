@@ -1,11 +1,10 @@
 import "../../index.css";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
-class DeliveryMainCard extends Component {
+class IntegrationDetails extends Component {
   render() {
     return (
-      <div className="inline-flex space-x-16 items-center justify-start p-8 bg-white border-2 rounded-2xl border-gray-300 m-4">
+      <div className="inline-flex space-x-16 items-center justify-start py-8 my-4">
         <div className="flex items-end justify-center w-1/5 h-full bg-gray-300 border-2 rounded-lg border-gray-300">
           <img
             className="h-full"
@@ -20,15 +19,10 @@ class DeliveryMainCard extends Component {
           <p className="font-medium leading-tight text-gray-400">
             {this.props.desc}
           </p>
-          <Link to="/createintegration">
-          <button className="button flex cursor-pointer px-16 py-4 bg-indigo-600 rounded-lg font-medium text-center text-white">
-            Create integration
-          </button>
-          </ Link>
         </div>
       </div>
     );
   }
 }
 
-export default DeliveryMainCard;
+export default IntegrationDetails;
