@@ -5,6 +5,7 @@ import bellicon from "../assets/bell.svg";
 import back from "../assets/back.svg";
 import { Link } from "react-router-dom";
 import BackButton from "./backbutton";
+import { connect } from "react-redux";
 
 class Header extends Component {
   render() {
@@ -17,7 +18,11 @@ class Header extends Component {
           <img src={logo} alt="" className="mr-auto object-scale-down h-12" />
         </Link>
         <div class="flex ml-auto items-center">
-          <h2 class="text-xl font-medium antialiased">Huma Medical Center</h2>
+          <h2 class="text-xl font-medium antialiased">
+            {this.props.user.companyName > 0
+              ? this.props.user.companyName
+              : "Huma Medical"}
+          </h2>
           {/* bell icon */}
           <Link to="/notifications">
             <img src={bellicon} alt="" class="h-6 px-4" />
@@ -36,4 +41,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapToState = (state) => {
+  return {
+    user: state.auth.user.user,
+  };
+};
+
+export default connect(mapToState)(Header);
