@@ -8,17 +8,17 @@ const Login = lazy(() => import("./routes/auth/login"));
 const ForgotPassword = lazy(() => import("./routes/auth/forgot"));
 const Signup = lazy(() => import("./routes/auth/signup"));
 const Dashboard = lazy(() => import("./routes/dashboard"));
-const Billing = lazy(() => import("./routes/billing"));
-const Delivery = lazy(() => import("./routes/delivery"));
-const Product = lazy(() => import("./routes/products"));
-const Vendor = lazy(() => import("./routes/vendors"));
+const Billing = lazy(() => import("./routes/billing/billing"));
+const Delivery = lazy(() => import("./routes/delivery/delivery"));
+const Product = lazy(() => import("./routes/products/products"));
+const Vendor = lazy(() => import("./routes/vendors/vendors"));
 const Homepage = lazy(() => import("./routes/landingpage"));
 const Profile = lazy(() => import("./routes/profile"));
 const Notifications = lazy(() => import("./routes/notifications"));
 const Faq = lazy(() => import("./routes/faqs"));
-const AddVendor = lazy(() => import("./routes/addVendor"));
-const AddProduct = lazy(() => import("./routes/addProduct"));
-const AddBill = lazy(() => import("./routes/addBill"));
+const AddVendor = lazy(() => import("./routes/vendors/addVendor"));
+const AddProduct = lazy(() => import("./routes/products/addProduct"));
+const AddBill = lazy(() => import("./routes/billing/addBill"));
 
 const Loading = () => <Loader color="primary" />;
 
@@ -35,11 +35,11 @@ function App(props) {
   if (props.isAuthenticated) {
     routes = (
       <Switch>
-        <Route exact path="/dash" component={Dashboard}></Route>
         <Route exact path="/products" component={Product}></Route>
         <Route exact path="/billing" component={Billing}></Route>
         <Route exact path="/vendors" component={Vendor}></Route>
         <Route exact path="/delivery" component={Delivery}></Route>
+        <Route exact path="/dash" component={Dashboard}></Route>
         <Route exact path="/profile" component={Profile}></Route>
         <Route exact path="/notifications" component={Notifications}></Route>
         <Route exact path="/faqs" component={Faq}></Route>
