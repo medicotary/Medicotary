@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useMemo, useState } from "react";
 import "../../index.css";
 import Header from "../../components/header";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "../../components/sidebar/sidebar";
 import ProductComponent from "../../components/productTile";
 import { Link } from "react-router-dom";
 import { ProductActions } from "../../redux/actions";
@@ -46,7 +46,6 @@ const Product = () => {
         <Sidebar place="2" />
         {/* main content container */}
         <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
-          
           <div className="mt-8"></div>
           {/* top search bar */}
           <div className="flex justify-between items-stretch">

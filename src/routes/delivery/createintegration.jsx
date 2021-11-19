@@ -1,7 +1,7 @@
 import React from "react";
 import "../../index.css";
 import Header from "../../components/header";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "../../components/sidebar/sidebar";
 import DeliveryMainCard from "../../components/delivery/maincard";
 
 const Delivery = () => {
@@ -12,9 +12,7 @@ const Delivery = () => {
       <Sidebar place="5" />
       {/* main content container */}
       <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
-        <div className="flex flex-col">
-          {/* <DeliveryMainCard /> */}
-        </div>
+        <div className="flex flex-col">{/* <DeliveryMainCard /> */}</div>
       </div>
     </div>
   );

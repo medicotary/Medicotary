@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
+import "../../index.css";
 import {
   DashboardIcon,
   TruckIcon,
   UsersIcon,
   BoxIcon,
   FileTextIcon,
-} from "../icons/index";
+} from "../../icons/index";
 import QuickAdd from "./quickadd";
+import Gotofaq from "./gotofaq";
 
 class Sidebar extends Component {
   render() {
@@ -16,7 +17,7 @@ class Sidebar extends Component {
       <div className="w-1/5 shadow mt-12 fixed h-full overflow-y-auto text-base lg:text-sm pb-4 sticky?lg:h-(screen-18)">
         <div className="inline-flex flex-col space-y-2 items-start justify-between flex-1 h-full px-6 pt-6 pb-12">
           <div>
-            <QuickAdd></QuickAdd>
+            <QuickAdd />
             {/* navlinks */}
             {/* dashboard */}
             <Link to="/dash" className="w-full">
@@ -135,18 +136,7 @@ class Sidebar extends Component {
             </Link>
           </div>
           {/* faqs */}
-          <div className="flex flex-col w-full space-y-2.5 items-center justify-center p-6 bg-purple-100 rounded-2xl">
-            <p className="w-40 text-lg font-bold text-center text-gray-900">
-              Have some questions?
-            </p>
-            <Link to="/faqs" className="w-full">
-              <button className="flex flex-col items-center justify-center w-full py-4 bg-primary rounded-lg">
-                <p className="text-sm text-medium text-center text-white">
-                  look at the faqs
-                </p>
-              </button>
-            </Link>
-          </div>
+          <Gotofaq />
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 import Header from "../components/header";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/sidebar/sidebar";
 import DonutChart from "../components/charts/donutchart";
 import Pharmacists from "../assets/pharmacicts.svg";
 import AlertRed from "../assets/alert-triangle-red.svg";
