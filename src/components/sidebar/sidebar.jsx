@@ -28,7 +28,10 @@ class Sidebar extends Component {
                 }
               >
                 <div className="flex space-x-8 items-center justify-start">
-                  <DashboardIcon className="h-5 " />
+                  <DashboardIcon
+                    className="h-5 "
+                    stroke={this.props.place == 1 ? "#5E48E8" : "#8C8CA2"}
+                  />
                   <p
                     className={
                       "text-sm font-medium " +
@@ -51,7 +54,10 @@ class Sidebar extends Component {
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <BoxIcon className="h-5 " />
+                  <BoxIcon
+                    className="h-5 "
+                    stroke={this.props.place == 2 ? "#5E48E8" : "#8C8CA2"}
+                  />
                   <p
                     className={
                       "text-sm font-medium " +
@@ -74,7 +80,11 @@ class Sidebar extends Component {
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <FileTextIcon className="h-5 " />
+                  <FileTextIcon className="h-5 " stroke={
+                      this.props.place == 3
+                        ? "#5E48E8"
+                        : "#8C8CA2"
+                    }/>
                   <p
                     className={
                       "text-sm font-medium " +
@@ -97,7 +107,11 @@ class Sidebar extends Component {
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <UsersIcon className="h-5 " />
+                  <UsersIcon className="h-5 " stroke={
+                      this.props.place == 4
+                        ? "#5E48E8"
+                        : "#8C8CA2"
+                    }/>
                   <p
                     className={
                       "text-sm font-medium " +
@@ -120,7 +134,11 @@ class Sidebar extends Component {
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <TruckIcon className="h-5 " />
+                  <TruckIcon className="h-5 " stroke={
+                      this.props.place == 5
+                        ? "#5E48E8"
+                        : "#8C8CA2"
+                    }/>
                   <p
                     className={
                       "text-sm font-medium " +
