@@ -1,6 +1,1 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.3333 4H1.33325V21.3333H21.3333V4Z" stroke="#8C8CA2" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M21.3333 10.6667H26.6666L30.6666 14.6667V21.3334H21.3333V10.6667Z" stroke="#8C8CA2" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.33333 28C9.17428 28 10.6667 26.5076 10.6667 24.6666C10.6667 22.8257 9.17428 21.3333 7.33333 21.3333C5.49238 21.3333 4 22.8257 4 24.6666C4 26.5076 5.49238 28 7.33333 28Z" stroke="#8C8CA2" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24.6666 28C26.5075 28 27.9999 26.5076 27.9999 24.6666C27.9999 22.8257 26.5075 21.3333 24.6666 21.3333C22.8256 21.3333 21.3333 22.8257 21.3333 24.6666C21.3333 26.5076 22.8256 28 24.6666 28Z" stroke="#8C8CA2" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>

@@ -51,9 +51,9 @@ const Profile = () => {
                 <div class="row-span-2 ">
                   <div className="">
                     <img
-                      src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
+                      src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/82b8e9101650903.5f2369beab58a.jpg"
                       alt=""
-                      class="rounded w-1/2  object-scale-down"
+                      class="rounded w-1/4  object-scale-down"
                     />
                   </div>
                   <div className="flex items-center p-3">
@@ -165,40 +165,6 @@ const Profile = () => {
                   Logout
                 </button>
               </Link>
-            </div>
-          </div>
-          {/* password section */}
-          <div className="w-full border-2 rounded-xl flex bg-white p-7 ">
-            <div className="grid grid-flow-row grid-row-3">
-              <div>
-                <label htmlFor="old_password" className="text-sm font-medium">
-                  Old Password
-                </label>
-                <input
-                  type="old_password"
-                  className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="old_password"
-                  placeholder="***************"
-                />
-              </div>
-              <div className="w-full">
-                <label htmlFor="new_password" className="text-sm font-medium">
-                  New Password
-                </label>
-                <input
-                  type="new_password"
-                  className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="new_password"
-                  placeholder="***************"
-                />
-              </div>
-              <div className="flex">
-                <button
-                  className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
-                >
-                  change password
-                </button>
-              </div>
             </div>
           </div>
         </div>
