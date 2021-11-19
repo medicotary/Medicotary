@@ -1,7 +1,5 @@
 import Axios from "axios";
-
 import { BASE_API_URL } from "./constant";
-
 // const header = {
 //   "Content-Type":
 //     "application/x-www-form-urlencoded; charset=UTF-8;application/json",

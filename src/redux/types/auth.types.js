@@ -8,3 +8,6 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 
 // logout
 export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
+
+//Loading state
+export const TOGGLE_LOADING = "TOGGLE_LOADING";

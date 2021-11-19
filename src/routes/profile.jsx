@@ -22,6 +22,18 @@ const Profile = () => {
     console.log("logout");
   };
 
+  // Update profile info
+  const updateProfile = () => {
+    console.log(cname, clocation, cemail, ccompanyName, cmaxLimit);
+    dispatch(AuthActions.update());
+  };
+
+  //Update password
+  const updatePassword = () => {
+    // dispatch(AuthActions.update());
+    // console.log("logout");
+  };
+
   return (
     <div>
       <Header />

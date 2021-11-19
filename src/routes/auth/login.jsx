@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { AuthActions } from "../../redux/actions";
+import React from "react";
+import { Link } from "react-router-dom";
+import LoginForm from "../../components/LoginForm";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/login.svg";
 import google from "../../assets/google.svg";
 
-const Login = () => {
+const Login = (props) => {
   // const handleFormSubmit = (e) => {
   //   e.preventDefault();
 
@@ -16,72 +15,29 @@ const Login = () => {
 
   //   console.log(email, password);
   // };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const token = useSelector((state) => state.auth.user.token);
-  const dispatch = useDispatch();
-  const submit = () => {
-    // setLoading(true);
-    console.log({ email, password });
-    dispatch(AuthActions.login({ email, password }));
-    // <Redirect to="/dash/" />;
-  };
+  //
+  // const submit = (e) => {
+  //   // setLoading(true);
+  //   // dispatch(AuthTypes.TOGGLE_LOADING());
+  //   // props.loading();
+  //   let credentials = { email, password };
+  //   props.login(credentials);
+  //   console.log(e);
+  //   // history.push("/dash");
+  //   // <Redirect to="/dash/" />;
+  // };
 
   return (
     <div className="lg:flex">
-      {token ? <Redirect to="/dash/" /> : null}
+      {/* {props.isLoggedIn ? <Redirect to="/dash/" /> : null} */}
       <div className="lg:w-1/2 xl:max-w-screen-sm">
         <div className="h-screen flex">
           <div className="w-full max-w-md m-auto bg-white py-5 px-10">
             <h1 className="text-4xl font-medium mt-4 antialiased mb-12 text-center">
               Welcome Back!
             </h1>
-            <form>
-              <div>
-                <label htmlFor="email" className="text-sm font-medium">
-                  E-mail
-                </label>
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                  id="email"
-                  placeholder="johndoe@gmail.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="text-sm font-medium">
-                  Password
-                </label>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
-                  id="password"
-                  placeholder="Your Password"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-4">
-                  <Link to="/forgot" className="w-full">
-                    forgot password ?
-                  </Link>
-                </label>
-              </div>
-              <div className="flex justify-center items-center mt-6">
-                <Link to="/dash" className="w-full">
-                  <button
-                    onClick={submit}
-                    className={`w-full cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded border focus:outline-none focus:`}
-                  >
-                    Login
-                  </button>
-                </Link>
-              </div>
-            </form>
+            <LoginForm />
             <div className="flex flex-wrap mt-3">
               <Link to="/dash" className="w-full">
                 <button
