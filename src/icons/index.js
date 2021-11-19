@@ -5,9 +5,7 @@ import { ReactComponent as BoxIcon } from './box.svg'
 import { ReactComponent as FileTextIcon } from './file-text.svg'
 import { ReactComponent as PlusIcon } from './plus.svg'
 import { ReactComponent as SearchIcon } from './search.svg'
-// import { ReactComponent as TruckGreenIcon } from './truck-green.svg'
-// import { ReactComponent as AlertRedIcon } from './alert-triangle-red.svg'
-// import { ReactComponent as AlertBlueIcon } from './alert-triangle-blue.svg'
+import { ReactComponent as UploadIcon } from './upload.svg'
 
 export {
     DashboardIcon,
@@ -16,8 +14,6 @@ export {
     BoxIcon,
     FileTextIcon,
     PlusIcon,
-    SearchIcon
-    // TruckGreenIcon,
-    // AlertRedIcon,
-    // AlertBlueIcon,
+    SearchIcon,
+    UploadIcon
 }

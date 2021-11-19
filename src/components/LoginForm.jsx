@@ -60,6 +60,7 @@ class UserInfo extends Component {
           </label>
           <input
             value={email}
+            required
             name="email"
             onChange={(e) => this.inputChange(e)}
             type="email"
@@ -80,6 +81,7 @@ class UserInfo extends Component {
             className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
             id="password"
             placeholder="Your Password"
+            required
           />
         </div>
         <div>

@@ -69,7 +69,8 @@ const Signup = () => {
                   type="email"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
-                  placeholder="johndoe@gmail.com"
+                  placeholder="name@example.com"
+                  required
                 />
               </div>
               <div>
@@ -83,6 +84,7 @@ const Signup = () => {
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
                   id="password"
                   placeholder="Your Password"
+                  required
                 />
               </div>
               <div>
@@ -95,7 +97,8 @@ const Signup = () => {
                   type="companyname"
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="companyname"
-                  placeholder="Huma Medical Store"
+                  placeholder="your store name"
+                  required
                 />
               </div>
               <div>
@@ -112,6 +115,7 @@ const Signup = () => {
                   className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="businesslocation"
                   placeholder="Delhi,NCR"
+                  required
                 />
               </div>
 
@@ -120,6 +124,7 @@ const Signup = () => {
                   <input
                     type="checkbox"
                     class="form-checkbox cursor-pointer"
+                    required
                   ></input>
                   <span class="ml-2 text-sm">
                     By signing up you agree to our{" "}

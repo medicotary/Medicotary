@@ -23,6 +23,7 @@ class BillProduct extends Component {
             className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
             id="name"
             placeholder="Remdesivir"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -34,6 +35,7 @@ class BillProduct extends Component {
             className={`w-2/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
             id="name"
             placeholder="Remdesivir"
+            required
           />
         </div>
         <h1 className="text-2xl text-black font-medium antialiased  text-left">
