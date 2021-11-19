@@ -6,14 +6,15 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { persistor, store } from "./redux";
 import { BrowserRouter } from "react-router-dom";
+import history from "./redux/history";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading="<Loader/>" persistor={persistor}>
+  <Provider store={store}>
+    <PersistGate loading="<Loader/>" persistor={persistor}>
+      <BrowserRouter history={history}>
         <App />
-      </PersistGate>
-    </Provider>
-  </BrowserRouter>,
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );
