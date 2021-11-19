@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../index.css";
 import Header from "../../components/header";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "../../components/sidebar/sidebar";
 
 const AddVendor = () => {
   const [name, setName] = useState("");

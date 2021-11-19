@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { PlusIcon } from "../icons/index";
+import { PlusIcon } from "../../icons/index";
 import { Link } from "react-router-dom";
 
 function classNames(...classes) {

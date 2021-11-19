@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../index.css";
 import Header from "../../components/header";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "../../components/sidebar/sidebar";
 import { PieChart } from "react-minimal-pie-chart";
 import { PlusIcon, SearchIcon } from "../../icons/index";
 import { Link } from "react-router-dom";

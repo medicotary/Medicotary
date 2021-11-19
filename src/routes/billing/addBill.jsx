@@ -1,7 +1,7 @@
 import React from "react";
 import "../../index.css";
 import Header from "../../components/header";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "../../components/sidebar/sidebar";
 import BillProduct from "../../components/billproduct";
 import { Link } from "react-router-dom";
 
@@ -94,13 +94,13 @@ const AddBill = () => {
               </div>
             </div>
             <BillProduct></BillProduct>
-          <Link to="/products" class="w-full">
-            <button
-              className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
-            >
-              Create Bill
-            </button>
-          </Link>
+            <Link to="/products" class="w-full">
+              <button
+                className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+              >
+                Create Bill
+              </button>
+            </Link>
           </div>
         </div>
       </div>
