@@ -33,6 +33,7 @@ export function* signup(action) {
         error: res.message,
       });
     } else {
+      history.push("/dash");
       yield put({ type: AuthTypes.SIGNUP_SUCCESS, data: res });
     }
   } catch (error) {

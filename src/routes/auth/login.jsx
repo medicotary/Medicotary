@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/forms/LoginForm";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/login.svg";
