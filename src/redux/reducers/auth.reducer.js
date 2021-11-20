@@ -18,6 +18,14 @@ const AuthReducer = (state = initialState, action) => {
         errorMessage: "",
         isLoggedIn: false,
       };
+    case AuthTypes.SIGNUP_REQUEST:
+      return {
+        ...state,
+        user: action.data,
+        isLoading: true,
+        errorMessage: "",
+        isLoggedIn: false,
+      };
     case AuthTypes.LOGIN_SUCCESS:
       return {
         ...state,
