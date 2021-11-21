@@ -77,5 +77,6 @@ export default function* allSaga() {
     takeLatest(ProductTypes.PRODUCT_ADD_REQUEST, addProduct),
     takeLatest(ProductTypes.PRODUCT_READ_REQUEST, readProduct),
     takeLatest(ProductTypes.PRODUCT_EDIT_REQUEST, editProduct),
+    takeLatest(ProductTypes.PRODUCT_DELETE_REQUEST, deleteProduct),
   ]);
 }
