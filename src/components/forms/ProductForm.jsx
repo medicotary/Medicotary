@@ -2,20 +2,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // import { ProductActions } from "../../redux/actions";
-import Loader from "../loader";
+// import Loader from "../loader";
 class ProductForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      sellingPrice: 0,
-      quantity: 0,
-      lowStock: 0,
-      costPrice: 0,
+      sellingPrice: undefined,
+      quantity: undefined,
+      lowStock: undefined,
+      costPrice: undefined,
       preferredVendor: "",
       additionalNotes: "",
       errors: {
         name: "Enter User Name!",
+        sellingPrice: undefined,
+        quantity: undefined,
+        lowStock: undefined,
+        costPrice: undefined,
+        preferredVendor: "",
+        additionalNotes: "",
       },
     };
   }
@@ -23,10 +29,10 @@ class ProductForm extends Component {
   clearForm = (event) => {
     this.setState({
       name: "",
-      sellingPrice: 0,
-      quantity: 0,
-      lowStock: 0,
-      costPrice: 0,
+      sellingPrice: undefined,
+      quantity: undefined,
+      lowStock: undefined,
+      costPrice: undefined,
       preferredVendor: "",
       additionalNotes: "",
     });
@@ -43,11 +49,11 @@ class ProductForm extends Component {
     const { name, value } = event.target;
     let errors = this.state.errors;
     switch (name) {
-      case "username":
-        errors.username = value.length < 1 ? "Enter User Name" : "";
+      case "name":
+        errors.name = value.length < 1 ? "Enter User Name" : "";
         break;
-      case "password":
-        errors.password = value.length < 1 ? "Enter Password" : "";
+      case "sellingPrice":
+        errors.sellingPrice = value > 1 ? "Enter Greater value than 1" : "";
         break;
       default:
         break;
@@ -57,7 +63,6 @@ class ProductForm extends Component {
 
   submitForm = async (event) => {
     event.preventDefault();
-    // this.props.dispatch(AuthTypes.TOGGLE_LOADING);
     this.props.dispatch();
   };
 
@@ -248,9 +253,9 @@ class ProductForm extends Component {
 
 const mapToState = (state) => {
   return {
-    error: state.auth.errorMessage,
-    isLoading: state.auth.isLoading,
-    isLoggedIn: state.auth.isLoggedIn,
+    token: state.auth.token,
+    isLoading: state.product.isLoading,
+    isError: state.product.isError,
   };
 };
 
