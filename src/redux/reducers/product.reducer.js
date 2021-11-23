@@ -1,7 +1,7 @@
 import { ProductTypes } from "../types";
 
 const initialState = {
-  product: [],
+  product: {},
   isLoading: false,
   isError: false,
 };
