@@ -2,11 +2,13 @@ import Axios from "axios";
 
 import { BASE_API_URL, TEST_API_URL } from "./constant";
 
+
+
 class ProductService {
-  async create(data, token) {
+  async create(data) {
     try {
-      const response = await Axios.post(`${BASE_API_URL}product/`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await Axios.post(`${BASE_API_URL}product/`, data.data, {
+        headers: { Authorization: `${data.token}` },
       });
       console.log(response);
       return response.data;
@@ -17,8 +19,8 @@ class ProductService {
   }
   async read(token) {
     try {
-      const response = await Axios.get(`${TEST_API_URL}products`, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await Axios.get(`${BASE_API_URL}products`, {
+        headers: { Authorization: `${token}` },
       });
       console.log(response);
       return response.data;
@@ -27,10 +29,10 @@ class ProductService {
       throw error;
     }
   }
-  async edit(data, token) {
+  async edit(data) {
     try {
-      const response = await Axios.patch(`${TEST_API_URL}products`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await Axios.patch(`${TEST_API_URL}products`, data.data, {
+        headers: { Authorization: `${data.token}` },
       });
       console.log(response);
       return response.data;
@@ -40,10 +42,10 @@ class ProductService {
     }
   }
 
-  async delete(data, token) {
+  async delete(data) {
     try {
-      const response = await Axios.patch(`${TEST_API_URL}products`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await Axios.patch(`${TEST_API_URL}products`, data.data, {
+        headers: { Authorization: `${data.token}` },
       });
       console.log(response);
       return response.data;
