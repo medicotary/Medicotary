@@ -19,7 +19,9 @@ const Faq = lazy(() => import("./routes/faqs"));
 const AddVendor = lazy(() => import("./routes/vendors/addVendor"));
 const AddProduct = lazy(() => import("./routes/products/addProduct"));
 const AddBill = lazy(() => import("./routes/billing/addBill"));
-const CreateIntegration = lazy(() => import("./routes/delivery/createintegration"));
+const CreateIntegration = lazy(() =>
+  import("./routes/delivery/createintegration")
+);
 
 const Loading = () => <Loader color="primary" />;
 
@@ -40,7 +42,11 @@ function App(props) {
         <Route exact path="/billing" component={Billing}></Route>
         <Route exact path="/vendors" component={Vendor}></Route>
         <Route exact path="/delivery" component={Delivery}></Route>
-        <Route exact path="/createintegration" component={CreateIntegration}></Route>
+        <Route
+          exact
+          path="/createintegration"
+          component={CreateIntegration}
+        ></Route>
         <Route exact path="/dash" component={Dashboard}></Route>
         <Route exact path="/profile" component={Profile}></Route>
         <Route exact path="/notifications" component={Notifications}></Route>
