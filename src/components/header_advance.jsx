@@ -19,7 +19,7 @@ class Header extends Component {
         </Link>
         <div class="flex ml-auto items-center">
           <h2 class="text-xl font-medium antialiased">
-            {this.props.user.companyName > 0
+            {this.props.user.companyName.length > 0
               ? this.props.user.companyName
               : "Huma Medical"}
           </h2>
