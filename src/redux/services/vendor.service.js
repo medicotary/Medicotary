@@ -18,7 +18,7 @@ class VendorService {
   }
   async read(data) {
     try {
-      const response = await Axios.get(`${TEST_API_URL}products`);
+      const response = await Axios.get(`${BASE_API_URL}products`);
       console.log(response);
       return response.data;
     } catch (error) {
