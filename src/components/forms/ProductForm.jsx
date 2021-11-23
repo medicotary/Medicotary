@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { ProductActions } from "../../redux/actions";
-// import Loader from "../loader";
+import { ProductActions } from "../../redux/actions";
+import Loader from "../loader";
 class ProductForm extends Component {
   constructor(props) {
     super(props);
@@ -63,7 +63,18 @@ class ProductForm extends Component {
 
   submitForm = async (event) => {
     event.preventDefault();
-    this.props.dispatch();
+    let data = {};
+    data.data = {
+      name: this.state.name,
+      sellingPrice: this.state.sellingPrice,
+      quantity: this.state.quantity,
+      lowStock: this.state.lowStock,
+      costPrice: this.state.costPrice,
+      preferredVendor: this.state.preferredVendor,
+      additionalNotes: this.state.additionalNotes,
+    };
+    data.token = this.props.token;
+    this.props.dispatch(ProductActions.addProduct(data));
   };
 
   render() {
@@ -219,18 +230,26 @@ class ProductForm extends Component {
                     placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
                   />
                 </div>
-
                 <div class="flex flex-row justify-between mt-3">
-                  <div className="py-5">
-                    <Link to="/products" class="w-full">
+                  {this.props.isLoading ? (
+                    <div className="py-5">
                       <button
-                        onClick={this.handleSubmit}
+                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                      >
+                        <Loader color="#fff" />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="py-5">
+                      <button
+                        type="submit"
+                        onClick={this.submitForm}
                         className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                       >
                         Add Product
                       </button>
-                    </Link>
-                  </div>
+                    </div>
+                  )}
                   <div className="py-5">
                     <Link to="/products" class="w-full">
                       <button
@@ -253,7 +272,7 @@ class ProductForm extends Component {
 
 const mapToState = (state) => {
   return {
-    token: state.auth.token,
+    token: state.auth.user.token,
     isLoading: state.product.isLoading,
     isError: state.product.isError,
   };
