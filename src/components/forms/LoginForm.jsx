@@ -65,7 +65,8 @@ class UserInfo extends Component {
             type="email"
             className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
             id="email"
-            placeholder="johndoe@gmail.com"
+            placeholder="name@example.com"
+            required
           />
         </div>
         <div>
@@ -80,6 +81,7 @@ class UserInfo extends Component {
             className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
             id="password"
             placeholder="Your Password"
+            required
           />
         </div>
         <div>
@@ -102,7 +104,7 @@ class UserInfo extends Component {
         ) : (
           <div className="flex mt-6">
             <button
-              className={`w-full cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+              className={`w-full flex cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
             >
               <div className="justify-self-center">
                 <Loader color="#ffffff" />

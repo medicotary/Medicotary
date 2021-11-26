@@ -5,7 +5,7 @@ class Loading extends Component {
   //other logic
   render() {
     return (
-      <Loader type="Bars" color={this.props.color} height={25} width={25} />
+      <Loader type="TailSpin" color={this.props.color} height={25} width={25} />
     );
   }
 }
