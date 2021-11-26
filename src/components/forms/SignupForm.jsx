@@ -15,6 +15,7 @@ class UserInfo extends Component {
       errors: {
         username: "Enter User Name!",
         password: "Enter Password!",
+        lesslengthpassword: "Enter Password!",
       },
     };
   }
@@ -34,6 +35,12 @@ class UserInfo extends Component {
         break;
       case "password":
         errors.password = value.length < 1 ? "Enter Password" : "";
+        break;
+      case "lesslengthpassword":
+        errors.password =
+          value.length < 8
+            ? "the password should be more than 8 charecters"
+            : "";
         break;
       default:
         break;
@@ -87,12 +94,19 @@ class UserInfo extends Component {
             value={password}
             onChange={(e) => this.inputChange(e)}
             type="password"
+            minlength="8"
             className={`w-full p-2 text-primary border rounded-lg-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
             id="password"
             placeholder="Your Password"
             required
           />
         </div>
+        {this.state.password.length <= 8 ? (
+          <div className="text-error text-sm text-center py-1 font-medium">
+            {" "}
+            the password should be more than 8 charecters{" "}
+          </div>
+        ) : null}
         <div>
           <label htmlFor="companyname" className="text-sm font-medium">
             Company Name
@@ -159,7 +173,7 @@ class UserInfo extends Component {
         ) : (
           <div className="flex mt-6">
             <button
-              className={`w-full disable cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+              className={`w-full flex disable cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
             >
               <div className="justify-self-center">
                 <Loader color="#ffffff" />
