@@ -6,6 +6,8 @@ import { ReactComponent as FileTextIcon } from './file-text.svg'
 import { ReactComponent as PlusIcon } from './plus.svg'
 import { ReactComponent as SearchIcon } from './search.svg'
 import { ReactComponent as UploadIcon } from './upload.svg'
+import { ReactComponent as EyeIcon } from './eye.svg'
+import { ReactComponent as EyeOffIcon } from './eye-off.svg'
 
 export {
     DashboardIcon,
@@ -15,5 +17,7 @@ export {
     FileTextIcon,
     PlusIcon,
     SearchIcon,
-    UploadIcon
+    UploadIcon,
+    EyeIcon,
+    EyeOffIcon,
 }
