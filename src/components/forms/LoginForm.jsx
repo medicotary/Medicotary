@@ -3,18 +3,30 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { AuthActions } from "../../redux/actions";
 import Loader from "../loader";
+import { EyeIcon, EyeOffIcon } from "../../icons/index";
 class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
+      hidepassword: true,
       errors: {
         username: "Enter User Name!",
         password: "Enter Password!",
       },
     };
   }
+
+  // password hide and show
+  handleClickShowPassword = () => {
+    this.setState({ hidepassword: !this.state.hidepassword });
+  };
+
+  handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   inputChange = (event) => {
     const { name, value } = event.target;
     console.log(event.target.value, event.target.name);
@@ -73,16 +85,38 @@ class UserInfo extends Component {
           <label htmlFor="password" className="text-sm font-medium">
             Password
           </label>
-          <input
-            name="password"
-            value={password}
-            onChange={(e) => this.inputChange(e)}
-            type="password"
-            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
-            id="password"
-            placeholder="Your Password"
-            required
-          />
+          <div
+            className={`password w-full flex p-0 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out  `}
+          >
+            <input
+              name="password"
+              value={password}
+              onChange={(e) => this.inputChange(e)}
+              type={this.state.hidepassword ? "password" : "text"}
+              className={`w-full p-2 text-primary border-none rounded-md outline-none text-sm transition duration-150 ease-in-out `}
+              id="password"
+              placeholder="Your Password"
+              required
+            />
+            <button
+              className="pr-2"
+              type="button"
+              onClick={this.handleClickShowPassword}
+              onMouseDown={this.handleMouseDownPassword}
+            >
+              {this.state.hidepassword ? (
+                <EyeIcon stroke="#a39ab6" />
+              ) : (
+                <EyeOffIcon stroke="#a39ab6" />
+              )}
+            </button>
+          </div>
+          {password.length < 8 && password.length > 1 ? (
+            <div className="text-error text-xs py-1 font-medium">
+              {" "}
+              the password should be more than 8 charecters{" "}
+            </div>
+          ) : null}
         </div>
         <div>
           <label className="text-sm font-medium mb-4">
