@@ -32,21 +32,21 @@ const ProductReducer = (state = initialState, action) => {
     case ProductTypes.PRODUCT_ADDED:
       return {
         ...state,
-        product: action.data,
+        products: {},
         isLoading: false,
         isError: false,
       };
     case ProductTypes.PRODUCT_DELETED:
       return {
         ...state,
-        product: action.data,
+        product: {},
         isLoading: false,
         isError: false,
       };
     case ProductTypes.PRODUCT_ERROR:
       return {
         ...state,
-        product: action.data,
+        product: {},
         isLoading: false,
         isError: true,
       };
@@ -60,7 +60,7 @@ const ProductReducer = (state = initialState, action) => {
     case ProductTypes.PRODUCT_UPDATED:
       return {
         ...state,
-        product: action.data,
+        product: {},
         isLoading: false,
         isError: false,
       };
