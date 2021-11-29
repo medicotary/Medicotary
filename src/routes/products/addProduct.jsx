@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React  from "react";
 import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ProductForm from "../../components/forms/ProductForm";
 
 const AddProducts = () => {

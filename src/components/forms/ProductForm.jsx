@@ -8,10 +8,10 @@ class ProductForm extends Component {
     super(props);
     this.state = {
       name: "",
-      sellingPrice: undefined,
-      quantity: undefined,
-      lowStock: undefined,
-      costPrice: undefined,
+      sellingPrice: 0,
+      quantity: 0,
+      lowStock: 0,
+      costPrice: 0,
       preferredVendor: "",
       additionalNotes: "",
       errors: {
@@ -29,10 +29,10 @@ class ProductForm extends Component {
   clearForm = (event) => {
     this.setState({
       name: "",
-      sellingPrice: undefined,
-      quantity: undefined,
-      lowStock: undefined,
-      costPrice: undefined,
+      sellingPrice: 0,
+      quantity: 0,
+      lowStock: 0,
+      costPrice: 0,
       preferredVendor: "",
       additionalNotes: "",
     });
@@ -75,6 +75,7 @@ class ProductForm extends Component {
     };
     data.token = this.props.token;
     this.props.dispatch(ProductActions.addProduct(data));
+    this.clearForm(event);
   };
 
   render() {

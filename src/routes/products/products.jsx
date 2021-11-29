@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../index.css";
+import { withRouter } from "react-router-dom";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
 import ProductComponent from "../../components/productTile";
@@ -33,6 +34,7 @@ import { PlusIcon } from "../../icons/index";
 
 const Product = () => {
   // const [search_product, setSearchProduct] = useState("");
+  console.log("Product Reached");
   return (
     <div>
       <Header />

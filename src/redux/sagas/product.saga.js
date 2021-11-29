@@ -1,7 +1,7 @@
 import { put, call, takeLatest, all } from "redux-saga/effects";
 import { ProductService } from "../services";
 import { ProductTypes } from "../types";
-
+import history from "../history";
 const productService = new ProductService();
 
 export function* addProduct(action) {
@@ -11,9 +11,10 @@ export function* addProduct(action) {
     if (res.error) {
       yield put({
         type: ProductTypes.PRODUCT_ERROR,
-        error: res.message,
+        error: res.error,
       });
     } else {
+      history.push("/products");
       yield put({ type: ProductTypes.PRODUCT_ADDED, data: res });
     }
   } catch (error) {
@@ -48,7 +49,11 @@ export function* deleteProduct(action) {
         error: res.message,
       });
     } else {
-      yield put({ type: ProductTypes.PRODUCT_DELETED, data: res });
+      yield;
+      put([
+        { type: ProductTypes.PRODUCT_DELETED, data: res },
+        history.push("/products"),
+      ]);
     }
   } catch (error) {
     yield put({ type: ProductTypes.PRODUCT_ERROR, error });

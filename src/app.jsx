@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Loader from "./components/loader";
+import { compose } from "redux";
 import { isAuthenticated } from "./redux/selector/auth.Selector";
 import { connect } from "react-redux";
 
@@ -71,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default compose(withRouter, connect(mapStateToProps))(App);
