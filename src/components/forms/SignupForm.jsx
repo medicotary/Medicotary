@@ -100,7 +100,8 @@ class UserInfo extends Component {
             placeholder="name@example.com"
             required
           />
-          {email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) ? (
+          {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) &&
+          email.length >= 4 ? (
             <div className="text-error text-xs py-1 font-medium">
               {" "}
               enter a valid email{" "}
@@ -126,7 +127,7 @@ class UserInfo extends Component {
               required
             />
             <button
-            className="pr-2"
+              className="pr-2"
               onClick={this.handleClickShowPassword}
               onMouseDown={this.handleMouseDownPassword}
             >
@@ -137,7 +138,7 @@ class UserInfo extends Component {
               )}
             </button>
           </div>
-          {password.length < 8 && password.length > 1 ? (
+          {password.length < 8 && password.length >= 1 ? (
             <div className="text-error text-xs py-1 font-medium">
               {" "}
               the password should be more than 8 charecters{" "}

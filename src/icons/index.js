@@ -8,6 +8,7 @@ import { ReactComponent as SearchIcon } from './search.svg'
 import { ReactComponent as UploadIcon } from './upload.svg'
 import { ReactComponent as EyeIcon } from './eye.svg'
 import { ReactComponent as EyeOffIcon } from './eye-off.svg'
+import { ReactComponent as CheckIcon } from './check.svg'
 
 export {
     DashboardIcon,
@@ -20,4 +21,5 @@ export {
     UploadIcon,
     EyeIcon,
     EyeOffIcon,
+    CheckIcon,
 }

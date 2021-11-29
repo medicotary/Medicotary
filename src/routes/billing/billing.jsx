@@ -6,6 +6,8 @@ import MiddleStats from "../../components/billing/middle-stats";
 import { PieChart } from "react-minimal-pie-chart";
 import { PlusIcon, SearchIcon } from "../../icons/index";
 import { Link } from "react-router-dom";
+import { Chart } from "react-google-charts";
+import Loader from "../../components/loader";
 
 const invoices = [
   {
@@ -37,23 +39,40 @@ const Billing = () => {
             {/* addcharts here */}
             <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
               <p className="text-xl font-bold text-gray-900">Sales</p>
-              <div className="w-48 object-scale-down">
-                <PieChart
-                  animate
-                  animationDuration={500}
-                  animationEasing="ease-out"
-                  center={[50, 50]}
+              <div className="w-full -mt-4">
+                <Chart
+                  width={"400px"}
+                  height={"250px"}
+                  chartType="BarChart"
+                  loader={<Loader color="#8776EE" />}
                   data={[
-                    { title: "Two", value: 15, color: "#31D0AA" },
-                    { title: "Three", value: 20, color: "#E85B81" },
+                    [
+                      "Date",
+                      "Sales",
+                      { role: "style" },
+                      {
+                        sourceColumn: 0,
+                        role: "annotation",
+                        type: "string",
+                        calc: "stringify",
+                      },
+                    ],
+                    [null , 2, "#8776EE", null],
+                    [null , 2, "#8776EE", null],
+                    [null , 2, "#8776EE", null],
+                    [null , 2, "#8776EE", null],
+                    [null , 2, "#8776EE", null],
+                    [null , 5, "#E85B81", null],
+                    [null , 2, "#31D0AA", null],
                   ]}
-                  lengthAngle={360}
-                  lineWidth={45}
-                  paddingAngle={0}
-                  radius={50}
-                  rounded
-                  startAngle={0}
-                  viewBoxSize={[100, 100]}
+                  options={{
+                    is3D: true,
+                    backgroundColor: "#00ffff00",
+                    width: 400,
+                    height: 250,
+                    bar: { groupWidth: "70%" },
+                    legend: { position: "none" },
+                  }}
                 />
               </div>
             </div>
@@ -164,7 +183,7 @@ const Billing = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <a
-                        href="#"
+                        href="/dash"
                         className="text-indigo-600 hover:text-indigo-900"
                       >
                         Edit
