@@ -3,17 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { AuthActions } from "../../redux/actions";
 import Loader from "../loader";
-// import { useDispatch, useSelector } from "react-redux";
-
 import { CheckIcon } from "../../icons/index";
-import PhotoMale1 from "../../assets/profile/toy faces-male-01.png";
-import PhotoMale2 from "../../assets/profile/toy faces-male-02.png";
-import PhotoMale3 from "../../assets/profile/toy faces-male-03.png";
-import PhotoMale4 from "../../assets/profile/toy faces-male-04.png";
-import PhotoFemale1 from "../../assets/profile/toy faces-female-01.png";
-import PhotoFemale2 from "../../assets/profile/toy faces-female-02.png";
-import PhotoFemale3 from "../../assets/profile/toy faces-female-03.png";
-import PhotoFemale4 from "../../assets/profile/toy faces-female-04.png";
 
 class UserInfo extends Component {
   constructor(props) {
@@ -29,6 +19,24 @@ class UserInfo extends Component {
       errors: {
         username: "Enter User Name!",
         password: "Enter Password!",
+      },
+      profilephotos: {
+        male1:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true",
+        male2:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-02.png?raw=true",
+        male3:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-03.png?raw=true",
+        male4:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-04.png?raw=true",
+        female1:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-01.png?raw=true",
+        female2:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-02.png?raw=true",
+        female3:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-03.png?raw=true",
+        female4:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-04.png?raw=true",
       },
     };
   }
@@ -69,20 +77,25 @@ class UserInfo extends Component {
   };
 
   render() {
-    let { name, email, authId, location, companyName, picture, maxLimit } =
+    let { name, email, authId, location, companyName, picture, maxLimit, profilephotos } =
       this.state;
+
     if (!this.props.isLoading) {
       name = this.props.user.name;
       email = this.props.user.email;
       authId = this.props.user.authId;
       location = this.props.user.location;
       companyName = this.props.user.companyName;
-      picture = this.props.user.picture;
+      // picture = this.props.user.picture;
       maxLimit = this.props.user.maxLimit;
     }
+    picture = profilephotos.male3
 
     return this.props.isLoading ? (
-      <Loader />
+      <div className="h-screen flex justify-center items-center">
+        {" "}
+        <Loader size="50" />{" "}
+      </div>
     ) : (
       <div className="bg-gray-50 flex ">
         <div className=" bg-white p-5 border-2 rounded-xl w-1/2 mx-auto mt-20 mb-10">
@@ -94,7 +107,7 @@ class UserInfo extends Component {
           <div class="flex items-stretch space-x-12">
             <div class="flex-column justify-center items-stretch flex-1">
               <img
-                src={PhotoMale2}
+                src={picture}
                 alt="my profile pic"
                 class="rounded-lg object-scale-down"
               />
@@ -106,9 +119,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoMale1}
+                    src={profilephotos.male1}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -116,9 +130,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoMale2}
+                    src={profilephotos.male2}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -126,9 +141,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoMale3}
+                    src={profilephotos.male3}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -136,9 +152,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoMale4}
+                    src={profilephotos.male4}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
               </div>
@@ -150,9 +167,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoFemale1}
+                    src={profilephotos.female1}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -160,9 +178,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoFemale2}
+                    src={profilephotos.female2}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -170,9 +189,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoFemale3}
+                    src={profilephotos.female3}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
                 <button className="h-16 w-16 m-1 rounded-lg relative">
@@ -180,9 +200,10 @@ class UserInfo extends Component {
                     <CheckIcon stroke="white" className="h-8 w-8"></CheckIcon>
                   </div>
                   <img
-                    src={PhotoFemale4}
+                    src={profilephotos.female4}
                     alt="my profile pic"
                     class="rounded-lg object-scale-down absolute z-0 top-0 "
+                    loading="lazy"
                   />
                 </button>
               </div>
@@ -200,6 +221,7 @@ class UserInfo extends Component {
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="name"
                   placeholder="John Doe"
+                  required
                 />
               </div>
               <div>
@@ -213,6 +235,7 @@ class UserInfo extends Component {
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
                   placeholder="name@example.com"
+                  required
                 />
               </div>
               <div>
@@ -226,6 +249,7 @@ class UserInfo extends Component {
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="companyname"
                   placeholder="your store name"
+                  required
                 />
               </div>
               <div>
@@ -255,10 +279,12 @@ class UserInfo extends Component {
                   className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="Max_Limit_of_Inventory"
                   placeholder="approx max capacity of your store"
+                  required
                 />
               </div>
               {/* save changes button */}
               <button
+                type="submit"
                 className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none hover:bg-indigo-700`}
               >
                 save changes
