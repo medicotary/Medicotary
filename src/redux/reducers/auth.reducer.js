@@ -13,7 +13,7 @@ const AuthReducer = (state = initialState, action) => {
     case AuthTypes.LOGIN_REQUEST:
       return {
         ...state,
-        user: action.data,
+        user: {},
         isLoading: true,
         errorMessage: "",
         isLoggedIn: false,
@@ -21,7 +21,7 @@ const AuthReducer = (state = initialState, action) => {
     case AuthTypes.SIGNUP_REQUEST:
       return {
         ...state,
-        user: action.data,
+        user: {},
         isLoading: true,
         errorMessage: "",
         isLoggedIn: false,

@@ -1,5 +1,6 @@
 import { put, call, takeLatest, all } from "redux-saga/effects";
 import { AuthService } from "../services";
+import { push } from "react-router-redux";
 import history from "../history";
 import { AuthTypes } from "../types";
 const authService = new AuthService();
@@ -9,7 +10,6 @@ export function* login(action) {
   try {
     const res = yield call(authService.login, action.payload);
     if (res.error) {
-      history.push("/");
       yield put({
         type: AuthTypes.LOGIN_ERROR,
         error: res.message,
