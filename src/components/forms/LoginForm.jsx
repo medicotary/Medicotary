@@ -70,16 +70,25 @@ class UserInfo extends Component {
           <label htmlFor="email" className="text-sm font-medium">
             E-mail
           </label>
-          <input
-            value={email}
-            name="email"
-            onChange={(e) => this.inputChange(e)}
-            type="email"
-            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-            id="email"
-            placeholder="name@example.com"
-            required
-          />
+          <div>
+            <input
+              value={email}
+              name="email"
+              onChange={(e) => this.inputChange(e)}
+              type="email"
+              className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
+              id="email"
+              placeholder="name@example.com"
+              required
+            />
+            {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) &&
+            email.length >= 4 ? (
+              <div className="text-error text-xs py-1 font-medium">
+                {" "}
+                enter a valid email{" "}
+              </div>
+            ) : null}
+          </div>
         </div>
         <div>
           <label htmlFor="password" className="text-sm font-medium">
@@ -111,7 +120,7 @@ class UserInfo extends Component {
               )}
             </button>
           </div>
-          {password.length < 8 && password.length > 1 ? (
+          {password.length < 8 && password.length >= 1 ? (
             <div className="text-error text-xs py-1 font-medium">
               {" "}
               the password should be more than 8 charecters{" "}
