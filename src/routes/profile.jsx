@@ -9,15 +9,10 @@ import PhotoMale1 from "../assets/profile photos/toy faces-male-01.png";
 import PhotoMale2 from "../assets/profile photos/toy faces-male-02.png";
 import PhotoMale3 from "../assets/profile photos/toy faces-male-03.png";
 import PhotoMale4 from "../assets/profile photos/toy faces-male-04.png";
-import PhotoMale5 from "../assets/profile photos/toy faces-male-05.png";
-import PhotoMale6 from "../assets/profile photos/toy faces-male-06.png";
 import PhotoFemale1 from "../assets/profile photos/toy faces-female-01.png";
 import PhotoFemale2 from "../assets/profile photos/toy faces-female-02.png";
 import PhotoFemale3 from "../assets/profile photos/toy faces-female-03.png";
 import PhotoFemale4 from "../assets/profile photos/toy faces-female-04.png";
-import PhotoFemale5 from "../assets/profile photos/toy faces-female-05.png";
-import PhotoFemale6 from "../assets/profile photos/toy faces-female-06.png";
-import axios from "axios";
 
 const Profile = () => {
   const user = useSelector((state) => state.auth.user.user);
