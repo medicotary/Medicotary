@@ -19,13 +19,13 @@ class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: email,
-      name: name ? name : "Enter name",
+      email: "",
+      name: "",
       authId: "",
-      location: location,
-      companyName: companyName,
+      location: "",
+      companyName: "",
       picture: "",
-      maxLimit: maxLimit ? maxLimit : 0,
+      maxLimit: 0,
       errors: {
         username: "Enter User Name!",
         password: "Enter Password!",
@@ -64,7 +64,21 @@ class UserInfo extends Component {
   };
 
   render() {
-    return (
+    const { name, email, authId, location, companyName, picture, maxLimit } =
+      this.state;
+    if (!this.props.isLoading) {
+      name = this.props.user.name;
+      email = this.props.user.email;
+      authId = this.props.user.authId;
+      location = this.props.user.location;
+      companyName = this.props.user.companyName;
+      picture = this.props.user.picture;
+      maxLimit = this.props.user.maxLimit;
+    }
+
+    return this.props.isLoading ? (
+      <Loader />
+    ) : (
       <form>
         <div>
           <h1 className="text-3xl font-medium antialiased text-left p-5">
