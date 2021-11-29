@@ -1,36 +1,7 @@
 import React from "react";
 import "../index.css";
 import Header from "../components/header_advance";
-import { ChevronUpIcon } from "@heroicons/react/solid";
-// import MyDisclosure from "../components/disclosure";
-import { Disclosure, Transition } from "@headlessui/react";
-
-function MyDisclosure(question) {
-  return (
-    <div classname="">
-      <Disclosure>
-        {({ open }) => (
-          <div className="container shadow bg-white rounded-lg my-3">
-            <Disclosure.Button className="w-full flex justify-between p-4 text-2xl text-left text-black  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-              <span className={`${!open ? "text-black " : "text-primary"}`}>
-                How does the dasboard display the data?
-              </span>
-              <ChevronUpIcon
-                className={`${
-                  !open ? "transform rotate-180 text-black " : "text-primary"
-                } w-7 h-7 ml-auto item-end`}
-              />
-            </Disclosure.Button>
-            <Disclosure.Panel className="p-4 text-md text-black">
-              The data from the databse is used to display the data to the
-              dashboard.
-            </Disclosure.Panel>
-          </div>
-        )}
-      </Disclosure>
-    </div>
-  );
-}
+import FAQCard from "../components/faqcard";
 
 const Faq = () => {
   return (
@@ -43,9 +14,18 @@ const Faq = () => {
               Have any question?
             </h1>
           </div>
-          <MyDisclosure />
-          <MyDisclosure />
-          <MyDisclosure />
+          <FAQCard
+            question="How can I create a new bill?"
+            answer="1. Click the create bill button on homepage in the main banner 2. Use quick add  3. Navigate to Billing page and click 'Create bill' button"
+          />
+          <FAQCard
+            question="How can I add a new product?"
+            answer="Use the quick add feature or Navigate to Products page and click the 'Add product' button"
+          />
+          <FAQCard question="Who are vendors?" answer="Vendors are those people who you can contact and order more medicines if you want to , you can make a directory of thema dn that directory can be daved in the vendors page, which you can refer at any time" />
+          <FAQCard question="How is Dashboard useful for me?" answer="At a glance you will get to know what all medicines are out of stock and how many are on low stock, so that you can then look at your notifications and directly buy them from the vendors" />
+          <FAQCard question="How can I see history of bills?" answer="You have to Navigate to the billings page and scroll down, you will find all the invoices present in your history" />
+          {/* <FAQCard question="How to track delivery?" answer="" /> */}
         </div>
       </div>
     </div>
