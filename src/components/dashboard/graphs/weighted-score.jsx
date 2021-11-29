@@ -16,11 +16,19 @@ class WeightedScore extends Component {
             data={[
               {
                 title: "Low stock",
-                value: 33,
+                value: parseInt(this.props.lowStock),
                 color: "#489BE8",
               },
-              { title: "Arriving stock", value: 33, color: "#31D0AA" },
-              { title: "Out of stock", value: 33, color: "#E85B81" },
+              {
+                title: "Arriving stock",
+                value: parseInt(this.props.arrivingStock),
+                color: "#31D0AA",
+              },
+              {
+                title: "Out of stock",
+                value: parseInt(this.props.outOfStock),
+                color: "#E85B81",
+              },
             ]}
             lengthAngle={360}
             lineWidth={45}
