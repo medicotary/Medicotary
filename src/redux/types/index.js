@@ -2,5 +2,6 @@
 import * as AuthTypes from "./auth.types";
 import * as ProductTypes from "./product.types";
 import * as VendorTypes from "./vendor.types";
+import * as HomeTypes from "./home.types";
 // Export all types here
-export { AuthTypes, ProductTypes, VendorTypes };
+export { AuthTypes, ProductTypes, VendorTypes, HomeTypes };
