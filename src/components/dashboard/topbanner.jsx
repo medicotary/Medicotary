@@ -12,7 +12,7 @@ const TopBanner = () => {
           Never worry about your Inventory
         </p>
         <Link to="/addbill">
-          <button className="button px-16 py-4 my-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+          <button className="button px-16 py-4 my-4 bg-primary hover:bg-indigo-700 transition-all rounded-lg text-sm font-medium text-center text-white">
             Create a Bill
           </button>
         </Link>

@@ -108,7 +108,7 @@ class ProductForm extends Component {
                   <div className="py-3">
                     {/* <Link to="/login" class="w-full"> */}
                     <button
-                      className={`w-2/3 border bg-primary text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
+                      className={`w-2/3 border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
                     >
                       Browse Photos
                     </button>
@@ -245,7 +245,7 @@ class ProductForm extends Component {
                   {this.props.isLoading ? (
                     <div className="py-5">
                       <button
-                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                        className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                       >
                         <Loader color="#fff" />
                       </button>
@@ -255,7 +255,7 @@ class ProductForm extends Component {
                       <button
                         type="submit"
                         onClick={this.submitForm}
-                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                        className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
                       >
                         Add Product
                       </button>
