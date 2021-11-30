@@ -4,11 +4,16 @@ import logo from "../assets/fulllogo.png";
 import bellicon from "../assets/bell.svg";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import BackButton from "./backbutton";
 
 class Header extends Component {
   render() {
     return (
       <div class="h-1/10 fixed flex px-3 w-full border bg-white z-50">
+        {this.props.back?
+        <div className="flex flex-wrap">
+          <BackButton />
+        </div>: "" }
         <Link to="/dash">
           <img src={logo} alt="" className="mr-auto object-scale-down h-12" />{" "}
         </Link>
@@ -16,7 +21,7 @@ class Header extends Component {
           <h2 class="text-xl font-medium antialiased">
             {this.props.user.companyName.length > 0
               ? this.props.user.companyName
-              : "Huma Medical"}
+              : "Enter your store name"}
           </h2>
           {/* bell icon */}
           <Link to="/notifications">

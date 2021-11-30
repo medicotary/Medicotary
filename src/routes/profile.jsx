@@ -1,12 +1,12 @@
 import React from "react";
 import "../index.css";
-import Header from "../components/header_advance";
+import Header from "../components/header";
 import ProfileForm from "./../components/forms/ProfileForm";
 
 const Profile = () => {
   return (
     <div>
-      <Header />
+      <Header back="true" />
       <ProfileForm />
     </div>
   );
