@@ -25,112 +25,20 @@ class ProductComponent extends React.Component {
   };
 
   render() {
-    const renderList =
-      !this.props.isLoading && this.props.products ? (
-        this.state.search_product.length > 0 ? (
-          this.props.products
-            .filter((product) =>
-              product.name
-                .toLowerCase()
-                .includes(this.state.search_product.toLowerCase())
-            )
-            .map((product) => {
-              const {
-                productsId,
-                name,
-                picture,
-                quantity,
-                lowStock,
-                costPrice,
-                sellingPrice,
-              } = product;
-              return (
-                <tr key={productsId}>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0 h-10 w-10">
-                        <img
-                          className="h-10 w-10 rounded-full"
-                          src={picture}
-                          alt=""
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">
-                          {name}
-                        </div>
-                        <div className="text-sm text-gray-500">{quantity}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{lowStock}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {costPrice}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {sellingPrice}
-                  </td>
-                </tr>
-              );
-            })
-        ) : (
-          this.props.products.map((product) => {
-            const {
-              productsId,
-              name,
-              picture,
-              quantity,
-              lowStock,
-              costPrice,
-              sellingPrice,
-            } = product;
-            return (
-              <tr key={productsId}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-10 w-10">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={picture}
-                        alt=""
-                      />
-                    </div>
-                    <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">
-                        {name}
-                      </div>
-                      <div className="text-sm text-gray-500">{quantity}</div>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{lowStock}</div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {costPrice}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {sellingPrice}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <a
-                    href="#"
-                    className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
-                  >
-                    Edit
-                  </a>
-                </td>
-              </tr>
-            );
-          })
-        )
-      ) : (
-        <div className=" flex items-center justify-center align-center w-full">
-          <div className="m-48"><Loader size="75" /></div>
-        </div>
-      );
+    let filteredData = [];
+    const products = this.props.products ? this.props.products : [];
+    if (this.state.search_product.length > 0) {
+      filteredData = [];
+      filteredData = products.filter(({ name }) => {
+        return name
+          .toLowerCase()
+          .includes(this.state.search_product.toLowerCase());
+      });
+    } else {
+      filteredData = [];
+      filteredData = products;
+    }
+
     return (
       <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
         <div className="mt-8"></div>
@@ -139,11 +47,12 @@ class ProductComponent extends React.Component {
           {/* search box */}
           <div className="flex space-x-1 items-stretch">
             <input
-              value={this.search_product}
+              value={this.state.search_product}
               onChange={(e) => this.inputChange(e)}
               type="search"
               className={`w-full p-4 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
               id="search"
+              name="search_product"
               placeholder="Search for product"
             />
             <button
@@ -207,9 +116,68 @@ class ProductComponent extends React.Component {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {renderList}
-                  </tbody>
+                  {this.props.isLoading ? (
+                    <div className=" flex items-center justify-center align-center w-full">
+                      <div className="m-48">
+                        <Loader size="75" />
+                      </div>
+                    </div>
+                  ) : (
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {filteredData.map(
+                        ({
+                          productsId,
+                          name,
+                          picture,
+                          quantity,
+                          lowStock,
+                          costPrice,
+                          sellingPrice,
+                        }) => (
+                          <tr key={productsId}>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-10 w-10">
+                                  <img
+                                    className="h-10 w-10 rounded-full"
+                                    src={picture}
+                                    alt=""
+                                  />
+                                </div>
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {name}
+                                  </div>
+                                  <div className="text-sm text-gray-500">
+                                    {quantity}
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-gray-900">
+                                {lowStock}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {costPrice}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {sellingPrice}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              <a
+                                href="#"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                              >
+                                Edit
+                              </a>
+                            </td>
+                          </tr>
+                        )
+                      )}
+                    </tbody>
+                  )}
                 </table>
               </div>
             </div>
