@@ -1,7 +1,7 @@
 import { VendorTypes } from "../types";
 
 const initialState = {
-  vendor: {},
+  vendor: { vendor: {} },
   isLoading: false,
   isError: false,
 };
@@ -12,42 +12,42 @@ const VendorReducer = (state = initialState, action) => {
     case VendorTypes.VENDOR_ADD_REQUEST:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: true,
         isError: false,
       };
     case VendorTypes.VENDOR_DELETE_REQUEST:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: true,
         isError: false,
       };
     case VendorTypes.VENDOR_EDIT_REQUEST:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: true,
         isError: false,
       };
     case VendorTypes.VENDOR_ADDED:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: false,
         isError: false,
       };
     case VendorTypes.VENDOR_DELETED:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: false,
         isError: false,
       };
     case VendorTypes.VENDOR_ERROR:
       return {
         ...state,
-        vendor: action.data,
+        vendor: { vendors: {} },
         isLoading: false,
         isError: true,
       };
