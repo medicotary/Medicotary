@@ -48,91 +48,112 @@ class Notifications extends React.Component {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      {outOfStock.map((notification) => (
-                        <tr key={notification.email}>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0 h-10 w-10">
-                                <img
-                                  className="h-10 w-10 rounded-full"
-                                  src={notification.image}
-                                  alt=""
-                                />
-                              </div>
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">
-                                  {notification.name}
-                                </div>
-                              </div>
-                            </div>
+                    {this.props.isLoading ? (
+                      <tbody className="bg-white divide-y divide-gray-200 h-96">
+                        <tr>
+                          <td></td>
+                          <td>
+                            <Loader size="75" />
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="p-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-error text-red-100">
-                              Out of stock
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/delivery">
-                              <button className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex">
-                                Order this item
-                              </button>
-                            </a>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a
-                              href="#"
-                              className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
-                            >
-                              done
-                            </a>
-                          </td>
+                          <td></td>
+                          <td></td>
                         </tr>
-                      ))}
-                      {lowStock.map((notification) => (
-                        <tr key={notification.email}>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center">
-                              <div className="flex-shrink-0 h-10 w-10">
-                                <img
-                                  className="h-10 w-10 rounded-full"
-                                  src={notification.image}
-                                  alt=""
-                                />
-                              </div>
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">
-                                  {notification.name}
+                      </tbody>
+                    ) : (
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {outOfStock.map((notification) => (
+                          <tr key={notification.email}>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-12 w-12">
+                                  <img
+                                    className="h-12 w-12 rounded-lg"
+                                    src={
+                                      notification.image
+                                        ? notification.image
+                                        : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80"
+                                    }
+                                    alt=""
+                                  />
+                                </div>
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {notification.name}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="p-2 inline-flex text-xs leading-5 font-semibold text-white rounded-full  bg-blue-500">
-                              Low stock
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/delivery">
-                              <button
-                                href="/delivery"
-                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className="p-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-error text-red-100">
+                                Out of stock
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="/delivery">
+                                <button className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex">
+                                  Order this item
+                                </button>
+                              </a>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a
+                                href="#"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
                               >
-                                Order this item
-                              </button>
-                            </a>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a
-                              href="#"
-                              className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
-                            >
-                              done
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
+                                done
+                              </a>
+                            </td>
+                          </tr>
+                        ))}
+                        {lowStock.map((notification) => (
+                          <tr key={notification.email}>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-12 w-12">
+                                  <img
+                                    className="h-12 w-12 rounded-lg"
+                                    src={
+                                      notification.image
+                                        ? notification.image
+                                        : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80"
+                                    }
+                                    alt="medicine"
+                                  />
+                                </div>
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">
+                                    {notification.name}
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className="p-2 inline-flex text-xs leading-5 font-semibold text-white rounded-full  bg-blue-500">
+                                Low stock
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a href="/delivery">
+                                <button
+                                  href="/delivery"
+                                  className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
+                                >
+                                  Order this item
+                                </button>
+                              </a>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <a
+                                href="#"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                              >
+                                done
+                              </a>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    )}
                   </table>
                 </div>
               </div>
