@@ -5,6 +5,7 @@ export const login = (data) => ({
   payload: data,
 });
 
+
 export const signup = (data) => ({
   type: AuthTypes.SIGNUP_REQUEST,
   payload: data,

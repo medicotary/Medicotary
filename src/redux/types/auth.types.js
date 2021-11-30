@@ -6,6 +6,9 @@ export const LOGIN_ERROR = "LOGIN_ERROR";
 export const SIGNUP_REQUEST = "SIGNUP_REQUEST";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 
+
+
+
 // logout
 export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 
