@@ -17,7 +17,7 @@ class Notifications extends React.Component {
       : [];
     return (
       <div>
-        <Header />
+        <Header back="true" />
         {/* main content container */}
         <div className="pt-20">
           <h1 className="ml-10 text-3xl font-bold mb-4">Notifications</h1>

@@ -43,7 +43,7 @@ class ProductComponent extends React.Component {
     }
 
     return (
-      <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
+      <div className="mt-auto lg:w-4/5 w-full p-10 bg-gray-50 ml-auto">
         <div className="mt-8"></div>
         {/* top search bar */}
         <div className="flex justify-between items-stretch">
@@ -53,14 +53,14 @@ class ProductComponent extends React.Component {
               value={this.state.search_product}
               onChange={(e) => this.inputChange(e)}
               type="search"
-              className={`w-full p-4 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
+              className={`w-full lg:p-4 p-1 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
               id="search"
               name="search_product"
               placeholder="Search for product"
             />
             <button
               type="search"
-              className={`cursor-pointer bg-primary p-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+              className={`cursor-pointer bg-primary lg:p-4 p-1 text-sm text-white rounded-lg border focus:outline-none focus:`}
             >
               <SearchIcon></SearchIcon>
             </button>
@@ -77,7 +77,7 @@ class ProductComponent extends React.Component {
           </div>
           {/* add vendor button */}
           <Link to="/addproduct">
-            <button className="flex space-x-2 justify-center button px-16 py-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+            <button className="flex space-x-2 justify-center button lg:px-16 lg:py-4 py-2 px-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
               <PlusIcon></PlusIcon>
               Add a product
             </button>

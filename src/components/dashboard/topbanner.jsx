@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const TopBanner = () => {
   return (
-    <div className="bg-purple-100 rounded-2xl flex gap-x-14 mt-10 p-4 items-center z-0">
+    <div className="bg-purple-100 rounded-2xl lg:flex sm:flex-column gap-x-14 mt-10 p-4 items-center z-0">
       <img className="h-48 rounded-lg" src={Pharmacists} alt="#" />
       <div>
-        <p className="opacity-80 text-4xl font-bold text-indigo-700 z-10">
+        <p className="opacity-80 lg:text-4xl text-2xl font-bold text-indigo-700 z-10">
           Never worry about your Inventory
         </p>
         <Link to="/addbill">

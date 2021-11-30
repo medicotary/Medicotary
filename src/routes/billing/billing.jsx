@@ -34,7 +34,7 @@ const Billing = () => {
       <div>
         <Sidebar place="3" />
         {/* main content container */}
-        <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto flex flex-col space-y-6">
+        <div className=" mt-auto lg:w-4/5 w-full p-10 bg-gray-50 ml-auto flex flex-col space-y-6">
           <div className="mt-10 flex space-x-10">
             {/* addcharts here */}
             <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
