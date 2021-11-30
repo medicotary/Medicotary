@@ -6,23 +6,6 @@ import { store } from "../redux";
 import Loader from "../components/loader";
 import { connect } from "react-redux";
 
-const notifications = [
-  {
-    name: "Remdesivir",
-    medicine: "Crocin",
-    email: "hayat.tamboli@gmail.com",
-    image: "https://i.stack.imgur.com/EtOY5.jpg?s=136&g=1",
-  },
-  {
-    name: "Crocin",
-    medicine: "Remdesivir",
-    email: "manas1820@gmail.com",
-    image:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Meme_Man_on_transparent_background.webp/316px-Meme_Man_on_transparent_background.webp.png",
-  },
-  // More notifications...
-];
-
 class Notifications extends React.Component {
   componentDidMount() {
     this.props.loadData();
@@ -90,12 +73,11 @@ class Notifications extends React.Component {
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <button
-                              href="#"
-                              className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
-                            >
-                              Order this item
-                            </button>
+                            <a href="/delivery">
+                              <button className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex">
+                                Order this item
+                              </button>
+                            </a>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a
@@ -126,17 +108,19 @@ class Notifications extends React.Component {
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="p-2 inline-flex text-xs leading-5 font-semibold rounded-full  bg-yellow-100">
+                            <span className="p-2 inline-flex text-xs leading-5 font-semibold text-white rounded-full  bg-blue-500">
                               Low stock
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <button
-                              href="#"
-                              className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
-                            >
-                              Order this item
-                            </button>
+                            <a href="/delivery">
+                              <button
+                                href="/delivery"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
+                              >
+                                Order this item
+                              </button>
+                            </a>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a
