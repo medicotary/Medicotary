@@ -1,12 +1,12 @@
 import React from "react";
 import "../index.css";
-import Header from "../components/header_advance";
+import Header from "../components/header";
 import FAQCard from "../components/faqcard";
 
 const Faq = () => {
   return (
     <div className="bg-gray-50">
-      <Header />
+      <Header back="true" />
       <div className="h-9/10 flex ">
         <div className="justify-center mt-12 ml-auto mr-auto w-2/3">
           <div className="">
