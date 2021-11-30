@@ -24,7 +24,19 @@ class Vendor extends React.Component {
     this.setState({ [name]: value });
   };
   render() {
+    let filteredData = [];
     const vendor = this.props.vendor ? this.props.vendor : [];
+    if (this.state.search_vendor.length > 0) {
+      filteredData = [];
+      filteredData = vendor.filter(({ name }) => {
+        return name
+          .toLowerCase()
+          .includes(this.state.search_vendor.toLowerCase());
+      });
+    } else {
+      filteredData = [];
+      filteredData = vendor;
+    }
     return (
       <div>
         <Header />
@@ -38,8 +50,10 @@ class Vendor extends React.Component {
               {/* search box */}
               <div className="flex space-x-1 items-stretch">
                 <input
+                  value={this.state.search_vendor}
+                  onChange={(event) => this.inputChange(event)}
                   type="text"
-                  name="search"
+                  name="search_vendor"
                   className={`w-full p-4 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
                   id="search"
                   placeholder="Search for vendor"
@@ -85,8 +99,8 @@ class Vendor extends React.Component {
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
-                        {vendor.map((person) => (
-                          <tr key={person.email}>
+                        {filteredData.map((person) => (
+                          <tr key={""}>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex items-center">
                                 <div className="flex-shrink-0 h-10 w-10">
