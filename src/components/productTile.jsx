@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
 import { ProductActions } from ".././redux/actions";
 import { PlusIcon } from ".././icons/index";
 import { Link } from "react-router-dom";
@@ -115,13 +114,21 @@ class ProductComponent extends React.Component {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {sellingPrice}
                 </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <a
+                    href="#"
+                    className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                  >
+                    Edit
+                  </a>
+                </td>
               </tr>
             );
           })
         )
       ) : (
-        <div className="align-center w-full">
-          <Loader />
+        <div className=" flex items-center justify-center align-center w-full">
+          <div className="m-48"><Loader size="75" /></div>
         </div>
       );
     return (
@@ -165,7 +172,7 @@ class ProductComponent extends React.Component {
           </Link>
         </div>
         <div className="flex flex-col">
-          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
               <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table className="min-w-full divide-y divide-gray-200">

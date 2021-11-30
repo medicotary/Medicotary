@@ -226,12 +226,22 @@ class ProductForm extends Component {
                     type="text"
                     name="additionalNotes"
                     rows="3"
-                    className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+                    className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-2`}
                     id="vendor"
-                    placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
+                    placeholder="Enter some small description"
                   />
                 </div>
                 <div class="flex flex-row justify-between mt-3">
+                  <div className="py-5">
+                    <Link to="/products" class="w-full">
+                      <button
+                        onClick={this.clearForm}
+                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
+                      >
+                        Cancel
+                      </button>
+                    </Link>
+                  </div>
                   {this.props.isLoading ? (
                     <div className="py-5">
                       <button
@@ -251,16 +261,6 @@ class ProductForm extends Component {
                       </button>
                     </div>
                   )}
-                  <div className="py-5">
-                    <Link to="/products" class="w-full">
-                      <button
-                        onClick={this.clearForm}
-                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
-                      >
-                        Cancel
-                      </button>
-                    </Link>
-                  </div>
                 </div>
               </form>
             </div>
