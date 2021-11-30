@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { VendorActions } from "../../redux/actions";
 import Loader from "../loader";
 
-class ProductForm extends Component {
+class VendorForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,7 +40,16 @@ class ProductForm extends Component {
 
   submitForm = async (event) => {
     event.preventDefault();
-    this.props.dispatch();
+    let data = {};
+    data.data = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phoneNumber,
+      description: this.state.description,
+    };
+    data.token = this.props.token;
+    console.log(data.data, data.token);
+    this.props.dispatch(VendorActions.addVendor(data));
   };
 
   render() {
@@ -93,8 +102,9 @@ class ProductForm extends Component {
                   </label>
                   <input
                     value={name}
+                    name="name"
                     onChange={(e) => this.inputChange(e)}
-                    type="name"
+                    type="text"
                     className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                     id="name"
                     placeholder="Manas Gupta"
@@ -106,6 +116,7 @@ class ProductForm extends Component {
                   </label>
                   <input
                     value={email}
+                    name="email"
                     onChange={(e) => this.inputChange(e)}
                     type="email"
                     className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
@@ -120,7 +131,8 @@ class ProductForm extends Component {
                   <input
                     value={phoneNumber}
                     onChange={(e) => this.inputChange(e)}
-                    type="phone_number"
+                    type="text"
+                    name="phoneNumber"
                     className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                     id="phone_number"
                     placeholder="+91 9666666666"
@@ -133,33 +145,44 @@ class ProductForm extends Component {
                   <textarea
                     value={description}
                     onChange={(e) => this.inputChange(e)}
-                    type="description"
+                    type="text"
                     rows="3"
+                    name="description"
                     className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                     id="description"
                     placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
                   />
                 </div>
 
-                <div class="flex flex-row justify-between ">
+                <div class="flex flex-row justify-between mt-3">
+                  {this.props.isLoading ? (
+                    <div className="py-5">
+                      <button
+                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                      >
+                        <Loader color="#fff" />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="py-5">
+                      <button
+                        type="submit"
+                        onClick={this.submitForm}
+                        className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                      >
+                        Add Vendor
+                      </button>
+                    </div>
+                  )}
                   <div className="py-5">
-                    {/* <Link to="/login" class="w-full"> */}
-                    <button
-                      onClick={this.props.submitForm}
-                      className={`w-full border bg-primary text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
-                    >
-                      Add Vendor
-                    </button>
-                    {/* </Link> */}
-                  </div>
-                  <div className="py-5">
-                    {/* <Link to="/signup" class="w-full"> */}
-                    <button
-                      className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
-                    >
-                      Cancel
-                    </button>
-                    {/* </Link> */}
+                    <Link to="/products" class="w-full">
+                      <button
+                        onClick={this.clearForm}
+                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
+                      >
+                        Cancel
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </form>
@@ -173,10 +196,10 @@ class ProductForm extends Component {
 
 const mapToState = (state) => {
   return {
-    token: state.auth.token,
-    isLoading: state.product.isLoading,
-    isError: state.product.isError,
+    token: state.auth.user.token,
+    isLoading: state.vendor.isLoading,
+    isError: state.vendor.isError,
   };
 };
 
-export default connect(mapToState)(ProductForm);
+export default connect(mapToState)(VendorForm);
