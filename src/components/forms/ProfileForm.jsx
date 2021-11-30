@@ -50,14 +50,6 @@ class UserInfo extends Component {
     this.validationErrorMessage(event);
   };
 
-  onPhotoChange(event) {
-    const { picture, value } = event.target;
-    console.log(event.target.value, event.target.name);
-    this.setState({
-      [picture]: value,
-    });
-  }
-
   // Update profile info
   updateProfile = () => {
     console.log(this.state.name, this.state.location);
