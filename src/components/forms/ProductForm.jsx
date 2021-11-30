@@ -195,7 +195,7 @@ class ProductForm extends Component {
                       name="sellingPrice"
                       value={sellingPrice}
                       onChange={(e) => this.inputChange(e)}
-                      type="text"
+                      type="number"
                       className={`w-3/7 p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                       id="sp"
                       placeholder="₹ 170"
