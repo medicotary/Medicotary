@@ -10,9 +10,9 @@ function classNames(...classes) {
 
 export default function QuickAdd() {
   return (
-    <Menu as="div" className="relative inline-block text-left w-full mb-2">
+    <Menu as="div" className="w-full relative inline-block text-left w-full mb-2">
       <div>
-        <Menu.Button className="">
+        <Menu.Button className="w-full">
           <div className="inline-flex items-center justify-center w-full h-14 px-10 focus-within:py-4 bg-primary rounded-lg">
             <PlusIcon nameClass="mx-4 h-5" />
             <p className="text-sm px-4 leading-tight text-center text-white">
@@ -31,7 +31,7 @@ export default function QuickAdd() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="origin-top-right absolute left-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (

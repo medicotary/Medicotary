@@ -5,7 +5,7 @@ import "../../index.css";
 class Gotofaq extends Component {
   render() {
     return (
-      <div>
+      <div className="w-full">
         {/* faqs */}
         <div className="flex flex-col w-full space-y-2.5 items-center justify-center p-6 bg-purple-100 rounded-2xl">
           <p className="w-40 text-lg font-bold text-center text-gray-900">
