@@ -6,6 +6,6 @@ export const addVendor = (data) => ({
 });
 
 export const readVendor = (data) => ({
-  type: VendorTypes.VENDOR_READ,
+  type: VendorTypes.VENDOR_READ_REQUEST,
   payload: data,
 });

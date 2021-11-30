@@ -1,7 +1,7 @@
 import { put, call, takeLatest, all } from "redux-saga/effects";
 import { VendorService } from "../services";
 import { VendorTypes } from "../types";
-
+import history from "../history";
 const vendorService = new VendorService();
 
 export function* addVendor(action) {
@@ -9,15 +9,17 @@ export function* addVendor(action) {
     const res = yield call(vendorService.create, action.payload);
     console.log(res);
     if (res.error) {
+      console.error("Error Found");
       yield put({
-        type: VendorTypes.VENDOR_ADD_ERROR,
+        type: VendorTypes.VENDOR_ERROR,
         error: res.message,
       });
     } else {
-      yield put({ type: VendorTypes.VENDOR_SUCCESS, data: res });
+      yield put({ type: VendorTypes.VENDOR_ADDED, data: res });
     }
   } catch (error) {
-    yield put({ type: VendorTypes.VENDOR_ADD_ERROR, error });
+    console.log(error, " Error Found");
+    yield put({ type: VendorTypes.VENDOR_ERROR, error: error.message });
   }
 }
 

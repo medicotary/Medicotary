@@ -13,8 +13,7 @@ export function* addProduct(action) {
         type: ProductTypes.PRODUCT_ERROR,
         error: res.error,
       });
-    } else {
-      history.push("/products");
+    } else {  
       yield put({ type: ProductTypes.PRODUCT_ADDED, data: res });
     }
   } catch (error) {
