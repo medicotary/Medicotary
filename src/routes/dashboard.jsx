@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
     const lowStock = this.props.data.lowStock
       ? this.props.data.lowStock.length
       : 0;
-    const outOfStock = this.props.outOfStock
+    const outOfStock = this.props.data.outOfStock
       ? this.props.data.outOfStock.length
       : 0;
     console.log(lowStock, outOfStock);
