@@ -5,9 +5,9 @@ import { PieChart } from "react-minimal-pie-chart";
 class WeightedScore extends Component {
   render() {
     return (
-      <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
+      <div className="lg:mb-0 mb-4 lg:mr-4 inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
         <p className="text-xl font-bold text-gray-900">Weighted Score</p>
-        <div className="w-48 object-scale-down">
+        <div className="lg:w-48 w-32 object-scale-down">
           <PieChart
             animate
             animationDuration={500}
@@ -40,8 +40,8 @@ class WeightedScore extends Component {
           />
         </div>
         <div
-          className="inline-flex space-x-6 items-start justify-start"
-          style={{ width: 429.25, height: 24 }}
+          className="flex lg:space-x-6 items-start justify-start"
+          // style={{ width: 429.25, height: 24 }}
         >
           <div className="w-6 h-4 bg-blue-400 rounded-full" />
           <div className="flex space-x-2 items-center justify-start">

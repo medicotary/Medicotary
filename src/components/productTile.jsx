@@ -23,6 +23,9 @@ class ProductComponent extends React.Component {
     console.log(event.target.value, event.target.name);
     this.setState({ [name]: value });
   };
+  truncate(str, n) {
+    return str.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
 
   render() {
     let filteredData = [];
@@ -40,7 +43,7 @@ class ProductComponent extends React.Component {
     }
 
     return (
-      <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
+      <div className="mt-auto lg:w-4/5 w-full p-10 bg-gray-50 ml-auto">
         <div className="mt-8"></div>
         {/* top search bar */}
         <div className="flex justify-between items-stretch">
@@ -50,14 +53,14 @@ class ProductComponent extends React.Component {
               value={this.state.search_product}
               onChange={(e) => this.inputChange(e)}
               type="search"
-              className={`w-full p-4 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
+              className={`w-full lg:p-4 p-1 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out`}
               id="search"
               name="search_product"
               placeholder="Search for product"
             />
             <button
               type="search"
-              className={`cursor-pointer bg-primary p-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+              className={`cursor-pointer bg-primary lg:p-4 p-1 text-sm text-white rounded-lg border focus:outline-none focus:`}
             >
               <SearchIcon></SearchIcon>
             </button>
@@ -74,7 +77,7 @@ class ProductComponent extends React.Component {
           </div>
           {/* add vendor button */}
           <Link to="/addproduct">
-            <button className="flex space-x-2 justify-center button px-16 py-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+            <button className="flex space-x-2 justify-center button lg:px-16 lg:py-4 py-2 px-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
               <PlusIcon></PlusIcon>
               Add a product
             </button>
@@ -117,11 +120,15 @@ class ProductComponent extends React.Component {
                     </tr>
                   </thead>
                   {this.props.isLoading ? (
-                    <div className=" flex items-center justify-center align-center w-full">
-                      <div className="m-48">
-                        <Loader size="75" />
-                      </div>
-                    </div>
+                    <tbody className="bg-white divide-y divide-gray-200 h-96">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td><Loader size="75" /></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
                   ) : (
                     <tbody className="bg-white divide-y divide-gray-200">
                       {filteredData.map(
@@ -133,37 +140,42 @@ class ProductComponent extends React.Component {
                           lowStock,
                           costPrice,
                           sellingPrice,
+                          additionalNotes,
                         }) => (
                           <tr key={productsId}>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex items-center">
-                                <div className="flex-shrink-0 h-10 w-10">
+                                <div className="flex-shrink-0 h-12 w-12">
                                   <img
-                                    className="h-10 w-10 rounded-full"
-                                    src={picture}
-                                    alt=""
+                                    className="h-12 w-12 rounded-lg"
+                                    src={
+                                      picture
+                                        ? picture
+                                        : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80"
+                                    }
+                                    alt="medicine pic"
                                   />
                                 </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium text-gray-900">
+                                  <div className="text-md font-medium text-gray-900">
                                     {name}
                                   </div>
                                   <div className="text-sm text-gray-500">
-                                    {quantity}
+                                    {this.truncate(additionalNotes, 30)}
                                   </div>
                                 </div>
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm text-gray-900">
-                                {lowStock}
+                                {quantity}
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {costPrice}
+                              ₹{costPrice}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {sellingPrice}
+                            <td className="px-6 py-4 whitespace-nowrap text-md font-bold text-gray-500">
+                              ₹{sellingPrice}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <a

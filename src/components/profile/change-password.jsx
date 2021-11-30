@@ -30,7 +30,7 @@ class ChangePassword extends Component {
           </div>
           <div className="flex">
             <button
-              className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
+              className={`w-full  cursor-pointer bg-primary hover:bg-indigo-700 transition-all py-2 px-4 text-sm text-white rounded-lg border focus:outline-none focus:`}
             >
               change password
             </button>

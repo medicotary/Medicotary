@@ -31,13 +31,13 @@ class Dashboard extends React.Component {
         <div className="flex h-9/10">
           <Sidebar place="1" />
           {/* main content container */}
-          <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
+          <div className=" mt-auto lg:w-4/5 w-full p-10 bg-gray-50 lg:ml-auto">
             <TopBanner />
             {/* middle section */}
             {this.props.isLoading && !this.props.data ? (
               <Loader />
             ) : (
-              <div className="flex gap-4 items-stretch justify-between my-6">
+              <div className="md:flex-row flex-col flex gap-4 items-stretch justify-between my-6">
                 <OutOfStockProducts amt={outOfStock} />
                 <ProductsOnLowStock amt={lowStock} />
                 <ProductsToBeArrived amt={rndInt} />
@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
             )}
             {/* bottom graphs */}
 
-            <div className="flex space-x-6">
+            <div className="md:flex-row flex-col flex">
               {this.props.isLoading && !this.props.data ? (
                 <Loader />
               ) : (

@@ -12,7 +12,7 @@ class Gotofaq extends Component {
             Have some questions?
           </p>
           <Link to="/faqs" className="w-full">
-            <button className="flex flex-col items-center justify-center w-full py-4 bg-primary rounded-lg">
+            <button className="flex flex-col items-center justify-center w-full py-4 bg-primary hover:bg-indigo-700 transition-all rounded-lg">
               <p className="text-sm text-medium text-center text-white">
                 look at the faqs
               </p>

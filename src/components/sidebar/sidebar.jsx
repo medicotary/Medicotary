@@ -14,7 +14,7 @@ import Gotofaq from "./gotofaq";
 class Sidebar extends Component {
   render() {
     return (
-      <div className="w-1/5 shadow mt-12 fixed h-full overflow-y-auto text-base lg:text-sm pb-4 sticky?lg:h-(screen-18)">
+      <div className="w-1/5 shadow mt-12 fixed h-full overflow-y-auto text-base lg:text-sm pb-4 sticky?lg:h-(screen-18) lg:block hidden">
         <div className="inline-flex flex-col space-y-2 items-start justify-between flex-1 h-full px-6 pt-6 pb-12">
           <div>
             <QuickAdd />

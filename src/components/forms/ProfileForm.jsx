@@ -370,7 +370,7 @@ class UserInfo extends Component {
                 </div>
                 <button
                   type="submit"
-                  className={`w-full mb-4 cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none hover:bg-indigo-700`}
+                  className={`w-full mb-4 cursor-pointer bg-primary hover:bg-indigo-700 transition-all py-2 px-4 text-sm text-white rounded-lg border focus:outline-none hover:bg-indigo-700`}
                 >
                   change picture
                 </button>
@@ -453,7 +453,7 @@ class UserInfo extends Component {
               {/* save changes button */}
               <button
                 type="submit"
-                className={`w-full  cursor-pointer bg-primary py-2 px-4 text-sm text-white rounded-lg border focus:outline-none hover:bg-indigo-700`}
+                className={`w-full  cursor-pointer bg-primary hover:bg-indigo-700 transition-all py-2 px-4 text-sm text-white rounded-lg border focus:outline-none`}
               >
                 save changes
               </button>

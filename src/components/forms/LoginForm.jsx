@@ -139,7 +139,7 @@ class UserInfo extends Component {
             <button
               type="submit"
               onClick={this.submitForm}
-              className={`w-full cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+              className={`w-full cursor-pointer justify-center items-center bg-primary hover:bg-indigo-700 transition-all py-2 px-4 rounded border focus:outline-none`}
             >
               <div className=" text-sm text-white">Login</div>
             </button>
@@ -147,7 +147,7 @@ class UserInfo extends Component {
         ) : (
           <div className="flex mt-6">
             <button
-              className={`w-full flex cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+              className={`w-full flex cursor-pointer justify-center items-center bg-primary hover:bg-indigo-700 transition-all py-2 px-4 rounded border focus:outline-none`}
             >
               <div className="justify-self-center">
                 <Loader color="#ffffff" />

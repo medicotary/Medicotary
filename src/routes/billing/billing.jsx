@@ -34,10 +34,11 @@ const Billing = () => {
       <div>
         <Sidebar place="3" />
         {/* main content container */}
-        <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto flex flex-col space-y-6">
-          <div className="mt-10 flex space-x-10">
-            {/* addcharts here */}
-            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
+        <div className=" mt-auto lg:w-4/5 w-full p-10 bg-gray-50 ml-auto flex flex-col space-y-6">
+          {/* addcharts here */}
+          <div className="mt-10 lg:flex-row flex-col flex space-10">
+            {/* sales chart */}
+            <div className="flex flex-col space-y-6 items-center justify-start flex-1 p-10 my-2 lg:m-0 lg:mr-2 bg-white border-2 rounded-2xl border-gray-300">
               <p className="text-xl font-bold text-gray-900">Sales</p>
               <div className="w-full -mt-4">
                 <Chart
@@ -57,13 +58,13 @@ const Billing = () => {
                         calc: "stringify",
                       },
                     ],
-                    [null , 40, "#8776EE", null],
-                    [null , 70, "#8776EE", null],
-                    [null , 50, "#8776EE", null],
-                    [null , 20, "#8776EE", null],
-                    [null , 40, "#8776EE", null],
-                    [null , 50, "#8776EE", null],
-                    [null , 70, "#8776EE", null],
+                    [null, 40, "#8776EE", null],
+                    [null, 70, "#8776EE", null],
+                    [null, 50, "#8776EE", null],
+                    [null, 20, "#8776EE", null],
+                    [null, 40, "#8776EE", null],
+                    [null, 50, "#8776EE", null],
+                    [null, 70, "#8776EE", null],
                   ]}
                   options={{
                     is3D: true,
@@ -76,7 +77,7 @@ const Billing = () => {
                 />
               </div>
             </div>
-            <div className="inline-flex flex-col space-y-6 items-center justify-start flex-1 p-10 bg-white border-2 rounded-2xl border-gray-300">
+            <div className="flex flex-col space-y-6 items-center justify-start flex-1 p-10 my-2 lg:m-0 lg:ml-2 bg-white border-2 rounded-2xl border-gray-300">
               <p className="text-xl font-bold text-gray-900">Statistics</p>
               <div className="w-48 object-scale-down">
                 <PieChart
@@ -121,7 +122,7 @@ const Billing = () => {
             </div>
             {/* add vendor button */}
             <Link to="/addbill">
-              <button className="flex space-x-2 justify-center button px-16 py-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
+              <button className="flex space-x-2 justify-center button lg:px-16 px-8 py-4 bg-primary hover:bg-indigo-700 transition-all rounded-lg text-sm font-medium text-center text-white">
                 <PlusIcon></PlusIcon>
                 Add a bill
               </button>
