@@ -9,7 +9,7 @@ class StockPercentage extends Component {
         <p className="text-xl font-bold text-gray-900 ">
           Stock Percentage
         </p>
-        <div className="p-10">
+        <div className="lg:p-10">
           <GaugeChart
             id="gauge-chart"
             textColor="transparent"

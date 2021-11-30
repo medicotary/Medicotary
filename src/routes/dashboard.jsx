@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
             )}
             {/* bottom graphs */}
 
-            <div className="md:flex-row flex-col flex space-x-6">
+            <div className="md:flex-row flex-col flex">
               {this.props.isLoading && !this.props.data ? (
                 <Loader />
               ) : (
