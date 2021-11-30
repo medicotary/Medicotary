@@ -3,5 +3,6 @@ import * as AuthActions from "./auth.action";
 import * as ProductActions from "./product.action";
 import * as VendorActions from "./vendor.actions";
 import * as HomeActions from "./home.action";
+import * as UserActions from "./user.action";
 // Export all actions here!
-export { AuthActions, ProductActions, VendorActions, HomeActions };
+export { AuthActions, ProductActions, VendorActions, HomeActions, UserActions };

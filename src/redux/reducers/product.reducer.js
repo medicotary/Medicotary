@@ -1,7 +1,7 @@
 import { ProductTypes } from "../types";
 
 const initialState = {
-  product: {},
+  product: { product: {} },
   isLoading: false,
   isError: false,
 };
@@ -11,35 +11,35 @@ const ProductReducer = (state = initialState, action) => {
     case ProductTypes.PRODUCT_ADD_REQUEST:
       return {
         ...state,
-        product: action.data,
+        product: { product: {} },
         isLoading: true,
         isError: false,
       };
     case ProductTypes.PRODUCT_DELETE_REQUEST:
       return {
         ...state,
-        product: action.data,
+        product: { product: {} },
         isLoading: true,
         isError: false,
       };
     case ProductTypes.PRODUCT_EDIT_REQUEST:
       return {
         ...state,
-        product: action.data,
+        product: { product: {} },
         isLoading: true,
         isError: false,
       };
     case ProductTypes.PRODUCT_ADDED:
       return {
         ...state,
-        products: {},
+        product: { product: {} },
         isLoading: false,
         isError: false,
       };
     case ProductTypes.PRODUCT_DELETED:
       return {
         ...state,
-        product: {},
+        product: { product: {} },
         isLoading: false,
         isError: false,
       };

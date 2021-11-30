@@ -5,11 +5,10 @@ import { BASE_API_URL, TEST_API_URL } from "./constant";
 class VendorService {
   async create(data) {
     try {
-      const response = await Axios.post(
-        `${BASE_API_URL}vendor/createVendor`,
-        data
-      );
-      console.log(response);
+      const response = await Axios.post(`${BASE_API_URL}vendor`, data.data, {
+        headers: { Authorization: `${data.token}` },
+      });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -18,7 +17,9 @@ class VendorService {
   }
   async read(data) {
     try {
-      const response = await Axios.get(`${BASE_API_URL}products`);
+      const response = await Axios.get(`${BASE_API_URL}vendor`, {
+        headers: { Authorization: `${data}` },
+      });
       console.log(response);
       return response.data;
     } catch (error) {
