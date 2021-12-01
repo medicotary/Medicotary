@@ -18,7 +18,7 @@ const AddVendor = () => {
       <Header />
       {/* sidebar */}
       <div className="h-9/10 ">
-        <Sidebar place="4" />
+        <Sidebar />
         {/* main content container */}
         <VendorForm />
       </div>

@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
@@ -29,7 +29,7 @@ const AddProducts = () => {
       <Header />
       {/* sidebar */}
       <div className="h-9/10 ">
-        <Sidebar place="2" />
+        <Sidebar />
         {/* main content container */}
         <ProductForm />
       </div>
