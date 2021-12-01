@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { AuthActions } from "../../redux/actions";
+import { UserActions, AuthActions } from "../../redux/actions";
 import Loader from "../loader";
 import { CheckIcon } from "../../icons/index";
 
@@ -14,7 +14,7 @@ class UserInfo extends Component {
       authId: "",
       location: "",
       companyName: "",
-      picture: "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true",
+      picture: "",
       maxLimit: 0,
       errors: {
         username: "Enter User Name!",
@@ -76,6 +76,23 @@ class UserInfo extends Component {
 
   submitForm = async (event) => {
     event.preventDefault();
+    let data = {};
+    data.data = {
+      email: this.state.email ? this.state.email : this.props.user.email,
+      name: this.state.name ? this.state.name : this.props.user.name,
+      picture: this.state.picture
+        ? this.state.picture
+        : this.props.user.picture,
+      location: this.state.location
+        ? this.state.location
+        : this.props.user.location,
+      companyName: this.state.companyName
+        ? this.state.companyName
+        : this.props.user.companyName,
+    };
+    data.token = this.props.token;
+    data.id = this.props.user.authId;
+    this.props.updateUser(data);
   };
 
   onValueChange(event) {
@@ -105,15 +122,14 @@ class UserInfo extends Component {
       profilephotos,
     } = this.state;
 
-    if (!this.props.isLoading) {
-      name = this.props.user.name;
-      email = this.props.user.email;
-      authId = this.props.user.authId;
-      location = this.props.user.location;
-      companyName = this.props.user.companyName;
-      // picture = this.props.user.picture;
-      maxLimit = this.props.user.maxLimit;
-    }
+    const dname = this.props.user.name;
+    const demail = this.props.user.email;
+    const dauthId = this.props.user.authId;
+    const dlocation = this.props.user.location;
+    const dcompanyName = this.props.user.companyName;
+    const dpicture = this.props.user.picture;
+    const dmaxLimit = this.props.user.maxLimit;
+    console.log(demail, dlocation);
 
     return this.props.isLoading ? (
       <div className="h-screen flex justify-center items-center">
@@ -131,7 +147,11 @@ class UserInfo extends Component {
           <div class="flex items-stretch space-x-12">
             <div class="flex-column justify-center items-stretch flex-1">
               <img
-                src={picture}
+                src={
+                  this.props.user.picture
+                    ? this.props.user.picture
+                    : profilephotos.male1
+                }
                 alt="my profile pic"
                 class="rounded-lg object-scale-down"
               />
@@ -384,12 +404,12 @@ class UserInfo extends Component {
                 </label>
                 <input
                   value={name}
+                  name="name"
                   onChange={(e) => this.inputChange(e)}
-                  type="name"
+                  type="text"
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="name"
-                  placeholder="John Doe"
-                  required
+                  placeholder={dname ? dname : "John Doe"}
                 />
               </div>
               <div>
@@ -398,12 +418,12 @@ class UserInfo extends Component {
                 </label>
                 <input
                   value={email}
+                  name="email"
                   onChange={(e) => this.inputChange(e)}
                   type="email"
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="email"
-                  placeholder="name@example.com"
-                  required
+                  placeholder={demail}
                 />
               </div>
               <div>
@@ -412,12 +432,12 @@ class UserInfo extends Component {
                 </label>
                 <input
                   value={companyName}
+                  name="companyName"
                   onChange={(e) => this.inputChange(e)}
-                  type="companyname"
+                  type="text"
                   className={`w-full p-2 text-primary border rounded outline text-sm transition duration-150 ease-in-out mb-4`}
                   id="companyname"
-                  placeholder="your store name"
-                  required
+                  placeholder={dcompanyName}
                 />
               </div>
               <div>
@@ -425,12 +445,13 @@ class UserInfo extends Component {
                   Location
                 </label>
                 <input
+                  name="location"
                   value={location}
                   onChange={(e) => this.inputChange(e)}
-                  type="location"
+                  type="text"
                   className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="location"
-                  placeholder="Delhi,NCR"
+                  placeholder={dlocation}
                 />
               </div>
               <div>
@@ -442,16 +463,17 @@ class UserInfo extends Component {
                 </label>
                 <input
                   value={maxLimit}
+                  name="maxLimit"
                   onChange={(e) => this.inputChange(e)}
-                  type="Max_Limit_of_Inventory"
+                  type="number"
                   className={`w-full p-2 text-primary border rounded outline-none text-sm transition duration-150 ease-in-out mb-4`}
                   id="Max_Limit_of_Inventory"
-                  placeholder="approx max capacity of your store"
-                  required
+                  placeholder={dmaxLimit ? dmaxLimit : 0}
                 />
               </div>
               {/* save changes button */}
               <button
+                onClick={this.submitForm}
                 type="submit"
                 className={`w-full  cursor-pointer bg-primary hover:bg-indigo-700 transition-all py-2 px-4 text-sm text-white rounded-lg border focus:outline-none`}
               >
@@ -480,13 +502,14 @@ const mapToState = (state) => {
     isLoading: state.auth.isLoading,
     isLoggedIn: state.auth.isLoggedIn,
     user: state.auth.user.user,
+    token: state.auth.user.token,
   };
 };
 
 const mapToStateDispatch = (dispatch) => {
   return {
     logout: () => dispatch(AuthActions.logout()),
-    updateUser: (user) => dispatch(AuthActions.logout()),
+    updateUser: (user) => dispatch(UserActions.update(user)),
   };
 };
 
