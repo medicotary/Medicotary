@@ -203,9 +203,6 @@ class Billing extends React.Component {
                     >
                       date
                     </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
-                    </th>
                   </tr>
                 </thead>
                 {this.props.isLoading ? (
@@ -215,9 +212,11 @@ class Billing extends React.Component {
                     {filteredData.map((person) => (
                       <tr key={""}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-medium text-gray-900">
-                            {person.phoneNumber}
-                          </div>
+                          <a href="/invoice">
+                            <div className="text-sm font-medium text-gray-900">
+                              {person.phoneNumber}
+                            </div>
+                          </a>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
@@ -226,14 +225,6 @@ class Billing extends React.Component {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm ">
                           {changeCurrentDate(person.createdAt)}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a
-                            href="/dash"
-                            className="text-indigo-600 hover:text-indigo-900"
-                          >
-                            Edit
-                          </a>
                         </td>
                       </tr>
                     ))}

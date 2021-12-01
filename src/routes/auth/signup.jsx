@@ -1,37 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
 import logo from "../../assets/fulllogo.png";
 import illustration from "../../assets/signup.svg";
 import google from "../../assets/google.svg";
 import SignupForm from "../../components/forms/SignupForm";
-// import { useDispatch, useSelector } from "react-redux";
-// import { AuthActions } from "../../redux/actions";
-
 const Signup = () => {
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   let email = e.target.elements.email?.value;
-  //   let password = e.target.elements.password?.value;
-
-  //   console.log(email, password);
-  // };
-  // const token = useSelector((state) => state.auth.user.token);
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [companyName, setCompanyName] = useState("");
-  // const [location, setLocation] = useState("");
-  // // const [loading, setLoading] = useState(false);
-
-  // const dispatch = useDispatch();
-  // const submit = () => {
-  //   // setLoading(true);
-  //   console.log({ email, password, companyName, location });
-  //   dispatch(AuthActions.signup({ email, password, companyName, location }));
-  //   // <Redirect to="/dash/" />;
-  // };
-
   return (
     <div className="lg:flex">
       {/* {token ? <Redirect to="/dash/" /> : null} */}
