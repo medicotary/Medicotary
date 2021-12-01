@@ -74,7 +74,7 @@ class Vendor extends React.Component {
               </Link>
             </div>
             {/* table */}
-            <div className="flex flex-col">
+            <div className="flex flex-col my-4">
               <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                   <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -106,7 +106,11 @@ class Vendor extends React.Component {
                                 <div className="flex-shrink-0 h-10 w-10">
                                   <img
                                     className="h-10 w-10 rounded-full"
-                                    src={person.image}
+                                    src={
+                                      person.image
+                                        ? person.image
+                                        : "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-03.png?raw=true"
+                                    }
                                     alt=""
                                   />
                                 </div>
@@ -124,12 +128,14 @@ class Vendor extends React.Component {
                               <a href={person.phone}>{person.phone}</a>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <a
-                                href="#"
-                                className="text-indigo-600 hover:text-indigo-900"
-                              >
-                                Edit
-                              </a>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <a
+                                  href="#"
+                                  className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                                >
+                                  Edit
+                                </a>
+                              </td>
                             </td>
                           </tr>
                         ))}

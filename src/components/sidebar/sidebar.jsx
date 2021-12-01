@@ -24,18 +24,18 @@ class Sidebar extends Component {
               <div
                 className={
                   "inline-flex items-center justify-start w-full h-12 pl-2 pr-16 pt-2 pb-2.5 rounded-lg " +
-                  (this.props.place == 1 ? "bg-purple-100" : "")
+                  (this.props.place === "1" ? "bg-purple-100" : "")
                 }
               >
                 <div className="flex space-x-8 items-center justify-start">
                   <DashboardIcon
                     className="h-5 "
-                    stroke={this.props.place == 1 ? "#5E48E8" : "#8C8CA2"}
+                    stroke={this.props.place === "1" ? "#5E48E8" : "#8C8CA2"}
                   />
                   <p
                     className={
                       "text-sm font-medium " +
-                      (this.props.place == 1
+                      (this.props.place === "1"
                         ? "text-indigo-600 "
                         : "text-gray-400")
                     }
@@ -50,18 +50,18 @@ class Sidebar extends Component {
               <div
                 className={
                   "inline-flex items-center justify-start w-full h-12 pl-2 pr-16 pt-2 pb-2.5 rounded-lg " +
-                  (this.props.place == 2 ? "bg-purple-100" : "")
+                  (this.props.place === "2" ? "bg-purple-100" : "")
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
                   <BoxIcon
                     className="h-5 "
-                    stroke={this.props.place == 2 ? "#5E48E8" : "#8C8CA2"}
+                    stroke={this.props.place === "2" ? "#5E48E8" : "#8C8CA2"}
                   />
                   <p
                     className={
                       "text-sm font-medium " +
-                      (this.props.place == 2
+                      (this.props.place === "2"
                         ? "text-indigo-600 "
                         : "text-gray-400")
                     }
@@ -76,19 +76,18 @@ class Sidebar extends Component {
               <div
                 className={
                   "inline-flex items-center justify-start w-full h-12 pl-2 pr-16 pt-2 pb-2.5 rounded-lg " +
-                  (this.props.place == 3 ? "bg-purple-100" : "")
+                  (this.props.place === "3" ? "bg-purple-100" : "")
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <FileTextIcon className="h-5 " stroke={
-                      this.props.place == 3
-                        ? "#5E48E8"
-                        : "#8C8CA2"
-                    }/>
+                  <FileTextIcon
+                    className="h-5 "
+                    stroke={this.props.place === "3" ? "#5E48E8" : "#8C8CA2"}
+                  />
                   <p
                     className={
                       "text-sm font-medium " +
-                      (this.props.place == 3
+                      (this.props.place === "3"
                         ? "text-indigo-600 "
                         : "text-gray-400")
                     }
@@ -103,19 +102,18 @@ class Sidebar extends Component {
               <div
                 className={
                   "inline-flex items-center justify-start w-full h-12 pl-2 pr-16 pt-2 pb-2.5 rounded-lg " +
-                  (this.props.place == 4 ? "bg-purple-100" : "")
+                  (this.props.place === "4" ? "bg-purple-100" : "")
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <UsersIcon className="h-5 " stroke={
-                      this.props.place == 4
-                        ? "#5E48E8"
-                        : "#8C8CA2"
-                    }/>
+                  <UsersIcon
+                    className="h-5 "
+                    stroke={this.props.place === "4" ? "#5E48E8" : "#8C8CA2"}
+                  />
                   <p
                     className={
                       "text-sm font-medium " +
-                      (this.props.place == 4
+                      (this.props.place === "4"
                         ? "text-indigo-600 "
                         : "text-gray-400")
                     }
@@ -130,19 +128,18 @@ class Sidebar extends Component {
               <div
                 className={
                   "inline-flex items-center justify-start w-full h-12 pl-2 pr-16 pt-2 pb-2.5 rounded-lg " +
-                  (this.props.place == 5 ? "bg-purple-100" : "")
+                  (this.props.place === "5" ? "bg-purple-100" : "")
                 }
               >
                 <div className="inline-flex space-x-8 items-center justify-start">
-                  <TruckIcon className="h-5 " stroke={
-                      this.props.place == 5
-                        ? "#5E48E8"
-                        : "#8C8CA2"
-                    }/>
+                  <TruckIcon
+                    className="h-5 "
+                    stroke={this.props.place === "5" ? "#5E48E8" : "#8C8CA2"}
+                  />
                   <p
                     className={
                       "text-sm font-medium " +
-                      (this.props.place == 5
+                      (this.props.place === "5"
                         ? "text-indigo-600 "
                         : "text-gray-400")
                     }

@@ -48,9 +48,9 @@ const CreateIntegration = () => {
               <span class="ml-2 text-xs">
                 Give permission to access the data from the third party site and
                 provide with the neccesary services.{" "}
-                <a href="#" className="text-secondary">
+                <button className="text-secondary">
                   Click here to read terms and conditions.
-                </a>
+                </button>
               </span>
             </label>
           </div>

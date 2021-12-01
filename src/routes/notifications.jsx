@@ -43,9 +43,6 @@ class Notifications extends React.Component {
                         <th scope="col" className="relative px-6 py-3">
                           <span className="sr-only">order this item</span>
                         </th>
-                        <th scope="col" className="relative px-6 py-3">
-                          <span className="sr-only">done</span>
-                        </th>
                       </tr>
                     </thead>
                     {this.props.isLoading ? (
@@ -55,7 +52,6 @@ class Notifications extends React.Component {
                           <td>
                             <Loader size="75" />
                           </td>
-                          <td></td>
                           <td></td>
                         </tr>
                       </tbody>
@@ -89,18 +85,11 @@ class Notifications extends React.Component {
                               </span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <a href="/delivery">
-                                <button className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex">
-                                  Order this item
-                                </button>
-                              </a>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                               <a
-                                href="#"
-                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                                href="/delivery"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
                               >
-                                done
+                                Order this item
                               </a>
                             </td>
                           </tr>
@@ -133,21 +122,11 @@ class Notifications extends React.Component {
                               </span>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <a href="/delivery">
-                                <button
-                                  href="/delivery"
-                                  className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
-                                >
-                                  Order this item
-                                </button>
-                              </a>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                               <a
-                                href="#"
-                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
+                                href="/delivery"
+                                className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8 flex"
                               >
-                                done
+                                Order this item
                               </a>
                             </td>
                           </tr>
