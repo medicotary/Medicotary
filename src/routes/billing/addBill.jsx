@@ -155,7 +155,7 @@ class AddBill extends React.Component {
         <Header />
         {/* sidebar */}
         <div className="h-9/10 ">
-          <Sidebar place="3" />
+          <Sidebar />
           {/* main content container */}
           <div className=" mt-auto lg:w-4/5 w-full lg:px-20 p-4 ml-auto bg-gray-50">
             <div className="container bg-white border rounded-lg border-subtle mt-12 lg:p-10 p-2">
