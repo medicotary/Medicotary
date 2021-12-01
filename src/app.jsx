@@ -24,6 +24,7 @@ const Invoice = lazy(() => import("./routes/billing/invoice"));
 const CreateIntegration = lazy(() =>
   import("./routes/delivery/createintegration")
 );
+const Delhivery = lazy(() => import("./routes/delivery/delhivery"));
 
 const Loading = () => <Loader color="primary" />;
 
@@ -57,6 +58,7 @@ function App(props) {
         <Route exact path="/addproduct" component={AddProduct}></Route>
         <Route exact path="/addbill" component={AddBill}></Route>
         <Route exact path="/invoice" component={Invoice}></Route>
+        <Route exact path="/delhivery" component={Delhivery}></Route>
         <Redirect to="/dash" />
       </Switch>
     );

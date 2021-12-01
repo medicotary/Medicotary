@@ -151,6 +151,7 @@ class Billing extends React.Component {
                 limit={this.props.maxLimit ? this.props.maxLimit : 100}
               />
             )}
+            <p className="text-4xl font-medium text-gray-900">Invoices</p>
             {/* top search bar */}
             <div className="flex justify-between items-stretch">
               {/* search box */}
@@ -180,7 +181,6 @@ class Billing extends React.Component {
               </Link>
             </div>
             {/* table */}
-            <p className="text-4xl font-medium text-gray-900">Invoices</p>
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">

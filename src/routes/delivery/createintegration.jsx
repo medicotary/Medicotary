@@ -10,7 +10,7 @@ const CreateIntegration = () => {
     <div>
       <Header />
       {/* sidebar */}
-      <Sidebar place="5" />
+      <Sidebar />
       {/* main content container */}
       <div className="mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
         <IntegrationDetails

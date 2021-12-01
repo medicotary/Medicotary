@@ -114,6 +114,7 @@ class Invoice extends React.Component {
                 </div>
               </div>
             </div>
+            <hr className="new2" />
             {/* name*/}
             <div className="mt-4 flex justify-between">
               <div className="text-lg font-medium">Customer Name</div>
@@ -134,14 +135,15 @@ class Invoice extends React.Component {
               <div className="text-lg font-medium">Total amount</div>
               <div className="text-md font-bold">₹ {this.state.total}</div>
             </div>
+            <hr className="new2 mt-4" />
             <div className="flex">
-              <h1 className="lg:text-3xl text-xl font-medium mt-4 text-primary">
+              <h1 className="lg:text-2xl text-xl font-medium mt-4 text-primary">
                 Products
               </h1>
             </div>
             {/* add multiple products */}
             <ul>
-              <li className="flex flex-row justify-between items-center my-4">
+              <li className="flex flex-row justify-between items-center">
                 <div className="flex items-center justify-start w-48">
                   <div className="flex-shrink-0 h-12 w-12"></div>
                   <div className="text-md font-bold">Name</div>
@@ -149,6 +151,7 @@ class Invoice extends React.Component {
                 <div className="w-20 text-md font-bold">Quantity</div>
                 <h1 className="w-20 text-md font-bold">Price</h1>
               </li>
+              <hr />
               {this.state.productList.map((item) => {
                 return (
                   <li
