@@ -4,8 +4,9 @@ import { BASE_API_URL } from "./constant";
 class UserService {
   async update(data) {
     try {
-      const response = await Axios.post(
-        `${BASE_API_URL}http://localhost:8080/auth/${data.id}`,
+      console.log("data", data);
+      const response = await Axios.patch(
+        `${BASE_API_URL}auth/${data.id}`,
         data.data,
         {
           headers: { Authorization: `${data.token}` },

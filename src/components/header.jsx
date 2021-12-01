@@ -11,7 +11,10 @@ class Header extends Component {
   render() {
     return (
       <div class="h-1/10 fixed flex px-3 w-full border bg-white z-50">
-        <button type="button" className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden">
+        <button
+          type="button"
+          className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden"
+        >
           menu
         </button>
         {this.props.back ? (
@@ -47,9 +50,14 @@ class Header extends Component {
           {/* avatar */}
           <Link to="/profile">
             <img
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/82b8e9101650903.5f2369beab58a.jpg"
-              alt=""
+              src={
+                this.props.user.picture
+                  ? this.props.user.picture
+                  : "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true"
+              }
+              alt="https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true"
               class="object-scale-down h-10 rounded-full "
+              loading="lazy"
             />
           </Link>
         </div>
