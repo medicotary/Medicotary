@@ -106,12 +106,21 @@ class AddBill extends React.Component {
     event.preventDefault();
     console.log(this.state);
     let data = {};
+
+    let someList = [];
+    for (let i = 0; i < this.state.productList.length; i++) {
+      someList[i] = {
+        productName: this.state.productList[i].productName,
+        quantity: this.state.productList[i].productQty,
+      };
+    }
+    console.log(someList);
     data.data = {
       phoneNumber: this.state.name,
-      products: this.state.productList,
+      products: someList,
     };
     data.token = this.props.token;
-    this.props.sendData(data);
+    await this.props.sendData(data);
   };
 
   getMedicineData() {
