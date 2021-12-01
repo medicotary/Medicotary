@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { ProductActions } from "../../redux/actions";
 import Loader from "../loader";
+import { VendorActions } from "../../redux/actions";
+import { store } from "../../redux";
 class ProductForm extends Component {
+  componentDidMount() {
+    this.props.loadData();
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +19,7 @@ class ProductForm extends Component {
       costPrice: 0,
       preferredVendor: "",
       additionalNotes: "",
+      search_vendor: "",
       errors: {
         name: "Enter User Name!",
         sellingPrice: undefined,
@@ -89,6 +95,20 @@ class ProductForm extends Component {
       additionalNotes,
     } = this.state;
 
+    let filteredData = [];
+    const vendor = this.props.vendor ? this.props.vendor : [];
+    if (this.state.search_vendor.length > 0) {
+      filteredData = [];
+      filteredData = vendor.filter(({ name }) => {
+        return name
+          .toLowerCase()
+          .includes(this.state.search_vendor.toLowerCase());
+      });
+    } else {
+      filteredData = [];
+      filteredData = vendor;
+    }
+    console.log(filteredData);
     return (
       <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
         <div className="mt-12">
@@ -273,10 +293,19 @@ class ProductForm extends Component {
 
 const mapToState = (state) => {
   return {
+    vendor: state.vendor.vendor.vendors,
+    isVendorLoading: state.vendor.isLoading,
     token: state.auth.user.token,
     isLoading: state.product.isLoading,
     isError: state.product.isError,
   };
 };
 
-export default connect(mapToState)(ProductForm);
+const mapDispatchToProps = (dispatch) => {
+  const state = store.getState();
+  return {
+    loadData: () => dispatch(VendorActions.readVendor(state.auth.user.token)),
+  };
+};
+
+export default connect(mapToState, mapDispatchToProps)(ProductForm);

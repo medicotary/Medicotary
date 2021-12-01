@@ -3,6 +3,13 @@ import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
 import { TrashIcon } from "../../icons/index";
+import { ProductActions,BillActions } from "../../redux/actions";
+import { store } from "../../redux";
+import { connect } from "react-redux";
+
+
+// Filtered Data has all the products 
+
 
 function getCurrentDate(separator = "-") {
   let newDate = new Date();
@@ -16,6 +23,9 @@ function getCurrentDate(separator = "-") {
 }
 
 class AddBill extends React.Component {
+  componentDidMount() {
+    this.props.loadData();
+  }
   constructor(props) {
     super(props);
 
@@ -23,13 +33,13 @@ class AddBill extends React.Component {
     this.state = {
       userInput: "",
       name: "",
-      description: "",
       date: getCurrentDate(),
       total: 0,
       productName: "",
       productQty: "",
       productID: 0,
       productList: [],
+      search_product: "",
     };
   }
   addItem() {
@@ -73,10 +83,31 @@ class AddBill extends React.Component {
   submitForm = async (event) => {
     event.preventDefault();
     console.log(this.state);
+    let data = {};
+    data.data = {
+      phoneNumber: this.state.name,
+      products: this.state.productList,
+    };
+    data.token = this.props.token;
+    this.props.sendData(data);
   };
 
   render() {
     // const { name, description } = this.state;
+    let filteredData = [];
+    const products = this.props.products ? this.props.products : [];
+    if (this.state.search_product.length > 0) {
+      filteredData = [];
+      filteredData = products.filter(({ name }) => {
+        return name
+          .toLowerCase()
+          .includes(this.state.search_product.toLowerCase());
+      });
+    } else {
+      filteredData = [];
+      filteredData = products;
+    }
+    console.log(filteredData);
     return (
       <div>
         <Header />
@@ -130,7 +161,7 @@ class AddBill extends React.Component {
                     required
                   />
                 </div>
-                <div>
+                {/* <div>
                   <label htmlFor="description" className="text-sm font-medium">
                     Description
                   </label>
@@ -144,7 +175,7 @@ class AddBill extends React.Component {
                     onChange={(e) => this.inputChange(e)}
                     placeholder="small desction about the bill (if any)"
                   />
-                </div>
+                </div> */}
               </form>
               <div className="flex flex-row justify-between">
                 <h1 className="text-3xl font-medium mt-4 text-primary antialiased mb-1 text-left">
@@ -236,4 +267,21 @@ class AddBill extends React.Component {
   }
 }
 
-export default AddBill;
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.user.token,
+    products: state.product.product.products,
+    isLoading: state.product.isLoading,
+    isError: state.product.isError,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  const state = store.getState();
+  return {
+    loadData: () => dispatch(ProductActions.readProduct(state.auth.user.token)),
+    sendData: (data)=> dispatch(BillActions.addBill(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddBill);
