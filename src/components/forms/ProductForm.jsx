@@ -80,7 +80,7 @@ class ProductForm extends Component {
       additionalNotes: this.state.additionalNotes,
     };
     data.token = this.props.token;
-    this.props.dispatch(ProductActions.addProduct(data));
+    this.props.addData(data);
     this.clearForm(event);
   };
 
@@ -305,6 +305,7 @@ const mapDispatchToProps = (dispatch) => {
   const state = store.getState();
   return {
     loadData: () => dispatch(VendorActions.readVendor(state.auth.user.token)),
+    addData: (data) => dispatch(ProductActions.addProduct(data)),
   };
 };
 
