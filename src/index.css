@@ -27,3 +27,6 @@ input {
 /* input:invalid {
   border: 1px solid #ec314a;
 } */
+hr.new2 {
+  border-top: 2px dashed black;
+}
