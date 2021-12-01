@@ -50,8 +50,12 @@ class Header extends Component {
           {/* avatar */}
           <Link to="/profile">
             <img
-              src={this.props.user.picture}
-              alt=""
+              src={
+                this.props.user.picture
+                  ? this.props.user.picture
+                  : "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true"
+              }
+              alt="https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true"
               class="object-scale-down h-10 rounded-full "
               loading="lazy"
             />
