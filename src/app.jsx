@@ -20,6 +20,7 @@ const Faq = lazy(() => import("./routes/faqs"));
 const AddVendor = lazy(() => import("./routes/vendors/addVendor"));
 const AddProduct = lazy(() => import("./routes/products/addProduct"));
 const AddBill = lazy(() => import("./routes/billing/addBill"));
+const Invoice = lazy(() => import("./routes/billing/invoice"));
 const CreateIntegration = lazy(() =>
   import("./routes/delivery/createintegration")
 );
@@ -55,6 +56,7 @@ function App(props) {
         <Route exact path="/addvendor" component={AddVendor}></Route>
         <Route exact path="/addproduct" component={AddProduct}></Route>
         <Route exact path="/addbill" component={AddBill}></Route>
+        <Route exact path="/invoice" component={Invoice}></Route>
         <Redirect to="/dash" />
       </Switch>
     );
