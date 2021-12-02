@@ -93,9 +93,9 @@ class Vendor extends React.Component {
                           >
                             phone
                           </th>
-                          <th scope="col" className="relative px-6 py-3">
+                          {/* <th scope="col" className="relative px-6 py-3">
                             <span className="sr-only">Edit</span>
-                          </th>
+                          </th> */}
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
@@ -107,8 +107,8 @@ class Vendor extends React.Component {
                                   <img
                                     className="h-10 w-10 rounded-full"
                                     src={
-                                      person.image
-                                        ? person.image
+                                      person.picture
+                                        ? person.picture
                                         : "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-03.png?raw=true"
                                     }
                                     alt=""
@@ -128,14 +128,14 @@ class Vendor extends React.Component {
                               <a href={person.phone}>{person.phone}</a>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <a
                                   href="#"
                                   className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
                                 >
                                   Edit
                                 </a>
-                              </td>
+                              </td> */}
                             </td>
                           </tr>
                         ))}

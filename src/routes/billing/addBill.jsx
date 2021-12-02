@@ -6,6 +6,7 @@ import { TrashIcon } from "../../icons/index";
 import { ProductActions, BillActions } from "../../redux/actions";
 import { store } from "../../redux";
 import { connect } from "react-redux";
+import Loader from "../../components/loader";
 
 // Filtered Data has all the products
 
@@ -44,6 +45,7 @@ class AddBill extends React.Component {
       productQty: 0,
       productPrice: 0,
       productID: 0,
+      maxLimit: 10,
       productList: [],
       search_product: "",
     };
@@ -100,6 +102,28 @@ class AddBill extends React.Component {
     const { name, value } = event.target;
     console.log(value, name);
     this.setState({ [name]: value });
+    let maxLimit =
+      this.getMedicineData()[this.searchMedicineData(this.getOption())]
+        .quantity;
+    this.setState({
+      maxLimit: maxLimit,
+    });
+  };
+
+  clearForm = (event) => {
+    this.setState({
+      userInput: "",
+      name: "",
+      billdesc: "",
+      date: getCurrentDate(),
+      total: 0,
+      productName: "",
+      productQty: 0,
+      productPrice: 0,
+      productID: 0,
+      productList: [],
+      search_product: "",
+    });
   };
 
   submitForm = async (event) => {
@@ -121,6 +145,7 @@ class AddBill extends React.Component {
     };
     data.token = this.props.token;
     await this.props.sendData(data);
+    this.clearForm(event);
   };
 
   getMedicineData() {
@@ -139,6 +164,13 @@ class AddBill extends React.Component {
     }
     return filteredData;
   }
+  getAllMedicineData() {
+    let filteredData = [];
+    const products = this.props.products ? this.props.products : [];
+    filteredData = [];
+    filteredData = products;
+    return filteredData;
+  }
 
   searchMedicineData(search) {
     let fullMedicineData = this.getMedicineData();
@@ -147,9 +179,29 @@ class AddBill extends React.Component {
       return name.name === search;
     }
   }
+  searchAllMedicineData(search = "") {
+    let fullMedicineData = this.getAllMedicineData()
+      ? this.getAllMedicineData()
+      : [];
+    return fullMedicineData.findIndex(checkName);
+    function checkName(name) {
+      return name.name === search;
+    }
+  }
 
   render() {
     console.log(this.getMedicineData());
+    // this.getOption();
+    console.log(this.state.maxLimit);
+    // let limit =
+    //   this.getAllMedicineData()[
+    //     this.searchAllMedicineData(this.getOption() ? this.getOption() : "")
+    //   ].quantity;
+    // console.log(limit);
+    // this.setState({
+    //   maxLimit: limit,
+    // });
+
     return (
       <div>
         <Header />
@@ -230,7 +282,7 @@ class AddBill extends React.Component {
                     <label htmlFor="product-dropdown" className="text-sm">
                       Medicine Name
                     </label>
-                    <div className="w-full">
+                    <div className="w-56">
                       <select
                         name="products"
                         required
@@ -257,6 +309,12 @@ class AddBill extends React.Component {
                       placeholder="10"
                       required
                     />
+                    {this.state.productQty > this.state.maxLimit ? (
+                      <div className="text-error text-xs py-1 font-medium">
+                        {" "}
+                        not enough stock{" "}
+                      </div>
+                    ) : null}
                   </div>
                   <button
                     type="button"
@@ -308,13 +366,23 @@ class AddBill extends React.Component {
               </ul>
               {/* <BillProduct items={this.state.productList} deleteFunc={() => this.deleteItem(item.id)} /> */}
               {/* <Link to="/products" class="w-full"> */}
-              <button
-                type="submit"
-                onClick={this.submitForm}
-                className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
-              >
-                Create Bill
-              </button>
+              {!this.props.isLoading ? (
+                <button
+                  type="submit"
+                  onClick={this.submitForm}
+                  className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                >
+                  Create Bill
+                </button>
+              ) : (
+                <button
+                  className={`w-full flex disable cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+                >
+                  <div className="justify-self-center">
+                    <Loader color="#ffffff" />
+                  </div>
+                </button>
+              )}
               {/* </Link> */}
             </div>
           </div>
