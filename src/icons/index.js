@@ -10,6 +10,7 @@ import { ReactComponent as EyeIcon } from "./eye.svg";
 import { ReactComponent as EyeOffIcon } from "./eye-off.svg";
 import { ReactComponent as CheckIcon } from "./check.svg";
 import { ReactComponent as TrashIcon } from "./trash-2.svg";
+import { ReactComponent as LogoutIcon } from "./log-out.svg";
 
 export {
   DashboardIcon,
@@ -24,4 +25,5 @@ export {
   EyeOffIcon,
   CheckIcon,
   TrashIcon,
+  LogoutIcon,
 };

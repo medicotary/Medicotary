@@ -19,6 +19,7 @@ const Notifications = lazy(() => import("./routes/notifications"));
 const Faq = lazy(() => import("./routes/faqs"));
 const AddVendor = lazy(() => import("./routes/vendors/addVendor"));
 const AddProduct = lazy(() => import("./routes/products/addProduct"));
+const EditProduct = lazy(() => import("./routes/products/editProduct"));
 const AddBill = lazy(() => import("./routes/billing/addBill"));
 const Invoice = lazy(() => import("./routes/billing/invoice"));
 const CreateIntegration = lazy(() =>
@@ -55,9 +56,16 @@ function App(props) {
         <Route exact path="/notifications" component={Notifications}></Route>
         <Route exact path="/faqs" component={Faq}></Route>
         <Route exact path="/addvendor" component={AddVendor}></Route>
+        {/* ye baad me change karunga */}
+        <Route exact path="/vendors/:id/update" component={AddVendor}></Route>
         <Route exact path="/addproduct" component={AddProduct}></Route>
+        <Route
+          exact
+          path="/products/:id/update"
+          component={EditProduct}
+        ></Route>
         <Route exact path="/addbill" component={AddBill}></Route>
-        <Route exact path="/invoice" component={Invoice}></Route>
+        <Route exact path="/billing/:id" component={Invoice}></Route>
         <Route exact path="/delhivery" component={Delhivery}></Route>
         <Redirect to="/dash" />
       </Switch>

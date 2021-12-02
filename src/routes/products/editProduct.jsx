@@ -2,9 +2,11 @@ import React from "react";
 import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
-import ProductForm from "../../components/forms/ProductForm";
+import EditProductForm from "../../components/forms/EditProductForm";
+import { useParams, useHistory } from "react-router-dom";
 
-const AddProducts = () => {
+const EditProduct = () => {
+  const { id } = useParams();
   return (
     <div>
       <Header />
@@ -12,10 +14,10 @@ const AddProducts = () => {
       <div className="h-9/10 ">
         <Sidebar />
         {/* main content container */}
-        <ProductForm />
+        <EditProductForm />
       </div>
     </div>
   );
 };
 
-export default AddProducts;
+export default EditProduct;

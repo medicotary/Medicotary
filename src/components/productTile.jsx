@@ -120,9 +120,9 @@ class ProductComponent extends React.Component {
                       >
                         preffered vendor
                       </th>
-                      {/* <th scope="col" className="relative px-6 py-3">
+                      <th scope="col" className="relative px-6 py-3">
                         <span className="sr-only">Edit</span>
-                      </th> */}
+                      </th>
                     </tr>
                   </thead>
                   {this.props.isLoading ? (
@@ -189,14 +189,14 @@ class ProductComponent extends React.Component {
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               {preferredVendor}
                             </td>
-                            {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <a
-                                href="#"
+                                href={"/products/" + productsId + "/update"}
                                 className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
                               >
                                 Edit
                               </a>
-                            </td> */}
+                            </td>
                           </tr>
                         )
                       )}

@@ -30,3 +30,13 @@ input {
 hr.new2 {
   border-top: 2px dashed black;
 }
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  border-radius: 24px;
+}
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
