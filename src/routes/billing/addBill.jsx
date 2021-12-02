@@ -6,6 +6,7 @@ import { TrashIcon } from "../../icons/index";
 import { ProductActions, BillActions } from "../../redux/actions";
 import { store } from "../../redux";
 import { connect } from "react-redux";
+import Loader from "../../components/loader";
 
 // Filtered Data has all the products
 
@@ -102,6 +103,22 @@ class AddBill extends React.Component {
     this.setState({ [name]: value });
   };
 
+  clearForm = (event) => {
+    this.setState({
+      userInput: "",
+      name: "",
+      billdesc: "",
+      date: getCurrentDate(),
+      total: 0,
+      productName: "",
+      productQty: 0,
+      productPrice: 0,
+      productID: 0,
+      productList: [],
+      search_product: "",
+    });
+  };
+
   submitForm = async (event) => {
     event.preventDefault();
     console.log(this.state);
@@ -121,6 +138,7 @@ class AddBill extends React.Component {
     };
     data.token = this.props.token;
     await this.props.sendData(data);
+    this.clearForm(event);
   };
 
   getMedicineData() {
@@ -308,13 +326,23 @@ class AddBill extends React.Component {
               </ul>
               {/* <BillProduct items={this.state.productList} deleteFunc={() => this.deleteItem(item.id)} /> */}
               {/* <Link to="/products" class="w-full"> */}
-              <button
-                type="submit"
-                onClick={this.submitForm}
-                className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
-              >
-                Create Bill
-              </button>
+              {!this.props.isLoading ? (
+                <button
+                  type="submit"
+                  onClick={this.submitForm}
+                  className={`w-full border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-10 text-sm  cursor-pointer  rounded-lg`}
+                >
+                  Create Bill
+                </button>
+              ) : (
+                <button
+                  className={`w-full flex disable cursor-pointer justify-center items-center bg-primary py-2 px-4 rounded border focus:outline-none`}
+                >
+                  <div className="justify-self-center">
+                    <Loader color="#ffffff" />
+                  </div>
+                </button>
+              )}
               {/* </Link> */}
             </div>
           </div>
