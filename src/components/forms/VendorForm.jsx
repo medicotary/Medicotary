@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { VendorActions } from "../../redux/actions";
 import Loader from "../loader";
+import { CheckIcon } from "../../icons/index";
 
 class VendorForm extends Component {
   constructor(props) {
@@ -12,10 +13,48 @@ class VendorForm extends Component {
       email: "",
       phoneNumber: "",
       description: "",
+      picture: "",
+      selectedOption: "",
+      photos: {
+        male1:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-01.png?raw=true",
+        male2:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-02.png?raw=true",
+        male3:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-03.png?raw=true",
+        male4:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-04.png?raw=true",
+        female1:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-01.png?raw=true",
+        female2:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-02.png?raw=true",
+        female3:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-03.png?raw=true",
+        female4:
+          "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-female-04.png?raw=true",
+      },
+
       errors: {
-        name: "Enter User Name!",
+        name: "Enter Name!",
       },
     };
+    this.onValueChange = this.onValueChange.bind(this);
+    this.photoFormSubmit = this.photoFormSubmit.bind(this);
+  }
+
+  onValueChange(event) {
+    this.setState({
+      selectedOption: event.target.value,
+      picture: event.target.value,
+    });
+  }
+
+  photoFormSubmit(event) {
+    this.setState({
+      picture: this.state.selectedOption,
+    });
+    event.preventDefault();
+    console.log(this.state.selectedOption);
   }
 
   inputChange = (event) => {
@@ -30,12 +69,22 @@ class VendorForm extends Component {
     let errors = this.state.errors;
     switch (name) {
       case "name":
-        errors.name = value.length < 1 ? "Enter User Name" : "";
+        errors.name = value.length < 1 ? "Enter Name" : "";
         break;
       default:
         break;
     }
     this.setState({ errors });
+  };
+  clearForm = (event) => {
+    this.setState({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      description: "",
+      picture: "",
+      selectedOption: "",
+    });
   };
 
   submitForm = async (event) => {
@@ -46,55 +95,274 @@ class VendorForm extends Component {
       email: this.state.email,
       phone: this.state.phoneNumber,
       description: this.state.description,
+      picture: this.state.picture
+        ? this.state.picture
+        : this.props.user.picture,
     };
     data.token = this.props.token;
     console.log(data.data, data.token);
     this.props.dispatch(VendorActions.addVendor(data));
+    this.clearForm(event);
   };
 
   render() {
-    const { name, email, phoneNumber, description } = this.state;
+    const { name, email, phoneNumber, description, photos } = this.state;
 
     return (
-      <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
-        <div className="mt-12">
-          <div className="flex flex-row justify-center">
-            <div className="w-1/3">
-              <div class="flex flex-col mt-3">
+      <div className=" mt-auto w-4/5 p-20 bg-gray-50 ml-auto">
+        <h1 className="font-bold text-2xl">Add a Vendor</h1>
+        <div className="mt-2">
+          <div className="flex flex-row justify-between">
+            <div className="">
+              <div class="flex flex-col">
                 <div className="flex">
-                  <div className="">
-                    <img
-                      src="https://pbs.twimg.com/profile_images/1378272639379144705/bOkqlvA6_400x400.jpg"
-                      alt=""
-                      class="rounded w-2/3  object-scale-down"
-                    />
-                  </div>
-                </div>
-                <div className="">
-                  <div className="py-3">
-                    {/* <Link to="/login" class="w-full"> */}
-                    <button
-                      className={`w-2/3 border bg-primary hover:bg-indigo-700 transition-all text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
-                    >
-                      Browse Photos
-                    </button>
-                    {/* </Link> */}
-                  </div>
-                </div>
-                <div className="">
-                  <div className="">
-                    {/* <Link to="/login" class="w-full"> */}
-                    <button
-                      className={`w-2/3 border bg-error text-white py-2 px-8 text-sm  cursor-pointer  rounded-lg`}
-                    >
-                      Remove Photo
-                    </button>
-                    {/* </Link> */}
-                  </div>
+                  <form onSubmit={this.photoFormSubmit}>
+                    <h4 className="font-bold text-lg">Select Image</h4>
+                    {/* Male */}
+                    <h4 className="-mb-2 mt-2">Male</h4>
+                    <div className="my-2 flex flex-wrap">
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.male1
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.male1}
+                          value={photos.male1}
+                        />
+                        <img
+                          src={photos.male1}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.male2
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.male2}
+                          value={photos.male2}
+                        />
+                        <img
+                          src={photos.male2}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.male3
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.male3}
+                          value={photos.male3}
+                        />
+                        <img
+                          src={photos.male3}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.male4
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.male4}
+                          value={photos.male4}
+                        />
+                        <img
+                          src={photos.male4}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                    </div>
+                    {/* Female */}
+                    <h4 className="-mb-2 mt-3">Female</h4>
+                    <div className="my-2 flex flex-wrap">
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.female1
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.female1}
+                          value={photos.female1}
+                        />
+                        <img
+                          src={photos.female1}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.female2
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.female2}
+                          value={photos.female2}
+                        />
+                        <img
+                          src={photos.female2}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.female3
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.female3}
+                          value={photos.female3}
+                        />
+                        <img
+                          src={photos.female3}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                      <label className="h-16 w-16 m-1 rounded-lg relative cursor-pointer">
+                        <div
+                          className={
+                            (this.state.selectedOption === photos.female4
+                              ? "block "
+                              : "hidden ") +
+                            "rounded-lg top-0 w-full h-full bg-gray-700 bg-opacity-60 absolute z-10 flex items-center justify-center"
+                          }
+                        >
+                          <CheckIcon
+                            stroke="white"
+                            className="h-8 w-8"
+                          ></CheckIcon>
+                        </div>
+                        <input
+                          type="radio"
+                          id="image1"
+                          className="top-0 w-full h-full absolute z-0 focus:outline-none appearance-none opacity-0"
+                          onChange={this.onValueChange}
+                          checked={this.state.selectedOption === photos.female4}
+                          value={photos.female4}
+                        />
+                        <img
+                          src={photos.female4}
+                          alt="my profile pic"
+                          class="rounded-lg object-scale-down absolute z-0 top-0"
+                          loading="lazy"
+                        />
+                      </label>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            <div className="w-1/2 px-10">
+            <div className="w-full px-10">
               <form>
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">
@@ -165,7 +433,7 @@ class VendorForm extends Component {
                 </div>
 
                 <div class="flex flex-row justify-between mt-2">
-                <div className="py-5">
+                  <div className="py-5">
                     <Link to="/products" class="w-full">
                       <button
                         onClick={this.clearForm}
@@ -194,7 +462,6 @@ class VendorForm extends Component {
                       </button>
                     </div>
                   )}
-                  
                 </div>
               </form>
             </div>

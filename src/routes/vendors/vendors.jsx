@@ -107,8 +107,8 @@ class Vendor extends React.Component {
                                   <img
                                     className="h-10 w-10 rounded-full"
                                     src={
-                                      person.image
-                                        ? person.image
+                                      person.picture
+                                        ? person.picture
                                         : "https://github.com/medicotary/Medicotary/blob/main/src/assets/profile/toy%20faces-male-03.png?raw=true"
                                     }
                                     alt=""
