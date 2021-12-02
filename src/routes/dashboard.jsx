@@ -24,7 +24,8 @@ class Dashboard extends React.Component {
       ? this.props.data.outOfStock.length
       : 0;
     console.log(lowStock, outOfStock);
-    const rndInt = Math.floor(Math.random() * 10) + 1;
+    let rndInt = Math.floor(Math.random() * 10) + 1;
+    rndInt = 2;
     return (
       <div>
         <Header />
