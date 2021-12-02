@@ -66,7 +66,7 @@ class ProductComponent extends React.Component {
             </button>
           </div>
           {/* filter dropdown */}
-          <div className="w-1/5">
+          {/* <div className="w-1/5">
             <select class="appearance-none bg-transparent text-gray-500 font-medium text-sm focus:outline-none focus:text-gray-900 transition-colors duration-200 p-4 rounded-lg  w-full">
               <option value="v5">Name</option>
               <option value="v4">Cost price</option>
@@ -74,7 +74,7 @@ class ProductComponent extends React.Component {
               <option value="v2">Profit</option>
               <option value="v1">Qty in stock</option>
             </select>
-          </div>
+          </div> */}
           {/* add vendor button */}
           <Link to="/addproduct">
             <button className="flex space-x-2 justify-center button lg:px-16 lg:py-4 py-2 px-4 bg-indigo-600 rounded-lg text-sm font-medium text-center text-white">
@@ -114,9 +114,9 @@ class ProductComponent extends React.Component {
                       >
                         selling price
                       </th>
-                      <th scope="col" className="relative px-6 py-3">
+                      {/* <th scope="col" className="relative px-6 py-3">
                         <span className="sr-only">Edit</span>
-                      </th>
+                      </th> */}
                     </tr>
                   </thead>
                   {this.props.isLoading ? (
@@ -124,9 +124,11 @@ class ProductComponent extends React.Component {
                       <tr>
                         <td></td>
                         <td></td>
-                        <td><Loader size="75" /></td>
+                        <td>
+                          <Loader size="75" />
+                        </td>
                         <td></td>
-                        <td></td>
+                        {/* <td></td> */}
                       </tr>
                     </tbody>
                   ) : (
@@ -177,14 +179,14 @@ class ProductComponent extends React.Component {
                             <td className="px-6 py-4 whitespace-nowrap text-md font-bold text-gray-500">
                               ₹{sellingPrice}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <a
                                 href="#"
                                 className="text-indigo-600 hover:text-indigo-900 rounded-lg border py-3 px-8"
                               >
                                 Edit
                               </a>
-                            </td>
+                            </td> */}
                           </tr>
                         )
                       )}
