@@ -45,6 +45,7 @@ class AddBill extends React.Component {
       productQty: 0,
       productPrice: 0,
       productID: 0,
+      maxLimit: 10,
       productList: [],
       search_product: "",
     };
@@ -101,6 +102,12 @@ class AddBill extends React.Component {
     const { name, value } = event.target;
     console.log(value, name);
     this.setState({ [name]: value });
+    let maxLimit =
+      this.getMedicineData()[this.searchMedicineData(this.getOption())]
+        .quantity;
+    this.setState({
+      maxLimit: maxLimit,
+    });
   };
 
   clearForm = (event) => {
@@ -157,6 +164,13 @@ class AddBill extends React.Component {
     }
     return filteredData;
   }
+  getAllMedicineData() {
+    let filteredData = [];
+    const products = this.props.products ? this.props.products : [];
+    filteredData = [];
+    filteredData = products;
+    return filteredData;
+  }
 
   searchMedicineData(search) {
     let fullMedicineData = this.getMedicineData();
@@ -165,9 +179,29 @@ class AddBill extends React.Component {
       return name.name === search;
     }
   }
+  searchAllMedicineData(search = "") {
+    let fullMedicineData = this.getAllMedicineData()
+      ? this.getAllMedicineData()
+      : [];
+    return fullMedicineData.findIndex(checkName);
+    function checkName(name) {
+      return name.name === search;
+    }
+  }
 
   render() {
     console.log(this.getMedicineData());
+    // this.getOption();
+    console.log(this.state.maxLimit);
+    // let limit =
+    //   this.getAllMedicineData()[
+    //     this.searchAllMedicineData(this.getOption() ? this.getOption() : "")
+    //   ].quantity;
+    // console.log(limit);
+    // this.setState({
+    //   maxLimit: limit,
+    // });
+
     return (
       <div>
         <Header />
@@ -248,7 +282,7 @@ class AddBill extends React.Component {
                     <label htmlFor="product-dropdown" className="text-sm">
                       Medicine Name
                     </label>
-                    <div className="w-full">
+                    <div className="w-56">
                       <select
                         name="products"
                         required
@@ -275,6 +309,12 @@ class AddBill extends React.Component {
                       placeholder="10"
                       required
                     />
+                    {this.state.productQty > this.state.maxLimit ? (
+                      <div className="text-error text-xs py-1 font-medium">
+                        {" "}
+                        not enough stock{" "}
+                      </div>
+                    ) : null}
                   </div>
                   <button
                     type="button"
