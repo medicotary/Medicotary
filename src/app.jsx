@@ -18,6 +18,7 @@ const Profile = lazy(() => import("./routes/profile"));
 const Notifications = lazy(() => import("./routes/notifications"));
 const Faq = lazy(() => import("./routes/faqs"));
 const AddVendor = lazy(() => import("./routes/vendors/addVendor"));
+const EditVendor = lazy(() => import("./routes/vendors/editVendor"));
 const AddProduct = lazy(() => import("./routes/products/addProduct"));
 const EditProduct = lazy(() => import("./routes/products/editProduct"));
 const AddBill = lazy(() => import("./routes/billing/addBill"));
@@ -56,8 +57,7 @@ function App(props) {
         <Route exact path="/notifications" component={Notifications}></Route>
         <Route exact path="/faqs" component={Faq}></Route>
         <Route exact path="/addvendor" component={AddVendor}></Route>
-        {/* ye baad me change karunga */}
-        <Route exact path="/vendors/:id/update" component={AddVendor}></Route>
+        <Route exact path="/vendors/:id/update" component={EditVendor}></Route>
         <Route exact path="/addproduct" component={AddProduct}></Route>
         <Route
           exact
