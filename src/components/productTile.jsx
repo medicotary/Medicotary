@@ -114,6 +114,12 @@ class ProductComponent extends React.Component {
                       >
                         selling price
                       </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        preffered vendor
+                      </th>
                       {/* <th scope="col" className="relative px-6 py-3">
                         <span className="sr-only">Edit</span>
                       </th> */}
@@ -142,6 +148,7 @@ class ProductComponent extends React.Component {
                           lowStock,
                           costPrice,
                           sellingPrice,
+                          preferredVendor,
                           additionalNotes,
                         }) => (
                           <tr key={productsId}>
@@ -178,6 +185,9 @@ class ProductComponent extends React.Component {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-md font-bold text-gray-500">
                               ₹{sellingPrice}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {preferredVendor}
                             </td>
                             {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <a

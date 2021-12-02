@@ -9,6 +9,11 @@ class ProductForm extends Component {
   componentDidMount() {
     this.props.loadData();
   }
+  getOption() {
+    let selectElement = document.querySelector("#preffered-vendor");
+    let output = selectElement.value;
+    return output;
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -76,7 +81,7 @@ class ProductForm extends Component {
       quantity: this.state.quantity,
       lowStock: this.state.lowStock,
       costPrice: this.state.costPrice,
-      preferredVendor: this.state.preferredVendor,
+      preferredVendor: this.getOption(),
       additionalNotes: this.state.additionalNotes,
     };
     data.token = this.props.token;
@@ -84,17 +89,7 @@ class ProductForm extends Component {
     this.clearForm(event);
   };
 
-  render() {
-    const {
-      name,
-      sellingPrice,
-      quantity,
-      lowStock,
-      costPrice,
-      preferredVendor,
-      additionalNotes,
-    } = this.state;
-
+  getVendorData() {
     let filteredData = [];
     const vendor = this.props.vendor ? this.props.vendor : [];
     if (this.state.search_vendor.length > 0) {
@@ -108,9 +103,23 @@ class ProductForm extends Component {
       filteredData = [];
       filteredData = vendor;
     }
-    console.log(filteredData);
+    return filteredData;
+  }
+
+  render() {
+    const {
+      name,
+      sellingPrice,
+      quantity,
+      lowStock,
+      costPrice,
+      preferredVendor,
+      additionalNotes,
+    } = this.state;
+
+    console.log(this.getVendorData());
     return (
-      <div className=" mt-auto w-4/5 p-10 bg-gray-50 ml-auto">
+      <div className=" mt-auto lg:w-4/5 w-full lg:p-10 p-4 bg-gray-50 ml-auto">
         <div className="mt-12">
           <div className="flex flex-row justify-center">
             <div className="w-1/3">
@@ -192,7 +201,7 @@ class ProductForm extends Component {
                     placeholder="15"
                   />
                 </div>
-                <div class="flex flex-row justify-evenly">
+                <div class="flex lg:flex-row flex-col justify-evenly w-full">
                   <div>
                     <label htmlFor="cp" className="text-sm font-medium">
                       Cost Price (1 item)
@@ -222,19 +231,19 @@ class ProductForm extends Component {
                     />
                   </div>
                 </div>
-                <div>
+                <div className="flex flex-col">
                   <label htmlFor="vendor" className="text-sm font-medium">
                     Preffered vendor
                   </label>
-                  <input
-                    value={preferredVendor}
-                    onChange={(e) => this.inputChange(e)}
-                    type="text"
-                    name="preferredVendor"
-                    className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                    id="vendor"
-                    placeholder="Select Vendor"
-                  />
+                  <select
+                    name="vendor"
+                    id="preffered-vendor"
+                    className="rounded-lg"
+                  >
+                    {this.getVendorData().map(({ name }) => (
+                      <option value={name}>{name}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="vendor" className="text-sm font-medium">
