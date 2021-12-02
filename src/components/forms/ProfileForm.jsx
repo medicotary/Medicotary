@@ -89,6 +89,8 @@ class UserInfo extends Component {
       companyName: this.state.companyName
         ? this.state.companyName
         : this.props.user.companyName,
+      maxLimit: this.state.maxLimit
+        ? this.state.maxLimit : 100
     };
     data.token = this.props.token;
     data.id = this.props.user.authId;
