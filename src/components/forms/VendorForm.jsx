@@ -107,10 +107,11 @@ class VendorForm extends Component {
                     type="text"
                     className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                     id="name"
-                    placeholder="Manas Gupta"
+                    placeholder="Jhon Doe"
+                    required
                   />
                 </div>
-                <div>
+                <div className="mb-4">
                   <label htmlFor="email" className="text-sm font-medium">
                     Email
                   </label>
@@ -119,10 +120,18 @@ class VendorForm extends Component {
                     name="email"
                     onChange={(e) => this.inputChange(e)}
                     type="email"
-                    className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4 `}
+                    className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
                     id="email"
-                    placeholder="manasgupta1820@gmail.com"
+                    placeholder="name@example.com"
+                    required
                   />
+                  {!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) &&
+                  email.length >= 4 ? (
+                    <div className="text-error text-xs py-1 font-medium">
+                      {" "}
+                      enter a valid email{" "}
+                    </div>
+                  ) : null}
                 </div>
                 <div>
                   <label htmlFor="phone_number" className="text-sm font-medium">
@@ -131,11 +140,12 @@ class VendorForm extends Component {
                   <input
                     value={phoneNumber}
                     onChange={(e) => this.inputChange(e)}
-                    type="text"
+                    type="tel"
                     name="phoneNumber"
                     className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
                     id="phone_number"
-                    placeholder="+91 9666666666"
+                    placeholder="987654321"
+                    required
                   />
                 </div>
                 <div>
@@ -148,13 +158,23 @@ class VendorForm extends Component {
                     type="text"
                     rows="3"
                     name="description"
-                    className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+                    className={`w-full p-2 text-primary form-textarea border rounded-md outline-none text-sm transition duration-150 ease-in-out `}
                     id="description"
-                    placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
+                    placeholder="Enter some description about the vendor"
                   />
                 </div>
 
-                <div class="flex flex-row justify-between mt-3">
+                <div class="flex flex-row justify-between mt-2">
+                <div className="py-5">
+                    <Link to="/products" class="w-full">
+                      <button
+                        onClick={this.clearForm}
+                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
+                      >
+                        Cancel
+                      </button>
+                    </Link>
+                  </div>
                   {this.props.isLoading ? (
                     <div className="py-5">
                       <button
@@ -174,16 +194,7 @@ class VendorForm extends Component {
                       </button>
                     </div>
                   )}
-                  <div className="py-5">
-                    <Link to="/products" class="w-full">
-                      <button
-                        onClick={this.clearForm}
-                        className={`w-full cursor-pointer py-2 px-12 text-sm text-primary rounded-lg border border-primary focus:outline-none focus:`}
-                      >
-                        Cancel
-                      </button>
-                    </Link>
-                  </div>
+                  
                 </div>
               </form>
             </div>
