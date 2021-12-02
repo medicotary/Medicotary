@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../index.css";
+import Popup from "reactjs-popup";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
 import MiddleStats from "../../components/billing/middle-stats";
@@ -11,6 +12,7 @@ import Loader from "../../components/loader";
 import { BillActions, HomeActions } from "../../redux/actions";
 import { store } from "../../redux";
 import { connect } from "react-redux";
+import Invoice from "../../components/billing/invoice";
 
 // const invoices = [
 //   {
@@ -203,28 +205,50 @@ class Billing extends React.Component {
                     >
                       date
                     </th>
+                    <th scope="col" className="relative px-6 py-3">
+                      <span className="sr-only">View</span>
+                    </th>
                   </tr>
                 </thead>
                 {this.props.isLoading ? (
                   <Loader color="#8776EE" />
                 ) : (
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {filteredData.map((person) => (
-                      <tr key={""}>
+                    {filteredData.map((bill) => (
+                      <tr key={bill.billId}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <a href={"/billing/" + person.billId}>
-                            <div className="text-sm font-medium text-gray-900">
-                              {person.phoneNumber}
-                            </div>
-                          </a>
+                          {/* <a href={"/billing/" + bill.billId}> */}
+                          <div className="text-sm font-medium text-gray-900">
+                            {bill.phoneNumber}
+                          </div>
+                          {/* </a> */}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {person.cost}
+                            {bill.cost}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm ">
-                          {changeCurrentDate(person.createdAt)}
+                          {changeCurrentDate(bill.createdAt)}
+                        </td>
+                        <td className="px-6 py-2 whitespace-nowrap text-right text-sm font-medium">
+                          <Popup
+                            trigger={
+                              <button className="px-6 py-3 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900 rounded-lg border">
+                                View
+                              </button>
+                            }
+                            modal
+                          >
+                            {(close) => (
+                              <Invoice
+                                name={bill.phoneNumber}
+                                totalAmount={bill.cost}
+                                date={changeCurrentDate(bill.createdAt)}
+                                productIds={bill.sellIds}
+                              ></Invoice>
+                            )}
+                          </Popup>
                         </td>
                       </tr>
                     ))}
