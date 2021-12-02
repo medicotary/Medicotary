@@ -212,7 +212,7 @@ class Billing extends React.Component {
                     {filteredData.map((person) => (
                       <tr key={""}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <a href="/invoice">
+                          <a href={"/billing/" + person.billId}>
                             <div className="text-sm font-medium text-gray-900">
                               {person.phoneNumber}
                             </div>

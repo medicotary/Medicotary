@@ -2,7 +2,7 @@ import React from "react";
 import "../../index.css";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar/sidebar";
-import VendorForm from "../../components/forms/VendorForm";
+import EditVendorForm from "../../components/forms/EditVendorForm";
 
 const AddVendor = () => {
   return (
@@ -12,7 +12,7 @@ const AddVendor = () => {
       <div className="h-9/10 ">
         <Sidebar />
         {/* main content container */}
-        <VendorForm />
+        <EditVendorForm />
       </div>
     </div>
   );

@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { UserActions, AuthActions } from "../../redux/actions";
 import Loader from "../loader";
-import { CheckIcon } from "../../icons/index";
+import { CheckIcon, LogoutIcon } from "../../icons/index";
+import Popup from "reactjs-popup";
+import "../../index.css";
+// import "reactjs-popup/dist/index.css";
 
 class UserInfo extends Component {
   constructor(props) {
@@ -390,12 +393,6 @@ class UserInfo extends Component {
                     />
                   </label>
                 </div>
-                <button
-                  type="submit"
-                  className={`w-full mb-4 cursor-pointer bg-primary hover:bg-indigo-700 transition-all py-2 px-4 text-sm text-white rounded-lg border focus:outline-none hover:bg-indigo-700`}
-                >
-                  change picture
-                </button>
               </form>
             </div>
             {/* main form */}
@@ -484,14 +481,48 @@ class UserInfo extends Component {
             </form>
           </div>
           {/* logout button */}
-          <Link to="/">
-            <button
-              onClick={this.logout}
-              className={`w-full transition-all duration-300 cursor-pointer bg-red-100 py-2 px-4 text-sm text-red-500 rounded-lg border focus:ring-2 hover:bg-red-500 hover:text-white`}
-            >
-              Logout
-            </button>
-          </Link>
+
+          <Popup
+            trigger={
+              <button
+                className={`w-full transition-all duration-300 cursor-pointer bg-red-100 py-2 px-4 text-sm text-red-500 rounded-lg border hover:bg-red-500 hover:text-white`}
+              >
+                Logout
+              </button>
+            }
+            modal
+          >
+            {(close) => (
+              <div className="p-8 rounded-xl flex space-y-2 flex-col">
+                <div className="p-4 bg-indigo-200 rounded-full w-16 h-16 flex justify-center items-center">
+                  <LogoutIcon stroke="indigo"></LogoutIcon>
+                </div>
+                <h1 className="text-xl font-bold">Are you sure?</h1>
+                <h2 className="text-md font-medium text-subtle">
+                  you are going to logout of the system
+                </h2>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => {
+                      console.log("modal closed ");
+                      close();
+                    }}
+                    className={`w-full transition-all duration-300 cursor-pointer bg-gray-100 py-2 px-4 text-sm text-primary rounded-lg border hover:bg-primary hover:text-white`}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={this.logout}
+                    className={`w-full transition-all duration-300 cursor-pointer bg-red-500 py-2 px-4 text-sm text-white rounded-lg border hover:bg-red-700 hover:text-white`}
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
+          </Popup>
+          {/* <Link to="/">
+          </Link> */}
         </div>
       </div>
     );
