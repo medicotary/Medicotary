@@ -94,9 +94,9 @@ class Vendor extends React.Component {
                           >
                             phone
                           </th>
-                          <th scope="col" className="relative px-6 py-3">
+                          {/* <th scope="col" className="relative px-6 py-3">
                             <span className="sr-only">Edit</span>
-                          </th>
+                          </th> */}
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
@@ -128,7 +128,7 @@ class Vendor extends React.Component {
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <a href={person.phone}>{person.phone}</a>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            {/* <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <a
                                   href={
@@ -139,7 +139,7 @@ class Vendor extends React.Component {
                                   Edit
                                 </a>
                               </td>
-                            </td>
+                            </td> */}
                           </tr>
                         ))}
                       </tbody>
