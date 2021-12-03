@@ -5,10 +5,10 @@ import { store } from "../../redux";
 import { connect } from "react-redux";
 
 class Invoice extends React.Component {
-  componentDidMount() {
-    this.props.loadData();
-    this.addDataToState();
-  }
+  // componentDidMount() {
+  //   this.props.loadData();
+  //   this.addDataToState();
+  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -18,25 +18,29 @@ class Invoice extends React.Component {
     };
   }
 
-  addDataToState() {
-    let finalProductList = [];
-    const productList = this.state.productList;
-    const productIdsList = this.state.productIdsList;
-    //
-    finalProductList = productList.filter(function (el) {
-      for (let i = 0; i < productIdsList.length; i++) {
-        if (el.productsId === productIdsList[i]) return true;
-        else return false;
-      }
-    });
+  // addDataToState() {
+  //   let finalProductList = [];
+  //   const productList = this.state.productList;
+  //   const productIdsList = this.state.productIdsList;
+  //   //
+  //   finalProductList = productList.filter(function (el) {
+  //     for (let i = 0; i < productIdsList.length; i++) {
+  //       if (el.productsId === productIdsList[i]) return true;
+  //       else return false;
+  //     }
+  //   });
 
-    // this.setState({ billProductList: finalProductList });
-    return finalProductList;
-  }
+  //   // this.setState({ billProductList: finalProductList });
+  //   return finalProductList;
+  // }
 
   render() {
     // let invoiceProducts = this.addDataToState();
     // console.log(invoiceProducts);
+    let total_items = 0;
+    for (let i = 0; i < this.state.productList.length; i++) {
+      total_items += this.state.productList[i].quantity;
+    }
     return (
       <div>
         <div className="container bg-white border rounded-lg border-subtle lg:p-6 p-2">
@@ -81,7 +85,9 @@ class Invoice extends React.Component {
           {/* total number of items */}
           <div className="mt-4 flex justify-between">
             <div className="text-lg font-medium">Total number of items</div>
-            <div className="text-md font-bold">40</div>
+            <div className="text-md font-bold">
+              {total_items ? total_items : 0}
+            </div>
           </div>
           {/* total amount */}
           <div className="mt-4 flex justify-between">
@@ -105,10 +111,10 @@ class Invoice extends React.Component {
               <h1 className="w-20 text-md font-bold">Price</h1>
             </li>
             <hr />
-            {this.state.billProductList.map((item) => {
+            {this.state.productList.map((item) => {
               return (
                 <li
-                  key={item.id}
+                  key={item.sellId}
                   className="flex flex-row justify-between items-center my-2"
                 >
                   <div className="flex items-center justify-start w-48">
@@ -127,9 +133,9 @@ class Invoice extends React.Component {
                       {item.productName}
                     </div>
                   </div>
-                  <div className="flex w-20">{item.productQty}</div>
+                  <div className="flex w-20">{item.quantity}</div>
                   <h1 className="w-20 text-2xl text-black font-medium antialiased  text-left">
-                    ₹ {item.productPrice}
+                    ₹ {item.cost}
                   </h1>
                 </li>
               );
@@ -141,20 +147,20 @@ class Invoice extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    token: state.auth.user.token,
-    products: state.product.product.products,
-    isLoading: state.product.isLoading,
-    isError: state.product.isError,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     token: state.auth.user.token,
+//     products: state.product.product.products,
+//     isLoading: state.product.isLoading,
+//     isError: state.product.isError,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  const state = store.getState();
-  return {
-    loadData: () => dispatch(ProductActions.readProduct(state.auth.user.token)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   const state = store.getState();
+//   return {
+//     loadData: () => dispatch(ProductActions.readProduct(state.auth.user.token)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Invoice);
+export default Invoice;
