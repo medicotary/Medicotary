@@ -245,7 +245,7 @@ class Billing extends React.Component {
                                 name={bill.phoneNumber}
                                 totalAmount={bill.cost}
                                 date={changeCurrentDate(bill.createdAt)}
-                                productIds={bill.sellIds}
+                                products={ bill.products}
                               ></Invoice>
                             )}
                           </Popup>

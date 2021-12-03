@@ -67,13 +67,7 @@ class Dashboard extends React.Component {
               {this.props.isLoading ? (
                 <Loader />
               ) : (
-                <StockPercentage
-                  percentage={
-                    this.props.maxLimit
-                      ? (this.maxLimit - outOfStock) / this.maxLimit
-                      : 0.5
-                  }
-                />
+                <StockPercentage percentage={0.5} />
               )}
             </div>
           </div>
