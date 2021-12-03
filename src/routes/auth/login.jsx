@@ -18,7 +18,7 @@ const Login = (props) => {
             </h1>
             <LoginForm />
             <div className="flex flex-wrap mt-3">
-              <Link to="/dash" className="w-full">
+              {/* <Link to="/dash" className="w-full">
                 <button
                   className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
                 >
@@ -31,7 +31,7 @@ const Login = (props) => {
                     </div>
                   </div>
                 </button>
-              </Link>
+              </Link> */}
             </div>
             <div className="text-sm font-medium mt-4">
               New here?{" "}

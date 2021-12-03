@@ -35,7 +35,7 @@ const Signup = () => {
             </h1>
             <SignupForm />
             <div className="flex flex-wrap mt-3">
-              <Link to="/dash" class="w-full">
+              {/* <Link to="/dash" class="w-full">
                 <button
                   className={`w-full cursor-pointer rounded-lg border py-2 px-4 focus:outline-none `}
                 >
@@ -48,7 +48,7 @@ const Signup = () => {
                     </div>
                   </div>
                 </button>
-              </Link>
+              </Link> */}
             </div>
             <div className="text-sm font-medium mt-4">
               Already a member?{" "}
