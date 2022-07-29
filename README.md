@@ -18,7 +18,7 @@
 ## Install
 
 ```sh
-npm i
+npm install
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ npm test
 
 👤 **Hayat**
 
-* Website: https://hayattamboli.vercel.app
+* Website: https://hayat.design
 * Twitter:
 <a href="https://twitter.com/hayattamboli" target="_blank">
     <img alt="Twitter: hayattamboli" src="https://img.shields.io/twitter/follow/hayattamboli.svg?style=social" />
